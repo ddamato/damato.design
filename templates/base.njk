@@ -1,0 +1,15 @@
+<html>
+  <head>
+    {% include "templates/head.njk" %}
+  </head>
+  <body>
+    <div class="app">
+      <nav>
+        {% include "templates/navigation.njk" %}
+      </nav>
+      <main>
+        {{ html | safe }}
+      </main>
+    </div>
+  </body>
+</html>
