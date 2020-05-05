@@ -1,8 +1,7 @@
 ---
-navigation:
-  key: Sample
-  parent: Getting Started
-  order: 1
+page: Getting Started
+anchor: Sample
+order: 1
 ---
 
 # Title for Sample
