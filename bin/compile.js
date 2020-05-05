@@ -23,25 +23,24 @@ async function compile() {
     prepareSitemap(path.basename(file, '.md'), fm(content));
   });
 
-  sitemap.sort(sortOrder);
+  sitemap.sort(sortOrder).forEach((config) => config.sections = config.sections.sort(sortOrder));
+  console.log(sitemap);
   sitemap.forEach((config) => {
-    config.sections = config.sections.sort(sortOrder);
     const sections = [config]
       .concat(config.sections)
       .map(renderConfig)
       .join('');
-    const html = env.render('base.njk', { sections, title: config.page });
+    const html = env.render('base.njk', { sections, sitemap, title: config.page });
     const pageContent = minify(html, { collapseWhitespace: true });
-    const pageFileName = `${COMPILED_SITE_PATH}/${config.basename}.html`;
+    const pageFileName = `${COMPILED_SITE_PATH}/${config.filename}.html`;
     fs.ensureFileSync(pageFileName);
     fs.writeFileSync(pageFileName, pageContent, { encoding: 'utf8' });
   });
 }
 
 function renderConfig(config) {
-  const { markdown, anchor } = config;
-  const id = anchor ? `id="${anchor}"` : '';
-
+  const { markdown, slug } = config;
+  const id = slug ? `id="${slug}"` : '';
   return `<section ${id}>${md.render(markdown)}</section>`;
 }
 
@@ -49,40 +48,20 @@ function sortOrder(a, b) {
   return Number(a.order) - Number(b.order);
 }
 
-function prepareSitemap(basename, { attributes, body }) {
+function prepareSitemap(filename, { attributes, body }) {
   if (!attributes.anchor) {
     // parent page
-    sitemap.push(Object.assign(attributes, { basename, markdown: body, sections: [] }));
+    sitemap.push(Object.assign(attributes, { filename, markdown: body, sections: [] }));
   } else {
     // anchored within page
-    attributes.anchor = slug(attributes.anchor);
+    attributes.slug = slug(attributes.anchor);
     let existingPage = sitemap.find(({ page }) => page === attributes.page);
     if (!existingPage) {
-      existingPage = { page: attributes.page, sections: [], basename };
+      existingPage = { page: attributes.page, sections: [], filename };
       sitemap.push(existingPage);
     }
     existingPage.sections.push(Object.assign(attributes, { markdown: body }));
   }
 }
-
-// const html = env.render('base.njk', { 
-//   html: md.render(body)
-// });
-// const output = minify(html, { collapseWhitespace: true });
-
-const sm = [{
-  page: 'Getting started',
-  html: '<header></header>',
-  order: 1,
-  sections: [{
-    anchor: 'first section',
-    html: '<section>from .md</section>',
-    order: 1,
-  }, {
-    anchor: 'second section',
-    html: '<section>from .md</section>',
-    order: 2,
-  }],
-}]
 
 compile();

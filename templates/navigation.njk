@@ -1,0 +1,20 @@
+<ul>
+  {% for item in sitemap %}
+    <li>
+      {% if item.sections.length %}
+      <details>
+        <summary>{{ item.page }}</summary>
+        <ul>
+          {% for section in item.sections %}
+            <li>
+              <a href="{{ item.filename }}#{{ section.slug }}">{{ section.anchor }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </details>
+      {% else %}
+      <a href="{{ item.filename }}">{{ item.page }}</a>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
