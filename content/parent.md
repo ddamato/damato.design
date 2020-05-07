@@ -3,6 +3,11 @@ page: Getting Started
 order: 1
 ---
 
-# Getting started
+# creating **delightful** experiences
 
 Here's some introduction content for the page
+<dd-select>
+  <dd-option value="no-preference">No Preference</dd-option>
+  <dd-option value="designer">Designer</dd-option>
+  <dd-option value="engineer">Engineer</dd-option>
+</dd-select>

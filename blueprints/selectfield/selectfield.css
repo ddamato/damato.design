@@ -1,0 +1,22 @@
+.dd-selectfield {
+  font-family: var(--textInput--fontFamily);
+  font-size: var(--textInput--fontSize);
+  font-weight: var(--textInput--fontWeight);
+  line-height: var(--textInput--lineHeight);
+  color: var(--action--foregroundColor);
+  display: flex;
+  align-items: center;
+  padding: .5rem 1rem;
+  cursor: pointer;
+}
+
+.dd-selectfield-icon {
+  margin-left: auto;
+  padding-left: .5rem;
+  width: .5rem;
+}
+
+.dd-selectfield:hover {
+  color: var(--actionHovered--foregroundColor);
+  background-color: var(--actionHovered--backgroundColor);
+}

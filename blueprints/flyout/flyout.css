@@ -1,0 +1,5 @@
+.dd-flyout {
+  background-color: var(--boxElevated--backgroundColor);
+  box-shadow: 0 2px 12px var(--boxElevated--shadowColor);
+  border: 1px solid var(--boxElevated--borderColor);
+}

@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "node ./bin/compile.js"
+    "build": " rm -rf _site && npm run compile && npm run postcss && npm run generate && npm run bundle",
+    "compile": "node ./bin/compile.js",
+    "bundle": "node ./bin/bundle.js",
+    "generate": "node ./bin/generate.js",
+    "postcss": "postcss **/*.pcss -u postcss-nested -u cssnano --dir _site --ext css"
   },
   "repository": {
     "type": "git",
@@ -18,12 +22,21 @@
   },
   "homepage": "https://github.com/ddamato/dxs#readme",
   "devDependencies": {
+    "@rollup/plugin-multi-entry": "^3.0.0",
+    "cssnano": "^4.1.10",
     "front-matter": "^3.1.0",
     "fs-extra": "^9.0.0",
     "glob-fs": "^0.1.7",
     "html-minifier": "^4.0.0",
     "markdown-it": "^10.0.0",
     "nunjucks": "^3.2.1",
-    "slug": "^2.1.1"
+    "postcss": "^7.0.29",
+    "postcss-cli": "^7.1.1",
+    "postcss-nested": "^4.2.1",
+    "rollup": "^2.8.0",
+    "rollup-plugin-html": "^0.2.1",
+    "rollup-plugin-postcss": "^3.1.1",
+    "slug": "^2.1.1",
+    "terser": "^4.6.13"
   }
 }

@@ -1,8 +1,10 @@
 const path = require('path');
 const fs = require('fs-extra'); 
 const fm = require('front-matter');
-const MarkdownIt = require('markdown-it');
-const md = new MarkdownIt();
+const md = require('markdown-it')({
+  html: true,
+  linkify: true,
+});
 const minify = require('html-minifier').minify;
 const glob = require('glob-fs')({ gitignore: true });
 const nunjucks = require('nunjucks');
@@ -19,12 +21,11 @@ const sitemap = [];
 async function compile() {
   const files = await glob.readdirPromise('content/*.md');
   files.forEach((file) => {
-    const content = fs.readFileSync(file).toString();
-    prepareSitemap(path.basename(file, '.md'), fm(content));
+    const contents = fs.readFileSync(file).toString();
+    prepareSitemap(path.basename(file, '.md'), fm(contents));
   });
 
   sitemap.sort(sortOrder).forEach((config) => config.sections = config.sections.sort(sortOrder));
-  console.log(sitemap);
   sitemap.forEach((config) => {
     const sections = [config]
       .concat(config.sections)
@@ -41,7 +42,7 @@ async function compile() {
 function renderConfig(config) {
   const { markdown, slug } = config;
   const id = slug ? `id="${slug}"` : '';
-  return `<section ${id}>${md.render(markdown)}</section>`;
+  return `<section ${id} class="content-section">${md.render(markdown)}</section>`;
 }
 
 function sortOrder(a, b) {
@@ -50,11 +51,9 @@ function sortOrder(a, b) {
 
 function prepareSitemap(filename, { attributes, body }) {
   if (!attributes.anchor) {
-    // parent page
     sitemap.push(Object.assign(attributes, { filename, markdown: body, sections: [] }));
   } else {
-    // anchored within page
-    attributes.slug = slug(attributes.anchor);
+    attributes.slug = slug(attributes.anchor).toLowerCase();
     let existingPage = sitemap.find(({ page }) => page === attributes.page);
     if (!existingPage) {
       existingPage = { page: attributes.page, sections: [], filename };

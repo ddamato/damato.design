@@ -1,0 +1,98 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--box--backgroundColor);
+  color: var(--box--foregroundColor);
+  font-family: var(--text--fontFamily);
+  font-size: var(--text--fontSize);
+  font-weight: var(--text--fontWeight);
+  line-height: var(--text--lineHeight);
+}
+
+.app {
+  min-height: 100vh;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+}
+
+.app > nav {
+  max-width: 20rem;
+  min-width: 14rem;
+  width: 25%;
+  background-color: var(--boxLowContrast--backgroundColor);
+  border: 1px solid var(--boxLowContrast--borderColor);
+  color: var(--boxLowContrast--foregroundColor);
+  border-radius: 2px;
+  margin-right: 1rem;
+  position: sticky;
+  top: 1rem;
+  align-self: flex-start;
+}
+
+.header {
+  font-size: var(--textHeading1--fontSize);
+  font-weight: var(--textHeading1--fontWeight);
+  line-height: var(--textHeading1--lineHeight);
+  display: flex;
+  align-items: center;
+  padding: .5rem;
+  position: relative;
+}
+
+.nav-button {
+  margin-left: auto;
+  cursor: pointer;
+  display: none;
+}
+
+#navigation-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.app > main {
+  flex: 1;
+}
+
+@media (max-width: 720px) {
+  .app {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .app > nav {
+    margin-right: 0;
+    max-width: initial;
+    width: 100%;
+    top: 0;
+  }
+
+  .header {
+    padding: .5rem 1rem;
+  }
+
+  .app > main {
+    margin: 1rem;
+  }
+
+  #navigation-toggle + .navigation {
+    background-color: var(--boxLowContrast--backgroundColor);
+    border-bottom: 1px solid var(--boxLowContrast--borderColor);
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+
+  .nav-button,
+  #navigation-toggle:checked + .navigation {
+    display: block;
+  }
+}

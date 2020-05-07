@@ -1,0 +1,72 @@
+.navigation {
+  --navigation--spacing: .5rem;
+
+  list-style: none;
+  margin: 0;
+  padding: var(--navigation--spacing);
+  border-top: 1px solid var(--boxLowContrast--borderColor);
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-page:not(:last-child) {
+    margin-bottom: var(--navigation--spacing);
+  }
+
+  .nav-interact {
+    border-radius: 2px;
+    &[open],
+    &:hover {
+      background-color: var(--boxHighContrast--backgroundColor);
+      color: var(--boxHighContrast--foregroundColor);
+    }
+  }
+
+  details {
+    .nav-link {
+      pointer-events: none;
+    }
+
+    &[open] .nav-link {
+      pointer-events: initial;
+    }
+  }
+
+  .nav-link {
+    padding: var(--navigation--spacing) 0;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+  }
+
+  summary {
+    cursor: pointer;
+    padding: 0 var(--navigation--spacing);
+  }
+
+  .nav-section {
+    margin-left: 1.1rem;
+  }
+
+  summary:focus,
+  .nav-link:focus {
+    outline: 0;
+    text-decoration: underline;
+  }
+
+  summary .nav-link,
+  .nav-link.nav-interact {
+    text-transform: uppercase;
+    font-size: .8rem;
+  }
+
+  .nav-section .nav-link,
+  .nav-link.nav-interact {
+    display: block;
+    padding: var(--navigation--spacing);
+  }
+}

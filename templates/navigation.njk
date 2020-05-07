@@ -1,19 +1,21 @@
-<ul>
+<ul class="navigation">
   {% for item in sitemap %}
-    <li>
+    <li class="nav-page">
       {% if item.sections.length %}
-      <details>
-        <summary>{{ item.page }}</summary>
+      <details {{ 'open' if item.page === title }} class="nav-interact">
+        <summary>
+          <a href="{{ item.filename }}" class="nav-link">{{ item.page }}</a>
+        </summary>
         <ul>
           {% for section in item.sections %}
-            <li>
-              <a href="{{ item.filename }}#{{ section.slug }}">{{ section.anchor }}</a>
+            <li class="nav-section">
+              <a href="{{ item.filename }}#{{ section.slug }}" class="nav-link">{{ section.anchor }}</a>
             </li>
           {% endfor %}
         </ul>
       </details>
       {% else %}
-      <a href="{{ item.filename }}">{{ item.page }}</a>
+      <a href="{{ item.filename }}" class="nav-link nav-interact" {{ 'open' if item.page === title }}>{{ item.page }}</a>
       {% endif %}
     </li>
   {% endfor %}
