@@ -18,9 +18,27 @@ const env = new nunjucks.Environment(loader, {
 });
 const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site'); 
 
+function audienceContainers(tokens, idx) {
+  if (tokens[idx].nesting === 1) {
+    const type = tokens[idx].info.trim();
+    const rand = String(Math.random()).slice(2);
+
+    return `
+      <input type="checkbox" id="show-${rand}" class="audience-toggle">
+      <div class="audience-specific ${type}">
+        <header>
+          <label for="show-${rand}"></label>
+        </header>
+        <article>
+      `;
+  }
+
+  return '</article></div>'
+}
+
 md.use(mdCollapsible)
-  .use(mdContainer, 'audience-designer')
-  .use(mdContainer, 'audience-engineer');
+  .use(mdContainer, 'audience-designer', { render: audienceContainers })
+  .use(mdContainer, 'audience-engineer', { render: audienceContainers });
 
 const sitemap = [];
 
@@ -49,7 +67,6 @@ function renderConfig(config) {
   const { markdown, slug } = config;
   const id = slug ? `id="${slug}"` : '';
   const html = md.render(markdown);
-  console.log(html);
   return `<section ${id} class="content-section">${html}</section>`;
 }
 

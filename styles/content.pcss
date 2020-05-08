@@ -49,57 +49,133 @@
   img {
     max-width: 100%;
   }
-
-  .audience-designer,
-  .audience-engineer {
-    --borderThickness: 2px;
-    border: var(--borderThickness) solid;
-    border-radius: 3px;
-    border-top-left-radius: 0;
-    margin: 1rem 0;
-    padding: 1rem;
-    margin-top: 3rem;
-    position: relative;
-  }
-
-  .audience-designer {
-    border-color: var(--accent--designerColor);
-  }
-
-  .audience-engineer {
-    border-color: var(--accent--engineerColor);
-  }
-
-  .audience-designer > :last-child,
-  .audience-engineer > :last-child {
-    margin-bottom: 0;
-  }
-
-  .audience-designer:before,
-  .audience-engineer:before {
-    background-color: var(--box--backgroundColor);
-    padding: .25em 1em;
-    font-size: .8rem;
-    text-transform: uppercase;
-    display: inline-block;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    font-weight: 500;
-    border: inherit;
-    border-bottom: transparent;
-    left: calc(var(--borderThickness) * -1);
-    max-width: calc(var(--borderThickness) * 2 + 100%);
-    position: absolute;
-    bottom: 100%;
-  }
-
-  .audience-designer:before {
-    content: "Designer Info";
-    color: var(--accent--designerColor);
-  }
-
-  .audience-engineer:before {
-    content: "Engineer Info";
-    color: var(--accent--engineerColor);
-  }
 }
+
+.audience-specific {
+  margin: 1rem 0;
+  border: 2px solid;
+  border-radius: 3px;
+}
+
+.audience-designer {
+  border-color: var(--accent--designerColor);
+}
+
+.audience-engineer {
+  border-color: var(--accent--engineerColor);
+}
+
+.audience-specific header {
+  padding: .5rem 1rem;
+  color: var(--onAccent--defaultColor);
+  position: relative;
+}
+
+.audience-specific label {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: .5rem 1rem;
+}
+
+.audience-designer header {
+  background-color: var(--accent--designerColor);
+}
+
+.audience-engineer header {
+  background-color: var(--accent--engineerColor);
+}
+
+.audience-designer header:before {
+  content: "Designer Info";
+}
+
+.audience-engineer header:before {
+  content: "Engineer Info";
+}
+
+.audience-specific article {
+  padding: 0 1rem;
+}
+
+.audience-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Default is open, :checked is closed */
+.audience-specific label:before {
+  content: 'Hide';
+  font-weight: 500;
+  font-size: .8rem;
+  text-transform: uppercase;
+  margin-right: 1ch;
+}
+
+.audience-specific label:after {
+  content: '\f070';
+  font-family: fontawesome;
+}
+
+.audience-toggle:checked + .audience-specific label:before {
+  content: 'Show';
+}
+
+.audience-toggle:checked + .audience-specific label:after {
+  content: '\f06e';
+}
+
+.audience-toggle:checked + .audience-specific article {
+  display: none;
+}
+
+/* Force open for audience */
+html[audience="designer"] .content-section .audience-designer article,
+html[audience="engineer"] .content-section .audience-engineer article {
+  display: block;
+}
+
+html[audience="designer"] .content-section .audience-designer label,
+html[audience="engineer"] .content-section .audience-engineer label {
+  display: none;
+}
+
+/* Reverse controls for opposite audience */
+html[audience="designer"] .audience-toggle:checked + .audience-engineer label:before,
+html[audience="engineer"] .audience-toggle:checked + .audience-designer label:before {
+  content: 'Hide';
+}
+
+html[audience="designer"] .audience-toggle:checked + .audience-engineer label:after,
+html[audience="engineer"] .audience-toggle:checked + .audience-designer label:after {
+  content: '\f070';
+}
+
+html[audience="designer"] .audience-toggle:not(:checked) + .audience-engineer label:before,
+html[audience="engineer"] .audience-toggle:not(:checked) + .audience-designer label:before {
+  content: 'Show';
+}
+
+html[audience="designer"] .audience-toggle:not(:checked) + .audience-engineer label:after,
+html[audience="engineer"] .audience-toggle:not(:checked) + .audience-designer label:after {
+  content: '\f06e';
+}
+
+
+html[audience="designer"] .audience-toggle:checked + .audience-engineer article,
+html[audience="engineer"] .audience-toggle:checked + .audience-designer article {
+  display: block;
+}
+
+html[audience="designer"] .audience-toggle:not(:checked) + .audience-engineer article,
+html[audience="engineer"] .audience-toggle:not(:checked) + .audience-designer article {
+  display: none;
+}
+
