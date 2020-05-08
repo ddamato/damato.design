@@ -112,68 +112,54 @@
 
 /* Default is open, :checked is closed */
 .audience-specific label:before {
-  content: 'Hide';
   font-weight: 500;
   font-size: .8rem;
   text-transform: uppercase;
   margin-right: 1ch;
 }
 
-.audience-specific label:after {
-  content: '\f070';
-  font-family: fontawesome;
-}
-
-.audience-toggle:checked + .audience-specific label:before {
-  content: 'Show';
-}
-
-.audience-toggle:checked + .audience-specific label:after {
-  content: '\f06e';
-}
-
-.audience-toggle:checked + .audience-specific article {
-  display: none;
-}
-
-/* Force open for audience */
-html[audience="designer"] .content-section .audience-designer article,
-html[audience="engineer"] .content-section .audience-engineer article {
-  display: block;
-}
-
+/* Remove controls for specific audience */
 html[audience="designer"] .content-section .audience-designer label,
 html[audience="engineer"] .content-section .audience-engineer label {
   display: none;
 }
 
-/* Reverse controls for opposite audience */
+.audience-specific label:after {
+  font-family: fontawesome;
+}
+
+.audience-specific label:before,
 html[audience="designer"] .audience-toggle:checked + .audience-engineer label:before,
 html[audience="engineer"] .audience-toggle:checked + .audience-designer label:before {
   content: 'Hide';
 }
 
-html[audience="designer"] .audience-toggle:checked + .audience-engineer label:after,
-html[audience="engineer"] .audience-toggle:checked + .audience-designer label:after {
-  content: '\f070';
-}
-
+.audience-toggle:checked + .audience-specific label:before,
 html[audience="designer"] .audience-toggle:not(:checked) + .audience-engineer label:before,
 html[audience="engineer"] .audience-toggle:not(:checked) + .audience-designer label:before {
   content: 'Show';
 }
 
+.audience-specific label:after,
+html[audience="designer"] .audience-toggle:checked + .audience-engineer label:after,
+html[audience="engineer"] .audience-toggle:checked + .audience-designer label:after {
+  content: '\f070';
+}
+
+.audience-toggle:checked + .audience-specific label:after,
 html[audience="designer"] .audience-toggle:not(:checked) + .audience-engineer label:after,
 html[audience="engineer"] .audience-toggle:not(:checked) + .audience-designer label:after {
   content: '\f06e';
 }
 
-
+html[audience="designer"] .content-section .audience-designer article,
+html[audience="engineer"] .content-section .audience-engineer article,
 html[audience="designer"] .audience-toggle:checked + .audience-engineer article,
 html[audience="engineer"] .audience-toggle:checked + .audience-designer article {
   display: block;
 }
 
+.audience-toggle:checked + .audience-specific article,
 html[audience="designer"] .audience-toggle:not(:checked) + .audience-engineer article,
 html[audience="engineer"] .audience-toggle:not(:checked) + .audience-designer article {
   display: none;

@@ -50,8 +50,19 @@ body {
 .nav-button {
   margin-left: auto;
   cursor: pointer;
-  font-weight: 500;
   display: none;
+}
+
+.nav-button:before {
+  content: 'Menu';
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-right: 1ch;
+}
+
+.nav-button:after {
+  content: '\f0c9';
+  font-family: fontawesome;
 }
 
 #navigation-toggle {
@@ -85,7 +96,7 @@ body {
     margin: 1rem;
   }
 
-  #navigation-toggle + .navigation {
+  .navigation {
     background-color: var(--box--backgroundColor);
     border-bottom: 1px solid var(--box--borderColor);
     display: none;
@@ -96,7 +107,15 @@ body {
   }
 
   .nav-button,
-  #navigation-toggle:checked + .navigation {
+  #navigation-toggle:checked + nav .navigation {
     display: block;
+  }
+
+  #navigation-toggle:checked + nav .nav-button:before {
+    content: 'Close';
+  }
+
+  #navigation-toggle:checked + nav .nav-button:after {
+    content: '\f00d';
   }
 }
