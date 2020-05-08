@@ -1,7 +1,7 @@
 .content-section {
-  background-color: var(--boxLowContrast--backgroundColor);
-  border: 1px solid var(--boxLowContrast--borderColor);
-  color: var(--boxLowContrast--foregroundColor);
+  background-color: var(--box--backgroundColor);
+  border: 1px solid var(--box--borderColor);
+  color: var(--box--foregroundColor);
   border-radius: 2px;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -43,7 +43,7 @@
   h1 strong,
   h2 strong,
   h3 strong {
-    color: var(--boxHighContrast--backgroundColor);
+    color: var(--accent-defaultColor);
   }
 
   img {
@@ -53,7 +53,7 @@
   .audience-designer,
   .audience-engineer {
     --border-thickness: 2px;
-    border: var(--border-thickness) solid var(--boxHighContrast--backgroundColor);
+    border: var(--border-thickness) solid;
     border-radius: 3px;
     border-top-left-radius: 0;
     margin: 1rem 0;
@@ -62,14 +62,21 @@
     position: relative;
   }
 
+  .audience-designer {
+    border-color: var(--accent-designerColor);
+  }
+
+  .audience-engineer {
+    border-color: var(--accent-engineerColor);
+  }
+
   .audience-designer > :last-child,
   .audience-engineer > :last-child {
     margin-bottom: 0;
   }
 
-  .audience-designer:before {
-    content: "Designer Info";
-    color: var(--boxHighContrast--backgroundColor);
+  .audience-designer:before,
+  .audience-engineer:before {
     background-color: var(--boxHighContrast--foregroundColor);
     padding: .25em 1em;
     font-size: .8rem;
@@ -84,5 +91,15 @@
     max-width: calc(var(--border-thickness) * 2 + 100%);
     position: absolute;
     bottom: 100%;
+  }
+
+  .audience-designer:before {
+    content: "Designer Info";
+    color: var(--accent-designerColor);
+  }
+
+  .audience-engineer:before {
+    content: "Engineer Info";
+    color: var(--accent-engineerColor);
   }
 }
