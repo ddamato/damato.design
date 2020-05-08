@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   position: relative;
-  display: inline-flex;
 }
 
 ::slotted(:not(:last-child)),
@@ -19,4 +18,5 @@
   top: 100%;
   left: -1px;
   min-width: calc(100% + 2px);
+  z-index: 1;
 }

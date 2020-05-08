@@ -14,6 +14,7 @@ class ddOption extends HTMLElement {
       </blu-optionitem>`;
     
     this.addEventListener('click', () => { this.chosen = true; });
+    this.name = this.innerText;
   }
 
   static get observedAttributes() {
@@ -24,7 +25,7 @@ class ddOption extends HTMLElement {
     if (attrName === 'chosen' && this.chosen) {
       const event = new CustomEvent('chosen', {
         detail: {
-          name: this.innerText,
+          name: this.name,
           value: this.value || this.innerText
         }
       });
@@ -42,6 +43,14 @@ class ddOption extends HTMLElement {
     } else {
       this.removeAttribute('chosen');
     }
+  }
+
+  get name() {
+    return this.getAttribute('name');
+  }
+
+  set name(newVal) {
+    this.setAttribute('name', newVal);
   }
 
   get value() {

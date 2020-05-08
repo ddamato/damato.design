@@ -5,10 +5,11 @@ const html = require('rollup-plugin-html');
 const postcss = require('rollup-plugin-postcss');
 
 const COMPONENT_PATH = path.resolve(__dirname, '..', 'components');
+const CONTROL_PATH = path.resolve(__dirname, '..', 'controls');
 const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site'); 
 
 const inputOptions = {
-  input: `${COMPONENT_PATH}/*.js`,
+  input: [`${COMPONENT_PATH}/*.js`, `${CONTROL_PATH}/*.js`],
   plugins: [
     multi(),
     html(),
@@ -16,9 +17,9 @@ const inputOptions = {
   ],
 };
 const outputOptions = {
-  file: `${COMPILED_SITE_PATH}/dxsComponents.js`,
+  file: `${COMPILED_SITE_PATH}/components.js`,
   format: 'iife',
-  name: 'dxsComponents',
+  name: 'components',
 };
 
 async function bundle() {

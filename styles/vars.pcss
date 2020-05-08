@@ -9,9 +9,9 @@
   --boxLowContrast--foregroundColor: #111111;
   --boxLowContrast--borderColor: #eeeeee;
 
-  --boxHighContrast--backgroundColor: #4466ff;
   --boxHighContrast--foregroundColor: #ffffff;
-  --boxHighContrast--borderColor: #4466ff;
+  --boxHighContrast--backgroundColor: #dd1188;
+  --boxHighContrast--borderColor: #dd1188;
 
   --boxElevated--backgroundColor: #ffffff;
   --boxElevated--borderColor: #eeeeee;
@@ -46,4 +46,16 @@
   --textHeading3--fontSize: 1rem;
   --textHeading3--fontWeight: 500;
   --textHeading3--lineHeight: 1.25;
+}
+
+[audience="designer"]:root {
+  --boxHighContrast--foregroundColor: #ffffff;
+  --boxHighContrast--backgroundColor: #4466ff;
+  --boxHighContrast--borderColor: #4466ff;
+}
+
+[audience="engineer"]:root {
+  --boxHighContrast--foregroundColor: #ffffff;
+  --boxHighContrast--backgroundColor: #008855;
+  --boxHighContrast--borderColor: #008855;
 }
