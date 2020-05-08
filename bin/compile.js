@@ -5,6 +5,8 @@ const md = require('markdown-it')({
   html: true,
   linkify: true,
 });
+const mdCollapsible = require('markdown-it-collapsible');
+const mdContainer = require('markdown-it-container');
 const minify = require('html-minifier').minify;
 const glob = require('glob-fs')({ gitignore: true });
 const nunjucks = require('nunjucks');
@@ -15,6 +17,10 @@ const env = new nunjucks.Environment(loader, {
   lstripBlocks: true,
 });
 const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site'); 
+
+md.use(mdCollapsible)
+  .use(mdContainer, 'audience-designer')
+  .use(mdContainer, 'audience-engineer');
 
 const sitemap = [];
 
@@ -42,7 +48,9 @@ async function compile() {
 function renderConfig(config) {
   const { markdown, slug } = config;
   const id = slug ? `id="${slug}"` : '';
-  return `<section ${id} class="content-section">${md.render(markdown)}</section>`;
+  const html = md.render(markdown);
+  console.log(html);
+  return `<section ${id} class="content-section">${html}</section>`;
 }
 
 function sortOrder(a, b) {

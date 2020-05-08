@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": " rm -rf _site && npm run compile && npm run postcss && npm run generate && npm run bundle",
+    "build": " rm -rf _site && npm run compile && npm run postcss && npm run generate && npm run bundle && npm run copy",
     "compile": "node ./bin/compile.js",
     "bundle": "node ./bin/bundle.js",
     "generate": "node ./bin/generate.js",
-    "postcss": "postcss **/*.pcss -u postcss-nested -u cssnano --dir _site --ext css"
+    "postcss": "postcss **/*.pcss -u postcss-nested -u cssnano --dir _site --ext css",
+    "copy": "cp -r images _site"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,8 @@
     "glob-fs": "^0.1.7",
     "html-minifier": "^4.0.0",
     "markdown-it": "^10.0.0",
+    "markdown-it-collapsible": "^1.0.0",
+    "markdown-it-container": "^2.0.0",
     "nunjucks": "^3.2.1",
     "postcss": "^7.0.29",
     "postcss-cli": "^7.1.1",
