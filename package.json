@@ -8,7 +8,7 @@
     "compile": "node ./bin/compile.js",
     "bundle": "node ./bin/bundle.js",
     "generate": "node ./bin/generate.js",
-    "postcss": "postcss **/*.pcss -u postcss-nested -u cssnano --dir _site --ext css",
+    "postcss": "postcss **/*.pcss -u postcss-nested -u postcss-sassy-mixins -u cssnano --dir _site --ext css",
     "copy": "cp -r images _site"
   },
   "repository": {
@@ -36,6 +36,7 @@
     "postcss": "^7.0.29",
     "postcss-cli": "^7.1.1",
     "postcss-nested": "^4.2.1",
+    "postcss-sassy-mixins": "^2.1.0",
     "rollup": "^2.8.0",
     "rollup-plugin-html": "^0.2.1",
     "rollup-plugin-postcss": "^3.1.1",

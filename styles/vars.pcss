@@ -5,6 +5,7 @@
 
   --color-gray--100: 248, 248, 248;
   --color-gray--200: 238, 238, 238;
+  --color-gray--600: 27, 27, 27;
   --color-gray--700: 17, 17, 17;
 
   --color-pink--0: 221, 17, 136;
@@ -12,8 +13,43 @@
   --color-green--0: 0, 136, 85;
 }
 
-/* color intents */
+/* Colors accessible on black or white */
 :root {
+  --accent--defaultColor: rgb(var(--color-green--0));
+  --accent--designerColor: rgb(var(--color-pink--0));
+  --accent--engineerColor: rgb(var(--color-blue--0));
+}
+
+/* color intents */
+/* DARK THEME */
+@mixin dark-theme() {
+  --onAccent--defaultColor: rgb(var(--color-black--0));
+
+  --box--backgroundColor: rgb(var(--color-gray--700));
+  --box--foregroundColor: rgb(var(--color-gray--100));
+  --box--borderColor: rgb(var(--color-gray--600));
+
+  --boxLowContrast--backgroundColor: rgb(var(--color-black--0));
+  --boxLowContrast--foregroundColor: rgb(var(--color-gray--100));
+  --boxLowContrast--borderColor: rgb(var(--color-gray--600));
+
+  --boxHighContrast--backgroundColor: rgb(var(--color-gray--100));
+  --boxHighContrast--foregroundColor: rgb(var(--color-black--0));
+  --boxHighContrast--borderColor: rgb(var(--color-gray--100));
+
+  --boxElevated--backgroundColor: rgb(var(--color-black--0));
+  --boxLowContrast--borderColor: rgb(var(--color-gray--600));
+  --boxElevated--shadowColor: rgba(var(--color-gray--700), .5);
+
+  --control--backgroundColor: rgb(var(--color-black--0));
+  --control--foregroundColor: rgb(var(--color-gray--100));
+  --control--borderColor: rgb(var(--color-gray--600));
+}
+
+/* LIGHT THEME */
+@mixin light-theme() {
+  --onAccent--defaultColor: rgb(var(--color-white--0));
+
   --box--backgroundColor: rgb(var(--color-white--0));
   --box--foregroundColor: rgb(var(--color-gray--700));
   --box--borderColor: rgb(var(--color-gray--100));
@@ -33,11 +69,20 @@
   --control--backgroundColor: rgb(var(--color-white--0));
   --control--foregroundColor: rgb(var(--color-gray--700));
   --control--borderColor: rgb(var(--color-gray--200));
+}
 
-  --accent-defaultColor: rgb(var(--color-green--0));
-  --accent-designerColor: rgb(var(--color-pink--0));
-  --accent-engineerColor: rgb(var(--color-blue--0));
-  --onAccent-defaultColor: rgb(var(--color-white--0));
+:root {
+  @include light-theme();
+}
+
+html[theme="dark"] {
+  @include dark-theme();
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([theme="light"]) {
+    @include dark-theme();
+  }
 }
 
 /* fonts & text */
@@ -70,9 +115,9 @@
 }
 
 [audience="designer"]:root {
-  --accent-defaultColor: var(--accent-designerColor);
+  --accent--defaultColor: var(--accent-designerColor);
 }
 
 [audience="engineer"]:root {
-  --accent-defaultColor: var(--accent-engineerColor);
+  --accent--defaultColor: var(--accent-engineerColor);
 }

@@ -43,7 +43,7 @@
   h1 strong,
   h2 strong,
   h3 strong {
-    color: var(--accent-defaultColor);
+    color: var(--accent--defaultColor);
   }
 
   img {
@@ -52,8 +52,8 @@
 
   .audience-designer,
   .audience-engineer {
-    --border-thickness: 2px;
-    border: var(--border-thickness) solid;
+    --borderThickness: 2px;
+    border: var(--borderThickness) solid;
     border-radius: 3px;
     border-top-left-radius: 0;
     margin: 1rem 0;
@@ -63,11 +63,11 @@
   }
 
   .audience-designer {
-    border-color: var(--accent-designerColor);
+    border-color: var(--accent--designerColor);
   }
 
   .audience-engineer {
-    border-color: var(--accent-engineerColor);
+    border-color: var(--accent--engineerColor);
   }
 
   .audience-designer > :last-child,
@@ -77,7 +77,7 @@
 
   .audience-designer:before,
   .audience-engineer:before {
-    background-color: var(--boxHighContrast--foregroundColor);
+    background-color: var(--box--backgroundColor);
     padding: .25em 1em;
     font-size: .8rem;
     text-transform: uppercase;
@@ -87,19 +87,19 @@
     font-weight: 500;
     border: inherit;
     border-bottom: transparent;
-    left: calc(var(--border-thickness) * -1);
-    max-width: calc(var(--border-thickness) * 2 + 100%);
+    left: calc(var(--borderThickness) * -1);
+    max-width: calc(var(--borderThickness) * 2 + 100%);
     position: absolute;
     bottom: 100%;
   }
 
   .audience-designer:before {
     content: "Designer Info";
-    color: var(--accent-designerColor);
+    color: var(--accent--designerColor);
   }
 
   .audience-engineer:before {
     content: "Engineer Info";
-    color: var(--accent-engineerColor);
+    color: var(--accent--engineerColor);
   }
 }
