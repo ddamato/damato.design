@@ -32,4 +32,6 @@
   systemColorControl.chosen = !localStorage.getItem('theme');
   audienceDesignerControl.chosen = !localStorage.getItem('designer');
   audienceEngineerControl.chosen = !localStorage.getItem('engineer');
+
+  window.setTimeout(() => { document.body.style.removeProperty('opacity') }, 0);
 })();
