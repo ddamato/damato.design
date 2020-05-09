@@ -31,7 +31,7 @@
 
 .dd-adjuster--meter:before,
 .dd-adjuster--meter:after {
-  content: '';	
+  content: "";	
 	top: -.5rem;
 	left: -.5rem;
 	height: 1rem;

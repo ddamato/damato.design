@@ -10,10 +10,6 @@
 	text-decoration: underline;
 }
 
-.dd-access[type="select"] {
-	--accent--defaultColor: var(--control--borderColor);
-}
-
 .dd-access--header {
 	position: relative;
 	font-weight: 500;
@@ -93,6 +89,10 @@
 }
 
 .dd-access[type="details"] .dd-access--header {
+	color: var(--accent--defaultColor);
+}
+
+.dd-access[type="select"] .dd-access--label {
 	color: var(--accent--defaultColor);
 }
 

@@ -27,6 +27,7 @@ async function generate() {
     const cleanName = blueprint.toLowerCase().replace(/^dd/, '');
     const className = `Blu${cleanName}`;
     const tagName = `blu-${cleanName}`;
+    console.log(tagName);
     return `class ${className} extends HTMLElement {
       constructor() {
         super();
@@ -40,8 +41,12 @@ async function generate() {
 
   const elementsFileName = `${COMPILED_SITE_PATH}/elements.js`;
   const blueprintCssFileName = `${COMPILED_SITE_PATH}/blueprints.css`;
+
+  const { code } = terser.minify(elements);
+  const elementsJs = code || elements;
+
   fs.ensureFileSync(elementsFileName);
-  fs.writeFileSync(elementsFileName, terser.minify(elements).code, { encoding: 'utf8' });
+  fs.writeFileSync(elementsFileName, elementsJs, { encoding: 'utf8' });
 
   fs.ensureFileSync(blueprintCssFileName);
   fs.writeFileSync(blueprintCssFileName, blueprintCss, { encoding: 'utf8' });
