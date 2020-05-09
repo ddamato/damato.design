@@ -21,14 +21,10 @@ const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site');
 function audienceContainers(tokens, idx) {
   if (tokens[idx].nesting === 1) {
     const type = tokens[idx].info.trim();
-    const rand = String(Math.random()).slice(2);
+    // const rand = String(Math.random()).slice(2);
 
     return `
-      <input type="checkbox" id="show-${rand}" class="audience-toggle">
       <div class="audience-specific ${type}">
-        <header>
-          <label for="show-${rand}"></label>
-        </header>
         <article>
       `;
   }

@@ -6,67 +6,81 @@
   padding: var(--navigation--spacing);
   border-top: 1px solid var(--box--borderColor);
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  & > li:not(:last-child) {
+    margin-bottom: .5rem;
   }
 
-  .nav-page:not(:last-child) {
-    margin-bottom: var(--navigation--spacing);
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 
-  .nav-interact {
-    border-radius: 2px;
-    &[open],
+  li > a {
+    display: block;
+    padding: .5rem;
+    line-height: 1;
     &:hover {
       background-color: var(--accent--defaultColor);
       color: var(--onAccent--defaultColor);
     }
   }
 
-  details {
-    .nav-link {
-      pointer-events: none;
-    }
-
-    &[open] .nav-link {
-      pointer-events: initial;
-    }
-  }
-
-  .nav-link {
-    padding: var(--navigation--spacing) 0;
-    display: inline-block;
-    text-decoration: none;
-    color: inherit;
-    font-weight: 500;
-  }
-
   summary {
-    cursor: pointer;
-    padding: 0 var(--navigation--spacing);
+    padding: .5rem;
+    &:hover {
+      background-color: var(--accent--defaultColor);
+      color: var(--onAccent--defaultColor);
+    }
   }
 
-  .nav-section {
-    margin-left: 1.1rem;
-  }
-
-  summary:focus,
-  .nav-link:focus {
-    outline: 0;
+  & :focus {
+    outline: none;
     text-decoration: underline;
   }
 
-  summary .nav-link,
-  .nav-link.nav-interact {
+  .nav-page > a {
+    border-radius: 3px;
     text-transform: uppercase;
+    font-weight: 500;
     font-size: .8rem;
   }
 
-  .nav-section .nav-link,
-  .nav-link.nav-interact {
-    display: block;
-    padding: var(--navigation--spacing);
+  summary {
+    border: 1px solid transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: .8rem;
   }
+
+  details[open] summary {
+    border-color: var(--accent--defaultColor);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 0;
+  }
+
+  details ul {
+    border: 1px solid var(--accent--defaultColor);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  details li {
+    text-indent: .9rem;
+  }
+
+  details:not([open]) summary a {
+    pointer-events: none;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--accent--defaultColor);
+  }
+
+  
 }

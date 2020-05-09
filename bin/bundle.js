@@ -27,4 +27,4 @@ async function bundle() {
   await process.write(outputOptions);
 }
 
-bundle();
+// bundle();

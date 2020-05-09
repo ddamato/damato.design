@@ -7,10 +7,8 @@ order: 1
 Here's some introduction content for the page
 
 ### Audience Setting
-<audience-selector></audience-selector>
 
 ### Color Setting
-<theme-selector></theme-selector>
 
 
 ::: audience-designer

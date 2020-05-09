@@ -36,4 +36,4 @@ async function generate() {
   fs.writeFileSync(elementsFileName, terser.minify(elements).code, { encoding: 'utf8' });
 }
 
-generate();
+// generate();
