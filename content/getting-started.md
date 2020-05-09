@@ -21,9 +21,9 @@ Some different content
 
 ### Sample dropdown
 <dd-access type="select">
-  <button class="access--option">Option 1</button>
-  <button class="access--option">Option 2</button>
-  <button class="access--option">Option 3</button>
+  <button class="dd-access--option">Option 1</button>
+  <button class="dd-access--option">Option 2</button>
+  <button class="dd-access--option">Option 3</button>
 </dd-access>
 
 ### Sample engineering content

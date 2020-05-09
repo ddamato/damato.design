@@ -3,7 +3,7 @@
 }
 
 .dd-textfield {
-  border: 1px solid var(--accent--defaultColor);
+  border: 1px solid var(--control--borderColor);
   display: flex;
   border-radius: 2px;
   vertical-align: middle;
@@ -15,7 +15,6 @@
   font-weight: 500;
   padding: .5rem 1rem;
   border-right: inherit;
-  color: var(--accent--defaultColor);
   line-height: 1.5rem;
 }
 
@@ -32,20 +31,19 @@
 }
 
 .dd-textfield--input:focus {
-  outline: 1px solid var(--onAccent--defaultColor);
+  outline: 1px solid var(--control--outlineColor);
 }
 
 .dd-textfield--button {
   font: inherit;
-  background-color: var(--accent--defaultColor);
-  color: var(--onAccent--defaultColor);
+  background-color: var(--action--backgroundColor);
+  color: var(--action--foregroundColor);
   padding: .5rem 1rem;
   border: 1px solid transparent;
   cursor: pointer;
   text-transform: uppercase;
   font-size: .9rem;
   font-weight: 500;
-  line-height: 1.5rem;
 }
 
 .dd-textfield--button:focus {

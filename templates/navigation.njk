@@ -3,7 +3,7 @@
   <dd-access type="menu" {{ 'open' if item.page === title }}>
     <a slot="title" href="{{ item.filename }}">{{ item.page }}</a>
     {% for section in item.sections %}
-      <a class="access--option" href="{{ item.filename }}#{{ section.slug }}">{{ section.anchor }}</a>
+      <a class="dd-access--option" href="{{ item.filename }}#{{ section.slug }}">{{ section.anchor }}</a>
     {% endfor %}
   </dd-access>
   {% endfor %}

@@ -1,7 +1,7 @@
 .dd-button {
   font: inherit;
-  background-color: var(--accent--defaultColor);
-  color: var(--onAccent--defaultColor);
+  background-color: var(--action--backgroundColor);
+  color: var(--action--foregroundColor);
   padding: .5rem 1rem;
   border: 1px solid transparent;
   cursor: pointer;

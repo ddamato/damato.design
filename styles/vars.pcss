@@ -49,9 +49,14 @@ html[hide-engineer]:not([hide-designer]) {
   --boxElevated--borderColor: rgb(var(--color-gray--200));
   --boxElevated--shadowColor: rgba(var(--color-gray--600), .5);
 
-  --control--backgroundColor: rgb(var(--color-white--0));
-  --control--foregroundColor: rgb(var(--color-gray--700));
-  --control--borderColor: rgb(var(--color-gray--100));
+  --control--backgroundColor: rgb(var(--color-gray--100));
+  --control--foregroundColor: rgb(var(--color-black--0));
+  --control--borderColor: var(--accent--defaultColor);
+  --control--outlineColor: rgb(var(--color-black--0));
+
+  --action--backgroundColor: var(--accent--defaultColor);
+  --action--foregroundColor: var(--onAccent--defaultColor);
+  --action--borderColor: var(--accent--defaultColor);
 }
 
 /* DARK THEME */
@@ -74,9 +79,14 @@ html[hide-engineer]:not([hide-designer]) {
   --boxElevated--borderColor: rgb(var(--color-gray--600));
   --boxElevated--shadowColor: rgba(var(--color-black--0), .5);
 
-  --control--backgroundColor: rgb(var(--color-black--0));
-  --control--foregroundColor: rgb(var(--color-gray--100));
-  --control--borderColor: rgb(var(--color-gray--600));
+  --control--backgroundColor: rgb(var(--color-gray--700));
+  --control--foregroundColor: rgb(var(--color-white--0));
+  --control--borderColor: var(--accent--defaultColor);
+  --control--outlineColor: rgb(var(--color-white--0));
+
+  --action--backgroundColor: var(--accent--defaultColor);
+  --action--foregroundColor: var(--onAccent--defaultColor);
+  --action--borderColor: var(--accent--defaultColor);
 }
 
 :root { @include light-theme() }

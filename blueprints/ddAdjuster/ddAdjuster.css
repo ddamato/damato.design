@@ -43,11 +43,11 @@
 }
 
 .dd-adjuster--meter:before {
-  border: 1px solid var(--adjuster--accentColor, var(--control--foregroundColor));
+  border: 1px solid var(--adjuster--accentColor, var(--control--borderColor));
 }
 
 .dd-adjuster--meter:after {
-  background-color: var(--adjuster--accentColor, var(--control--foregroundColor));
+  background-color: var(--adjuster--accentColor, var(--control--borderColor));
 	opacity: var(--adjuster-percent, 0);
 	transition: .218s ease;
 }
@@ -55,8 +55,8 @@
 .dd-adjuster--knob {
   --adjuster-knobdim: 1.5rem;
   position: absolute;
-	background-color: var(--control--borderColor);
-	border: 1px solid var(--adjuster--accentColor, var(--control--foregroundColor));
+	background-color: var(--control--backgroundColor);
+	border: 1px solid var(--adjuster--accentColor, var(--control--borderColor));
 	height: var(--adjuster-knobdim);
 	width: var(--adjuster-knobdim);
 	top: 50%;
