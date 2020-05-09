@@ -22,22 +22,18 @@ function audienceContainers(tokens, idx) {
   if (tokens[idx].nesting === 1) {
     const type = tokens[idx].info.trim();
 
-    let accentColor, title;
+    let title;
 
     if (type === 'audience-designer') {
-      accentColor = 'var(--accent--designerColor)';
       title = 'Designer Info';
     }
 
     if (type === 'audience-engineer') {
-      accentColor = 'var(--accent--engineerColor)';
       title = 'Engineer Info';
     }
 
-    console.log(type);
-
     return `
-      <dd-access type="details" style="--accent--defaultColor: ${accentColor};" open>
+      <dd-access type="details" class="${type}" open>
         <span slot="title">${title}</span>
       `;
   }

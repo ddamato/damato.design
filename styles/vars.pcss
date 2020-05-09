@@ -21,6 +21,31 @@
 }
 
 /* color intents */
+/* LIGHT (DEFAULT) THEME */
+@mixin light-theme() {
+  --onAccent--defaultColor: rgb(var(--color-white--0));
+
+  --box--backgroundColor: rgb(var(--color-white--0));
+  --box--foregroundColor: rgb(var(--color-gray--700));
+  --box--borderColor: rgb(var(--color-gray--200));
+
+  --boxLowContrast--backgroundColor: rgb(var(--color-gray--100));
+  --boxLowContrast--foregroundColor: rgb(var(--color-gray--700));
+  --boxLowContrast--borderColor: rgb(var(--color-gray--200));
+
+  --boxHighContrast--backgroundColor: rgb(var(--color-gray--700));
+  --boxHighContrast--foregroundColor: rgb(var(--color-white--0));
+  --boxHighContrast--borderColor: rgb(var(--color-gray--700));
+
+  --boxElevated--backgroundColor: rgb(var(--color-white--0));
+  --boxElevated--borderColor: rgb(var(--color-gray--200));
+  --boxElevated--shadowColor: rgba(var(--color-gray--600), .5);
+
+  --control--backgroundColor: rgb(var(--color-white--0));
+  --control--foregroundColor: rgb(var(--color-gray--700));
+  --control--borderColor: rgb(var(--color-gray--200));
+}
+
 /* DARK THEME */
 @mixin dark-theme() {
   --onAccent--defaultColor: rgb(var(--color-white--0));
@@ -46,38 +71,11 @@
   --control--borderColor: rgb(var(--color-gray--600));
 }
 
-:root {
-  --onAccent--defaultColor: rgb(var(--color-white--0));
-
-  --box--backgroundColor: rgb(var(--color-white--0));
-  --box--foregroundColor: rgb(var(--color-gray--700));
-  --box--borderColor: rgb(var(--color-gray--200));
-
-  --boxLowContrast--backgroundColor: rgb(var(--color-gray--100));
-  --boxLowContrast--foregroundColor: rgb(var(--color-gray--700));
-  --boxLowContrast--borderColor: rgb(var(--color-gray--200));
-
-  --boxHighContrast--backgroundColor: rgb(var(--color-gray--700));
-  --boxHighContrast--foregroundColor: rgb(var(--color-white--0));
-  --boxHighContrast--borderColor: rgb(var(--color-gray--700));
-
-  --boxElevated--backgroundColor: rgb(var(--color-white--0));
-  --boxElevated--borderColor: rgb(var(--color-gray--200));
-  --boxElevated--shadowColor: rgba(var(--color-gray--600), .5);
-
-  --control--backgroundColor: rgb(var(--color-white--0));
-  --control--foregroundColor: rgb(var(--color-gray--700));
-  --control--borderColor: rgb(var(--color-gray--200));
-}
-
-html[theme="dark"] {
-  @include dark-theme();
-}
-
+:root { @include light-theme() }
+html[theme="inverse"] { @include dark-theme() }
 @media (prefers-color-scheme: dark) {
-  html:not([theme="light"]) {
-    @include dark-theme();
-  }
+  :root { @include dark-theme() }
+  html[theme="inverse"] { @include light-theme() }
 }
 
 /* fonts & text */

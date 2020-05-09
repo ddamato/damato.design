@@ -87,7 +87,7 @@ class ddAccess extends HTMLElement {
   }
 
   sendChangedEvent() {
-    const event = new CustomEvent('changed', {
+    const event = new CustomEvent('change', {
       detail: {
         name: this._titleSlot.innerText,
         type: this.type,

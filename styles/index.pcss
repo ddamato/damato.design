@@ -115,9 +115,17 @@ body {
   border: 1px solid var(--box--borderColor);
   color: var(--box--foregroundColor);
   border-radius: 2px;
-  padding: 1rem;
   margin-bottom: 1rem;
   justify-content: space-between;
+  overflow-x: auto;
+}
+
+.controls > * {
+  padding: 1rem;
+}
+
+.controls > :not(:last-child) {
+  padding-right: 0;
 }
 
 @media (max-width: 720px) {

@@ -9,7 +9,7 @@
     "bundle": "node ./bin/bundle.js",
     "generate": "node ./bin/generate.js",
     "postcss": "postcss **/*.pcss -u postcss-nested -u postcss-sassy-mixins -u cssnano --dir _site --ext css",
-    "copy": "cp -r images _site"
+    "copy": "cp -r images _site && cp -r scripts _site"
   },
   "repository": {
     "type": "git",

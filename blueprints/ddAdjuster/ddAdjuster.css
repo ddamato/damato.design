@@ -6,14 +6,16 @@
 
 .dd-adjuster {
 	display: inline-flex;
-  align-items: center;
+	align-items: center;
+	cursor: pointer;
 }
 
 .dd-adjuster--label {
   color: var(--adjuster--accentColor, var(--control--foregroundColor));
   font-weight: 500;
   font-size: .9rem;
-  text-transform: uppercase;
+	text-transform: uppercase;
+	text-align: right;
 }
 
 .dd-adjuster--meter {
