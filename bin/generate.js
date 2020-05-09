@@ -17,8 +17,13 @@ async function generate() {
     blueprints[basename][extension.slice(1)] = fs.readFileSync(file).toString().replace(/\r?\n|\r/g, '');
   });
   
+  let blueprintCss = '';
+
   const elements = Object.keys(blueprints).map((blueprint) => {
     const { html, css } = blueprints[blueprint];
+    if (css) {
+      blueprintCss += css;
+    }
     const cleanName = blueprint.toLowerCase().replace(/^dd/, '');
     const className = `Blu${cleanName}`;
     const tagName = `blu-${cleanName}`;
@@ -34,8 +39,12 @@ async function generate() {
   }).join('');
 
   const elementsFileName = `${COMPILED_SITE_PATH}/elements.js`;
+  const blueprintCssFileName = `${COMPILED_SITE_PATH}/blueprints.css`;
   fs.ensureFileSync(elementsFileName);
   fs.writeFileSync(elementsFileName, terser.minify(elements).code, { encoding: 'utf8' });
+
+  fs.ensureFileSync(blueprintCssFileName);
+  fs.writeFileSync(blueprintCssFileName, blueprintCss, { encoding: 'utf8' });
 }
 
 generate();
