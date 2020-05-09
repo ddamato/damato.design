@@ -53,8 +53,8 @@
 .dd-adjuster--knob {
   --adjuster-knobdim: 1.5rem;
   position: absolute;
-	background-color: var(--control--foregroundColor);
-	border: 1px solid var(--control--borderColor);
+	background-color: var(--control--borderColor);
+	border: 1px solid var(--adjuster--accentColor, var(--control--foregroundColor));
 	height: var(--adjuster-knobdim);
 	width: var(--adjuster-knobdim);
 	top: 50%;
