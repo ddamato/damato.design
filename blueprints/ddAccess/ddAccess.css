@@ -44,7 +44,7 @@
 	cursor: pointer;
 	position: absolute;
 	top: 0;
-	left: 0;
+	right: 0;
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -78,6 +78,10 @@
 
 .dd-access[type="menu"] .dd-access--checkbox:checked + .dd-access--header .dd-access--label:after {
 	content: "\f068";
+}
+
+.dd-access[type="menu"] .dd-access--checkbox:checked + .dd-access--header .dd-access--label {
+	width: auto;
 }
 
 .dd-access[type="select"] .dd-access--label:after {
@@ -136,6 +140,11 @@
 
 :not(.dd-access--single) .dd-access--checkbox:checked ~ .dd-access--content {
 	display: flow-root;
+}
+
+.dd-access[type="menu"] ::slotted(a),
+.dd-access[type="select"] ::slotted(button)  {
+	display: block;
 }
 
 ::slotted(a[slot="title"]) {
