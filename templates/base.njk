@@ -16,9 +16,15 @@
       </nav>
       <main>
         <header class="controls">
-          <input type="checkbox"/>
-          <input type="checkbox"/>
-          <input type="checkbox"/>
+          <dd-adjuster>
+            System Color
+          </dd-adjuster>
+          <dd-adjuster style="--adjuster--accentColor:var(--accent--designerColor);">
+            Designer Info
+          </dd-adjuster>
+          <dd-adjuster style="--adjuster--accentColor:var(--accent--engineerColor);">
+            Engineer Info
+          </dd-adjuster>
         </header>
         {{ sections | safe }}
       </main>

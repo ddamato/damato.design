@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap');
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+.dd-adjuster {
+	display: inline-flex;
+  align-items: center;
+}
+
+.dd-adjuster--label {
+  color: var(--adjuster--accentColor, var(--control--foregroundColor));
+  font-weight: 500;
+  font-size: .9rem;
+  text-transform: uppercase;
+}
+
+.dd-adjuster--meter {
+  border-radius: 1rem;
+	border: .5rem solid var(--control--backgroundColor);
+	min-width: 2.5rem;
+	width: var(--adjuster-width, auto);
+	position: relative;
+	margin: 0 .75rem;
+}
+
+.dd-adjuster--meter:before,
+.dd-adjuster--meter:after {
+  content: '';	
+	top: -.5rem;
+	left: -.5rem;
+	height: 1rem;
+	min-width: inherit;
+	width: 100%;
+	display: block;
+	position: absolute;
+  border-radius: inherit;
+}
+
+.dd-adjuster--meter:before {
+  border: 1px solid var(--adjuster--accentColor, var(--control--foregroundColor));
+}
+
+.dd-adjuster--meter:after {
+  background-color: var(--adjuster--accentColor, var(--control--foregroundColor));
+	opacity: var(--adjuster-percent, 0);
+	transition: .218s ease;
+}
+
+.dd-adjuster--knob {
+  --adjuster-knobdim: 1.5rem;
+  position: absolute;
+	background-color: var(--control--foregroundColor);
+	border: 1px solid var(--control--borderColor);
+	height: var(--adjuster-knobdim);
+	width: var(--adjuster-knobdim);
+	top: 50%;
+	left: calc(var(--adjuster-percent, 0) * 100%);
+	margin: calc(var(--adjuster-knobdim) / -2);
+	border-radius: 1rem;
+	z-index: 1;
+}

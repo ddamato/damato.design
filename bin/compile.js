@@ -37,7 +37,7 @@ function audienceContainers(tokens, idx) {
     console.log(type);
 
     return `
-      <dd-access type="details" style="--accent--defaultColor: ${accentColor};">
+      <dd-access type="details" style="--accent--defaultColor: ${accentColor};" open>
         <span slot="title">${title}</span>
       `;
   }
