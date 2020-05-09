@@ -21,15 +21,28 @@ const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site');
 function audienceContainers(tokens, idx) {
   if (tokens[idx].nesting === 1) {
     const type = tokens[idx].info.trim();
-    // const rand = String(Math.random()).slice(2);
+
+    let accentColor, title;
+
+    if (type === 'audience-designer') {
+      accentColor = 'var(--accent--designerColor)';
+      title = 'Designer Info';
+    }
+
+    if (type === 'audience-engineer') {
+      accentColor = 'var(--accent--engineerColor)';
+      title = 'Engineer Info';
+    }
+
+    console.log(type);
 
     return `
-      <div class="audience-specific ${type}">
-        <article>
+      <dd-access type="details" style="--accent--defaultColor: ${accentColor};">
+        <span slot="title">${title}</span>
       `;
   }
 
-  return '</article></div>'
+  return '</dd-access>'
 }
 
 md.use(mdCollapsible)

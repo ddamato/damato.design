@@ -19,7 +19,9 @@ async function generate() {
   
   const elements = Object.keys(blueprints).map((blueprint) => {
     const { html, css } = blueprints[blueprint];
-    const className = `Blu${blueprint.charAt(0).toUpperCase() + blueprint.slice(1)}`;
+    const cleanName = blueprint.toLowerCase().replace(/^dd/, '');
+    const className = `Blu${cleanName}`;
+    const tagName = `blu-${cleanName}`;
     return `class ${className} extends HTMLElement {
       constructor() {
         super();
@@ -28,7 +30,7 @@ async function generate() {
       }
     }
     
-    window.customElements.define('blu-${blueprint}', ${className});`
+    window.customElements.define('${tagName}', ${className});`
   }).join('');
 
   const elementsFileName = `${COMPILED_SITE_PATH}/elements.js`;
@@ -36,4 +38,4 @@ async function generate() {
   fs.writeFileSync(elementsFileName, terser.minify(elements).code, { encoding: 'utf8' });
 }
 
-// generate();
+generate();

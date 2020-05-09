@@ -38,13 +38,47 @@ body {
 .header {
   display: flex;
   align-items: center;
-  padding: .5rem;
+  padding: .5rem 1.5rem;
   position: relative;
 }
 
 .logo {
   max-width: 10rem;
   margin: .5rem 0;
+}
+
+.navigation {
+  border-top: 1px solid var(--box--borderColor);
+  padding: .5rem;
+}
+
+.navigation > :not(:last-child) {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+.access--option {
+  display: block;
+  margin: 0;
+  border: 0;
+  padding: .5rem 1rem;
+  color: inherit;
+  font: inherit;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.access--option:focus {
+  outline: 0;
+  text-decoration: underline;
+}
+
+.access--option:hover {
+  background-color: var(--accent--defaultColor);
+  color: var(--onAccent--defaultColor);
 }
 
 .nav-button {

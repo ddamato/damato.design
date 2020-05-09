@@ -1,22 +1,10 @@
-<ul class="navigation">
+<div class="navigation">
   {% for item in sitemap %}
-    <li class="nav-page">
-      {% if item.sections.length %}
-      <details {{ 'open' if item.page === title }} class="nav-interact">
-        <summary>
-          <a href="{{ item.filename }}" class="nav-link">{{ item.page }}</a>
-        </summary>
-        <ul>
-          {% for section in item.sections %}
-            <li class="nav-section">
-              <a href="{{ item.filename }}#{{ section.slug }}" class="nav-link">{{ section.anchor }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </details>
-      {% else %}
-      <a href="{{ item.filename }}" class="nav-link nav-interact" {{ 'open' if item.page === title }}>{{ item.page }}</a>
-      {% endif %}
-    </li>
+  <dd-access type="menu" {{ 'open' if item.page === title }}>
+    <a slot="title" href="{{ item.filename }}">{{ item.page }}</a>
+    {% for section in item.sections %}
+      <a class="access--option" href="{{ item.filename }}#{{ section.slug }}">{{ section.anchor }}</a>
+    {% endfor %}
+  </dd-access>
   {% endfor %}
-</ul>
+</div>
