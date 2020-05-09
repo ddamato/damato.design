@@ -20,6 +20,14 @@
   --accent--engineerColor: rgb(var(--color-blue--0));
 }
 
+html[hide-designer]:not([hide-engineer]) {
+  --accent--defaultColor: var(--accent--engineerColor);
+}
+
+html[hide-engineer]:not([hide-designer]) {
+  --accent--defaultColor: var(--accent--designerColor);
+} 
+
 /* color intents */
 /* LIGHT (DEFAULT) THEME */
 @mixin light-theme() {

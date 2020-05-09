@@ -17,8 +17,10 @@
     const audienceAccess = document.querySelectorAll(`dd-access.audience-${type}`);
     [...audienceAccess].forEach((access) => access.open = bool);
     if (bool) {
+      document.documentElement.removeAttribute(`hide-${type}`);
       localStorage.removeItem(type);
     } else {
+      document.documentElement.setAttribute(`hide-${type}`, '');
       localStorage.setItem(type, 'hide');
     }
   }
