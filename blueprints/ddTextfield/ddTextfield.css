@@ -28,6 +28,7 @@
   padding: 0 .5rem;
   align-self: stretch;
   line-height: 1.5rem;
+  width: 100%;
 }
 
 .dd-textfield--input:focus {
