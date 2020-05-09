@@ -71,8 +71,11 @@ async function compile() {
 function renderConfig(config) {
   const { markdown, slug } = config;
   const id = slug ? `id="${slug}"` : '';
-  const html = md.render(markdown);
-  return `<section ${id} class="content-section">${html}</section>`;
+  if (markdown) {
+    const html = md.render(markdown);
+    return `<section ${id} class="content-section">${html}</section>`;
+  }
+  return '';
 }
 
 function sortOrder(a, b) {
@@ -81,7 +84,12 @@ function sortOrder(a, b) {
 
 function prepareSitemap(filename, { attributes, body }) {
   if (!attributes.anchor) {
-    sitemap.push(Object.assign(attributes, { filename, markdown: body, sections: [] }));
+    let existingPage = sitemap.find(({ page }) => page === attributes.page);
+    if (existingPage) {
+      Object.assign(existingPage, attributes, { filename, markdown: body });
+    } else {
+      sitemap.push(Object.assign(attributes, { filename, markdown: body, sections: [] }));
+    }
   } else {
     attributes.slug = slug(attributes.anchor).toLowerCase();
     let existingPage = sitemap.find(({ page }) => page === attributes.page);

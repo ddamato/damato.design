@@ -33,6 +33,9 @@ body {
   top: 1rem;
   align-self: flex-start;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 2rem);
 }
 
 .header {
@@ -50,6 +53,8 @@ body {
 .navigation {
   border-top: 1px solid var(--box--borderColor);
   padding: .5rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .navigation > :not(:last-child) {
@@ -118,14 +123,15 @@ body {
   margin-bottom: 1rem;
   justify-content: space-between;
   overflow-x: auto;
+  padding: 0 1rem;
 }
 
 .controls > * {
-  padding: 1rem;
+  padding: 1rem 0;
 }
 
 .controls > :not(:last-child) {
-  padding-right: 0;
+  padding-right: 1rem;
 }
 
 @media (max-width: 720px) {
@@ -139,6 +145,7 @@ body {
     max-width: initial;
     width: 100%;
     top: 0;
+    max-height: 100vh;
   }
 
   .header {
@@ -154,6 +161,7 @@ body {
     border-bottom: 1px solid var(--box--borderColor);
     display: none;
     position: absolute;
+    max-height: calc(100vh - 4rem);
     top: 100%;
     left: 0;
     width: 100%;
