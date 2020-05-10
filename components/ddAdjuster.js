@@ -12,6 +12,17 @@ class ddAdjuster extends HTMLElement {
     if (this.type === 'toggle') {
       this.addEventListener('click', () => this.chosen = !this.chosen);
     }
+
+    this.addEventListener('keydown', (ev) => {
+      if (document.activeElement === this && ev.code.toLowerCase() === 'space') {
+        ev.preventDefault();
+        
+        if (this.type === 'toggle') {
+          this.chosen = !this.chosen;
+        }
+
+      }
+    });
   }
 
   static get observedAttributes() {

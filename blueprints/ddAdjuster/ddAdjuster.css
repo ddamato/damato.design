@@ -65,3 +65,18 @@
 	border-radius: 1rem;
 	z-index: 1;
 }
+
+.dd-adjuster:focus {
+	outline: 0;
+}
+
+.dd-adjuster:focus .dd-adjuster--knob:after {
+	content: "";
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	height: calc(100% - 2px);
+	width: calc(100% - 2px);
+	border: 1px solid var(--control--outlineColor);
+	border-radius: inherit;
+}

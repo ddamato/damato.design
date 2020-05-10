@@ -69,11 +69,11 @@ async function compile() {
 }
 
 function renderConfig(config) {
-  const { markdown, slug } = config;
+  const { markdown, slug, page } = config;
   const id = slug ? `id="${slug}"` : '';
   if (markdown) {
     const html = md.render(markdown);
-    return `<section ${id} class="content-section">${html}</section>`;
+    return `<section ${id} class="content-section" data-page="${page}">${html}</section>`;
   }
   return '';
 }

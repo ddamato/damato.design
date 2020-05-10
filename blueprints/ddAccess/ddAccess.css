@@ -10,6 +10,11 @@
 	text-decoration: underline;
 }
 
+.dd-access--checkbox:focus + .dd-access--header {
+	outline: 1px solid var(--control--outlineColor);
+	outline-offset: -3px;
+}
+
 .dd-access--header {
 	position: relative;
 	font-weight: 500;
@@ -49,7 +54,8 @@
   text-transform: uppercase;
 }
 
-.dd-access--single .dd-access--label {
+.dd-access--single .dd-access--label,
+.dd-access--single .dd-access--checkbox {
 	display: none;
 }
 
@@ -149,6 +155,10 @@
 
 ::slotted(a[slot="title"]) {
 	color: inherit;
+}
+
+slot[name="title"]:focus {
+	outline: 1px solid #fff;
 }
 
 ::slotted(a[slot="title"]:not(:focus)) {
