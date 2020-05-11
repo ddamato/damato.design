@@ -8,6 +8,17 @@
 	justify-content: flex-start;
 	cursor: pointer;
 	min-height: 1.5rem;
+	position: relative;
+}
+
+.toggleRange[type="toggle"]:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
 }
 
 .toggleRange--label {

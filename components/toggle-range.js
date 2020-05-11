@@ -13,6 +13,7 @@ class ToggleRange extends HTMLElement {
     if (this.type === 'toggle') {
       this._input.min = 0;
       this._input.max = 1;
+      this._input.style.pointerEvents = 'none';
       this.addEventListener('click', () => this.chosen = !this.chosen);
     }
 
