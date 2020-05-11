@@ -43,6 +43,10 @@
 	border-color: var(--control--outlineColor);
 }
 
+.toggleRange[type="toggle"] .toggleRange--input[value="1"] {
+	--toggleRange--backgroundColor: currentColor;
+}
+
 .toggleRange--input::-webkit-slider-runnable-track {
 	height: 1rem;
 	margin: 0;

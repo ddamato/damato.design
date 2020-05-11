@@ -39,11 +39,7 @@ class ToggleRange extends HTMLElement {
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (attrName === 'chosen' && this.type === 'toggle') {
       this._input.value = Number(this.chosen);
-      if (this.chosen) {
-        this.style.setProperty('--toggleRange--backgroundColor', 'currentColor');
-      } else {
-        this.style.removeProperty('--toggleRange--backgroundColor');
-      }
+      this._input.setAttribute('value', this._input.value);
       this.sendChangedEvent();
     }
   }
