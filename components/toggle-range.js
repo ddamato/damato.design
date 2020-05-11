@@ -8,8 +8,11 @@ class ToggleRange extends HTMLElement {
     this.shadowRoot.innerHTML = `<style type="text/css">${css}</style>${html}`;
 
     this._toggleRange = this.shadowRoot.querySelector('.toggleRange');
+    this._input = this.shadowRoot.querySelector('.toggleRange--input');
 
     if (this.type === 'toggle') {
+      this._input.min = 0;
+      this._input.max = 1;
       this.addEventListener('click', () => this.chosen = !this.chosen);
     }
 
@@ -25,13 +28,22 @@ class ToggleRange extends HTMLElement {
     });
   }
 
+  connectedCallback() {
+    // this.updateColor();
+  }
+
   static get observedAttributes() {
     return ['type', 'chosen'];
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (attrName === 'chosen' && this.type === 'toggle') {
-      this._toggleRange.style.setProperty('--toggleRange--percent', Number(this.chosen));
+      this._input.value = Number(this.chosen);
+      if (this.chosen) {
+        this.style.setProperty('--toggleRange--backgroundColor', 'currentColor');
+      } else {
+        this.style.removeProperty('--toggleRange--backgroundColor');
+      }
       this.sendChangedEvent();
     }
   }

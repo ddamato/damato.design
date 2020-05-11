@@ -19,65 +19,97 @@
 	line-height: 1;
 }
 
-.toggleRange--meter {
-  border-radius: 1rem;
-	border: .5rem solid var(--control--backgroundColor);
-	min-width: 2.5rem;
-	width: var(--toggleRange--width, auto);
-	position: relative;
-	margin: 0 .75rem;
-	flex: 1;
-}
-
-.toggleRange--meter:before,
-.toggleRange--meter:after {
-  content: "";	
-	top: -.5rem;
-	left: -.5rem;
-	height: 1rem;
-	min-width: inherit;
-	width: 100%;
-	display: block;
-	position: absolute;
-  border-radius: inherit;
-}
-
-.toggleRange--meter:before {
-  border: 1px solid var(--toggleRange--accentColor, var(--control--borderColor));
-}
-
-.toggleRange--meter:after {
-  background-color: var(--toggleRange--accentColor, var(--control--borderColor));
-	opacity: var(--toggleRange--percent, 0);
-	transition: .218s ease;
-}
-
-.toggleRange--knob {
-  --toggleRange--knobdim: 1.5rem;
-  position: absolute;
-	background-color: var(--control--backgroundColor);
-	border: 1px solid var(--toggleRange--accentColor, var(--control--borderColor));
-	height: var(--toggleRange--knobdim);
-	width: var(--toggleRange--knobdim);
-	top: 50%;
-	left: calc(var(--toggleRange--percent, 0) * 100%);
-	margin: calc(var(--toggleRange--knobdim) / -2);
+.toggleRange--input {
+	-webkit-appearance: none;
+	min-width: 3rem;
+	background: transparent;
+	border: 1px solid transparent;
 	border-radius: 1rem;
-	z-index: 1;
+	padding: 2px;
+	margin: .5rem;
+}
+
+.toggleRange[type="toggle"] .toggleRange--input {
+	width: 3rem;
 }
 
 .toggleRange:focus {
 	outline: 0;
 }
 
-.toggleRange:focus .toggleRange--knob:after {
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	height: calc(100% - 2px);
-	width: calc(100% - 2px);
-	border: 1px solid var(--control--outlineColor);
-	border-radius: inherit;
-	transform: translate(-50%, -50%);
+.toggleRange:focus .toggleRange--input,
+.toggleRange--input:focus {
+	outline: 0;
+	border-color: var(--control--outlineColor);
+}
+
+.toggleRange--input::-webkit-slider-runnable-track {
+	height: 1rem;
+	margin: 0;
+	width: 100%;
+	cursor: pointer;
+	color: var(--toggleRange--accentColor, var(--control--borderColor));
+	background: var(--toggleRange--backgroundColor, transparent);
+	border: 1px solid var(--toggleRange--accentColor, var(--control--borderColor));
+	border-radius: 1rem;
+	box-sizing: content-box;
+}
+
+.toggleRange--input::-moz-range-track {
+	height: 1rem;
+	margin: 0;
+	width: 100%;
+	cursor: pointer;
+	color: var(--toggleRange--accentColor, var(--control--borderColor));
+	background: var(--toggleRange--backgroundColor, transparent);
+	border: 1px solid var(--toggleRange--accentColor, var(--control--borderColor));
+	border-radius: 1rem;
+}
+
+.toggleRange--input::-ms-track {
+	height: 1rem;
+	margin: 0;
+	width: 100%;
+	cursor: pointer;
+	color: var(--toggleRange--accentColor, var(--control--borderColor));
+	background: var(--toggleRange--backgroundColor, transparent);
+	border: 1px solid var(--toggleRange--accentColor, var(--control--borderColor));
+	border-radius: 1rem;
+}
+
+.toggleRange--input::-ms-fill-lower {
+	background: transparent;
+}
+
+.toggleRange--input::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background: var(--control--backgroundColor);
+	border-radius: 1rem;
+	border: 1px solid var(--toggleRange--accentColor, var(--control--borderColor));
+	cursor: pointer;
+	height: 1rem;
+	width: 1rem;
+	transform: scale(1.5);
+}
+
+.toggleRange--input::-moz-range-thumb {
+	-webkit-appearance: none;
+	background: var(--control--backgroundColor);
+	border-radius: 1rem;
+	border: 1px solid var(--toggleRange--accentColor, var(--control--borderColor));
+	cursor: pointer;
+	height: 1rem;
+	width: 1rem;
+	transform: scale(1.5);
+}
+
+.toggleRange--input::-ms-thumb {
+	-webkit-appearance: none;
+	background: var(--control--backgroundColor);
+	border-radius: 1rem;
+	border: 1px solid var(--toggleRange--accentColor, var(--control--borderColor));
+	cursor: pointer;
+	height: 1rem;
+	width: 1rem;
+	transform: scale(1.5);
 }
