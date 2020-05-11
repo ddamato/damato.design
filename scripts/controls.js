@@ -32,7 +32,7 @@
   }
 
   function setAudienceVisibility(type, bool) {
-    const audienceAccess = document.querySelectorAll(`dd-access.audience-${type}`);
+    const audienceAccess = document.querySelectorAll(`select-summary.audience-${type}`);
     [...audienceAccess].forEach((access) => access.open = bool);
     if (bool) {
       document.documentElement.removeAttribute(`hide-${type}`);

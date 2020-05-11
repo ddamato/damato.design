@@ -33,4 +33,4 @@ Content specific for engineers
 :::
 
 ### Sample button
-<button class="dd-button">Click Me</button>
+<button class="button">Click Me</button>
