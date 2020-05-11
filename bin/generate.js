@@ -24,7 +24,7 @@ async function generate() {
     if (css) {
       blueprintCss += css;
     }
-    const cleanName = blueprint.toLowerCase().replace(/^dd/, '');
+    const cleanName = blueprint.toLowerCase().replace(/-/gm, '');
     const className = `Blu${cleanName}`;
     const tagName = `blu-${cleanName}`;
     console.log(tagName);

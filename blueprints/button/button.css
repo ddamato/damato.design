@@ -1,4 +1,4 @@
-.dd-button {
+.button {
   font: inherit;
   background-color: var(--action--backgroundColor);
   color: var(--action--foregroundColor);
@@ -12,7 +12,7 @@
   text-decoration: none;
 }
 
-.dd-button:focus {
+.button:focus {
   outline: 1px solid;
 	outline-offset: -3px;
 }

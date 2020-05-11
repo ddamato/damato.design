@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 }
 
-.dd-adjuster {
+.toggleRange {
 	display: inline-flex;
 	align-items: center;
 	justify-content: flex-start;
@@ -10,8 +10,8 @@
 	min-height: 1.5rem;
 }
 
-.dd-adjuster--label {
-  color: var(--adjuster--accentColor, var(--control--foregroundColor));
+.toggleRange--label {
+  color: var(--toggleRange--accentColor, var(--control--foregroundColor));
   font-weight: 500;
   font-size: .9rem;
 	text-transform: uppercase;
@@ -19,18 +19,18 @@
 	line-height: 1;
 }
 
-.dd-adjuster--meter {
+.toggleRange--meter {
   border-radius: 1rem;
 	border: .5rem solid var(--control--backgroundColor);
 	min-width: 2.5rem;
-	width: var(--adjuster-width, auto);
+	width: var(--toggleRange--width, auto);
 	position: relative;
 	margin: 0 .75rem;
 	flex: 1;
 }
 
-.dd-adjuster--meter:before,
-.dd-adjuster--meter:after {
+.toggleRange--meter:before,
+.toggleRange--meter:after {
   content: "";	
 	top: -.5rem;
 	left: -.5rem;
@@ -42,35 +42,35 @@
   border-radius: inherit;
 }
 
-.dd-adjuster--meter:before {
-  border: 1px solid var(--adjuster--accentColor, var(--control--borderColor));
+.toggleRange--meter:before {
+  border: 1px solid var(--toggleRange--accentColor, var(--control--borderColor));
 }
 
-.dd-adjuster--meter:after {
-  background-color: var(--adjuster--accentColor, var(--control--borderColor));
-	opacity: var(--adjuster-percent, 0);
+.toggleRange--meter:after {
+  background-color: var(--toggleRange--accentColor, var(--control--borderColor));
+	opacity: var(--toggleRange--percent, 0);
 	transition: .218s ease;
 }
 
-.dd-adjuster--knob {
-  --adjuster-knobdim: 1.5rem;
+.toggleRange--knob {
+  --toggleRange--knobdim: 1.5rem;
   position: absolute;
 	background-color: var(--control--backgroundColor);
-	border: 1px solid var(--adjuster--accentColor, var(--control--borderColor));
-	height: var(--adjuster-knobdim);
-	width: var(--adjuster-knobdim);
+	border: 1px solid var(--toggleRange--accentColor, var(--control--borderColor));
+	height: var(--toggleRange--knobdim);
+	width: var(--toggleRange--knobdim);
 	top: 50%;
-	left: calc(var(--adjuster-percent, 0) * 100%);
-	margin: calc(var(--adjuster-knobdim) / -2);
+	left: calc(var(--toggleRange--percent, 0) * 100%);
+	margin: calc(var(--toggleRange--knobdim) / -2);
 	border-radius: 1rem;
 	z-index: 1;
 }
 
-.dd-adjuster:focus {
+.toggleRange:focus {
 	outline: 0;
 }
 
-.dd-adjuster:focus .dd-adjuster--knob:after {
+.toggleRange:focus .toggleRange--knob:after {
 	content: "";
 	position: absolute;
 	top: 50%;

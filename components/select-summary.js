@@ -1,23 +1,23 @@
-import html from '../blueprints/ddAccess/ddAccess.html';
-import css from '../blueprints/ddAccess/ddAccess.css';
+import html from '../blueprints/select-summary/select-summary.html';
+import css from '../blueprints/select-summary/select-summary.css';
 
-class ddAccess extends HTMLElement {
+class SelectSummary extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `<style type="text/css">${css}</style>${html}`;
 
-    this._access = this.shadowRoot.querySelector('.dd-access');
-    this._checkbox = this.shadowRoot.querySelector('.dd-access--checkbox');
+    this._access = this.shadowRoot.querySelector('.selectSummary');
+    this._checkbox = this.shadowRoot.querySelector('.selectSummary--checkbox');
     this._titleSlot = this.shadowRoot.querySelector('slot[name]');
     this._contentSlot = this.shadowRoot.querySelector('slot:not([name])');
     
 
     if (this.type !== 'details') {
-      this._access.classList.add('dd-access--single');
+      this._access.classList.add('selectSummary--single');
       this._contentSlot.addEventListener('slotchange', () => {
         const options = this._contentSlot.assignedElements();
-        this._access.classList.toggle('dd-access--single', options.length === 1);
+        this._access.classList.toggle('selectSummary--single', options.length === 1);
 
         let chosen = options[0];
         [...options].forEach((option) => {
@@ -98,4 +98,4 @@ class ddAccess extends HTMLElement {
   }
 }
 
-window.customElements.define('dd-access', ddAccess);
+window.customElements.define('select-summary', SelectSummary);

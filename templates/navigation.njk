@@ -1,10 +1,10 @@
 <div class="navigation">
   {% for item in sitemap %}
-  <dd-access type="menu" {{ 'open' if item.page === title }}>
+  <select-summary type="menu" {{ 'open' if item.page === title }}>
     <a slot="title" href="{{ item.filename }}">{{ item.page }}</a>
     {% for section in item.sections %}
-      <a class="dd-access--option" href="{{ item.filename }}#{{ section.slug }}">{{ section.anchor }}</a>
+      <a class="selectSummary--option" href="{{ item.filename }}#{{ section.slug }}">{{ section.anchor }}</a>
     {% endfor %}
-  </dd-access>
+  </select-summary>
   {% endfor %}
 </div>

@@ -20,11 +20,11 @@ Some different content
 </blu-textfield>
 
 ### Sample dropdown
-<dd-access type="select">
-  <button class="dd-access--option">Option 1</button>
-  <button class="dd-access--option">Option 2</button>
-  <button class="dd-access--option">Option 3</button>
-</dd-access>
+<select-summary type="select">
+  <button class="selectSummary--option">Option 1</button>
+  <button class="selectSummary--option">Option 2</button>
+  <button class="selectSummary--option">Option 3</button>
+</select-summary>
 
 ### Sample engineering content
 ::: audience-engineer

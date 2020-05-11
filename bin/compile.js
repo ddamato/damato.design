@@ -34,12 +34,12 @@ function audienceContainers(tokens, idx) {
     }
 
     return `
-      <dd-access type="details" class="${type}" open>
+      <select-summary type="details" class="${type}" open>
         <span slot="title">${title}</span>
       `;
   }
 
-  return '</dd-access>'
+  return '</select-summary>'
 }
 
 md.use(mdHighlight)

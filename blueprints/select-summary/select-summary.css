@@ -1,0 +1,166 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+.selectSummary :focus,
+::slotted(a:focus) {
+	outline: 0;
+	text-decoration: underline;
+}
+
+.selectSummary--checkbox:focus + .selectSummary--header {
+	outline: 1px solid var(--control--outlineColor);
+	outline-offset: -3px;
+}
+
+.selectSummary--header {
+	position: relative;
+	font-weight: 500;
+	font-size: .9rem;
+	border: 1px solid transparent;
+	border-radius: 2px;
+}
+
+.selectSummary:not([type="menu"]) .selectSummary--header {
+	border-color: var(--accent--defaultColor);
+}
+
+.selectSummary--checkbox:checked + .selectSummary--header {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.selectSummary[type="menu"] .selectSummary--checkbox:checked + .selectSummary--header {
+	border-color: var(--accent--defaultColor);
+}
+
+.selectSummary--header > * {
+	display: block;
+	padding: .5rem 1rem;
+}
+
+.selectSummary--label {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+  text-transform: uppercase;
+}
+
+.selectSummary--single .selectSummary--label,
+.selectSummary--single .selectSummary--checkbox {
+	display: none;
+}
+
+.selectSummary--label:after {
+	font-family: fontawesome;
+	margin-left: 1ch;
+}
+
+.selectSummary:not([type="select"]) .selectSummary--header {
+	text-transform: uppercase;
+}
+
+.selectSummary[type="menu"] .selectSummary--label:after {
+	content: "\f067";
+}
+
+.selectSummary[type="menu"] .selectSummary--header:hover {
+	background-color: var(--accent--defaultColor);
+	color: var(--onAccent--defaultColor);
+	cursor: pointer;
+}
+
+.selectSummary[type="menu"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label:after {
+	content: "\f068";
+}
+
+.selectSummary[type="menu"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label {
+	width: auto;
+}
+
+.selectSummary[type="select"] .selectSummary--label:after {
+	content: "\f063";
+}
+
+.selectSummary[type="select"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label:after {
+	content: "\f060";
+}
+
+.selectSummary[type="details"] .selectSummary--header {
+	color: var(--accent--defaultColor);
+}
+
+.selectSummary[type="select"] .selectSummary--label {
+	color: var(--accent--defaultColor);
+}
+
+.selectSummary[type="details"] .selectSummary--label:before {
+	content: "SHOW";
+}
+
+.selectSummary[type="details"] .selectSummary--label:after {
+	content: "\f06e";
+}
+
+.selectSummary[type="details"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label:before {
+	content: "HIDE";
+}
+
+.selectSummary[type="details"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label:after {
+	content: "\f070";
+}
+
+.selectSummary--checkbox {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.selectSummary--content {
+	border: 1px solid transparent;
+	border-top: 0;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	display: none;
+}
+
+.selectSummary:not([type="menu"]) .selectSummary--content {
+	border-color: var(--accent--defaultColor);
+}
+
+.selectSummary[type="menu"] .selectSummary--checkbox:checked ~ .selectSummary--content {
+	border-color: var(--accent--defaultColor);
+}
+
+.selectSummary[type="details"] .selectSummary--content {
+	padding: 0 1rem;
+}
+
+:not(.selectSummary--single) .selectSummary--checkbox:checked ~ .selectSummary--content {
+	display: flow-root;
+}
+
+.selectSummary[type="menu"] ::slotted(a),
+.selectSummary[type="select"] ::slotted(button)  {
+	display: block;
+}
+
+::slotted(a[slot="title"]) {
+	color: inherit;
+}
+
+slot[name="title"]:focus {
+	outline: 1px solid #fff;
+}
+
+::slotted(a[slot="title"]:not(:focus)) {
+	text-decoration: none;
+}

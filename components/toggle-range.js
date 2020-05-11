@@ -1,13 +1,13 @@
-import html from '../blueprints/ddAdjuster/ddAdjuster.html';
-import css from '../blueprints/ddAdjuster/ddAdjuster.css';
+import html from '../blueprints/toggle-range/toggle-range.html';
+import css from '../blueprints/toggle-range/toggle-range.css';
 
-class ddAdjuster extends HTMLElement {
+class ToggleRange extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `<style type="text/css">${css}</style>${html}`;
 
-    this._adjuster = this.shadowRoot.querySelector('.dd-adjuster');
+    this._adjuster = this.shadowRoot.querySelector('.toggleRange');
 
     if (this.type === 'toggle') {
       this.addEventListener('click', () => this.chosen = !this.chosen);
@@ -31,7 +31,7 @@ class ddAdjuster extends HTMLElement {
 
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (attrName === 'chosen' && this.type === 'toggle') {
-      this._adjuster.style.setProperty('--adjuster-percent', Number(this.chosen));
+      this._adjuster.style.setProperty('--toggleRange--percent', Number(this.chosen));
       this.sendChangedEvent();
     }
   }
@@ -67,4 +67,4 @@ class ddAdjuster extends HTMLElement {
   }
 }
 
-window.customElements.define('dd-adjuster', ddAdjuster);
+window.customElements.define('toggle-range', ToggleRange);
