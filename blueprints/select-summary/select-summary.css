@@ -119,7 +119,7 @@
 }
 
 .selectSummary--checkbox {
-	position: absolute;
+	position: fixed;
 	opacity: 0;
 	pointer-events: none;
 }
