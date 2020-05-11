@@ -114,7 +114,7 @@ body {
 }
 
 #navigation-toggle {
-  position: absolute;
+  position: fixed;
   opacity: 0;
   pointer-events: none;
   display: none;
@@ -153,15 +153,10 @@ body {
 }
 
 @media (max-width: 720px) {
-  body {
-    overflow: hidden;
-  }
 
   .app {
     flex-direction: column;
     padding: 0;
-    height: 100vh;
-    overflow-y: auto;
   }
 
   .app > nav {
@@ -177,7 +172,8 @@ body {
   }
 
   .app > main {
-    margin: 1rem;
+    overflow-y: auto;
+    padding: 1rem;
   }
 
   .navigation {
