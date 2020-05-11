@@ -11,6 +11,11 @@
 	position: relative;
 }
 
+.toggleRange[type="range"] {
+  display: flex;
+  width: 100%;
+}
+
 .toggleRange[type="toggle"]:before {
 	content: "";
 	position: absolute;
@@ -37,7 +42,8 @@
 	border: 1px solid transparent;
 	border-radius: 1rem;
 	padding: 2px;
-	margin: .5rem;
+  margin: .5rem 1rem;
+  flex: 1;
 }
 
 .toggleRange[type="toggle"] .toggleRange--input {

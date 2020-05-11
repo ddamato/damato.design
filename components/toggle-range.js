@@ -9,6 +9,9 @@ class ToggleRange extends HTMLElement {
 
     this._toggleRange = this.shadowRoot.querySelector('.toggleRange');
     this._input = this.shadowRoot.querySelector('.toggleRange--input');
+    this._output = this.shadowRoot.querySelector('.toggleRange--output');
+
+    this._toggleRange.setAttribute('type', this.type);
 
     if (this.type === 'toggle') {
       this._input.min = 0;
@@ -17,30 +20,43 @@ class ToggleRange extends HTMLElement {
       this.addEventListener('click', () => this.chosen = !this.chosen);
     }
 
+    if (this.type === 'range') {
+      this._input.value = this.value;
+      this._input.setAttribute('value', this.value);
+      this._input.min = this.min;
+      this._input.max = this.max;
+      this._input.step = this.getAttribute('step');
+      this._input.addEventListener('input', (ev) => {
+        this.value = ev.target.value;
+      });
+    }
+
     this.addEventListener('keydown', (ev) => {
       if (document.activeElement === this && ev.code.toLowerCase() === 'space') {
         ev.preventDefault();
-        
         if (this.type === 'toggle') {
           this.chosen = !this.chosen;
         }
-
       }
     });
   }
 
-  connectedCallback() {
-    // this.updateColor();
-  }
-
   static get observedAttributes() {
-    return ['type', 'chosen'];
+    return ['type', 'chosen', 'value'];
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (attrName === 'chosen' && this.type === 'toggle') {
       this._input.value = Number(this.chosen);
       this._input.setAttribute('value', this._input.value);
+      this.sendChangedEvent();
+    }
+
+    if (attrName === 'value' && this.type === 'range') {
+      this._output.value = this.value;
+      if (this._input.value !== newVal) {
+        this._input.value = newVal;
+      }
       this.sendChangedEvent();
     }
   }
@@ -65,11 +81,36 @@ class ToggleRange extends HTMLElement {
     }
   }
 
+  get min() {
+    return Number(this.getAttribute('min')) || 0;
+  }
+
+  set min(newVal) {
+    this.setAttribute('min', newVal);
+  }
+
+  get max() {
+    return Number(this.getAttribute('max')) || 1;
+  }
+
+  set max(newVal) {
+    this.setAttribute('max', newVal);
+  }
+
+  get value() {
+    return Number(this.getAttribute('value'));
+  }
+
+  set value(newVal) {
+    this.setAttribute('value', newVal);
+  }
+
   sendChangedEvent() {
     const event = new CustomEvent('change', {
       detail: {
         type: this.type,
-        chosen: this.chosen
+        chosen: this.chosen,
+        value: this.value,
       }
     });
     this.dispatchEvent(event);
