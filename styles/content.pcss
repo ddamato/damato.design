@@ -108,12 +108,26 @@
     top: 1.5rem;
   }
 
-  blockquote :first-child {
+  blockquote p:first-child {
     margin-top: 0;
   }
 
-  blockquote :last-child {
+  blockquote p:last-child {
     margin-bottom: 0;
+  }
+
+  blockquote em {
+    display: block;
+    text-align: right;
+    font-size: var(--textCaption--fontSize);
+    font-weight: var(--textCaption--fontWeight);
+    line-height: var(--textCaption--lineHeight);
+    margin-top: 1rem;
+  }
+
+  blockquote em:before {
+    content: "\002014";
+    margin-right: 1ch;
   }
 
   code.hljs {
