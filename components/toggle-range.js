@@ -7,7 +7,7 @@ class ToggleRange extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `<style type="text/css">${css}</style>${html}`;
 
-    this._adjuster = this.shadowRoot.querySelector('.toggleRange');
+    this._toggleRange = this.shadowRoot.querySelector('.toggleRange');
 
     if (this.type === 'toggle') {
       this.addEventListener('click', () => this.chosen = !this.chosen);
@@ -31,7 +31,7 @@ class ToggleRange extends HTMLElement {
 
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (attrName === 'chosen' && this.type === 'toggle') {
-      this._adjuster.style.setProperty('--toggleRange--percent', Number(this.chosen));
+      this._toggleRange.style.setProperty('--toggleRange--percent', Number(this.chosen));
       this.sendChangedEvent();
     }
   }

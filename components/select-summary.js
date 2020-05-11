@@ -7,17 +7,17 @@ class SelectSummary extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `<style type="text/css">${css}</style>${html}`;
 
-    this._access = this.shadowRoot.querySelector('.selectSummary');
+    this._selectSummary = this.shadowRoot.querySelector('.selectSummary');
     this._checkbox = this.shadowRoot.querySelector('.selectSummary--checkbox');
     this._titleSlot = this.shadowRoot.querySelector('slot[name]');
     this._contentSlot = this.shadowRoot.querySelector('slot:not([name])');
     
 
     if (this.type !== 'details') {
-      this._access.classList.add('selectSummary--single');
+      this._selectSummary.classList.add('selectSummary--single');
       this._contentSlot.addEventListener('slotchange', () => {
         const options = this._contentSlot.assignedElements();
-        this._access.classList.toggle('selectSummary--single', options.length === 1);
+        this._selectSummary.classList.toggle('selectSummary--single', options.length === 1);
 
         let chosen = options[0];
         [...options].forEach((option) => {
@@ -50,7 +50,7 @@ class SelectSummary extends HTMLElement {
 
   attributeChangedCallback(attrName) {
     if (attrName === 'type') {
-      this._access.setAttribute('type', this.type);
+      this._selectSummary.setAttribute('type', this.type);
     }
 
     if (attrName === 'open') {
