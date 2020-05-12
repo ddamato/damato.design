@@ -1,5 +1,9 @@
 @media (max-width: 720px) {
 
+  html {
+    --scrollOffset: calc(5rem + 1px);
+  }
+
   .app {
     flex-direction: column;
     padding: 0;
@@ -50,10 +54,5 @@
 
   #navigation-toggle:checked + nav .nav-button:after {
     content: '\f00d';
-  }
-
-  .content-anchor {
-    margin-top: -5rem;
-    padding-top: 5rem;
   }
 }
