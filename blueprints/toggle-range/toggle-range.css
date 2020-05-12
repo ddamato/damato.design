@@ -33,6 +33,7 @@
 	text-transform: uppercase;
 	text-align: right;
 	line-height: 1;
+	margin-right: 1rem;
 }
 
 .toggleRange--input {
@@ -42,7 +43,7 @@
 	border: 1px solid transparent;
 	border-radius: 1rem;
 	padding: 2px;
-  margin: .5rem 1rem;
+  margin: .5rem 0;
   flex: 1;
 }
 
@@ -133,4 +134,8 @@
 	height: 1rem;
 	width: 1rem;
 	transform: scale(1.5);
+}
+
+.toggleRange--output {
+	margin-left: 1rem;
 }
