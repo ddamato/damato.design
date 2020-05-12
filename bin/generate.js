@@ -2,10 +2,29 @@ const path = require('path');
 const fs = require('fs-extra');
 const glob = require('glob-fs')({ gitignore: true });
 const terser = require('terser');
+const postcss = require('postcss');
+const nested = require('postcss-nested');
+const mixins = require('postcss-sassy-mixins');
+const cssminifier = require('css-simple-minifier');
 
-const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site'); 
+const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site');
+
+async function bundleCSS() {
+  const pcssFileOrder = ['vars.pcss', 'index.pcss', 'content.pcss', 'mobile.pcss'];
+  const pcss = pcssFileOrder.reduce((pcss, pcssFileName) => {
+    const filePath = path.resolve(__dirname, '..', 'styles', pcssFileName);
+    return pcss + fs.readFileSync(filePath, { encoding: 'utf8'});
+  }, '');
+  const { css } = await postcss([
+    nested(),
+    mixins(),
+  ]).process(pcss, { from: undefined });
+  return css;
+}
 
 async function generate() {
+  let siteCss = await bundleCSS();
+
   const files = await glob.readdirPromise('blueprints/**');
   const blueprints = {};
   files.forEach((file) => {
@@ -16,13 +35,11 @@ async function generate() {
     }
     blueprints[basename][extension.slice(1)] = fs.readFileSync(file).toString().replace(/\r?\n|\r/g, '');
   });
-  
-  let blueprintCss = '';
 
   const elements = Object.keys(blueprints).map((blueprint) => {
     const { html, css } = blueprints[blueprint];
     if (css) {
-      blueprintCss += css;
+      siteCss += css;
     }
     const cleanName = blueprint.toLowerCase().replace(/-/gm, '');
     const className = `Blu${cleanName}`;
@@ -40,7 +57,7 @@ async function generate() {
   }).join('');
 
   const elementsFileName = `${COMPILED_SITE_PATH}/elements.js`;
-  const blueprintCssFileName = `${COMPILED_SITE_PATH}/blueprints.css`;
+  const stylesCssFileName = `${COMPILED_SITE_PATH}/styles.css`;
 
   const { code } = terser.minify(elements);
   const elementsJs = code || elements;
@@ -48,8 +65,8 @@ async function generate() {
   fs.ensureFileSync(elementsFileName);
   fs.writeFileSync(elementsFileName, elementsJs, { encoding: 'utf8' });
 
-  fs.ensureFileSync(blueprintCssFileName);
-  fs.writeFileSync(blueprintCssFileName, blueprintCss, { encoding: 'utf8' });
+  fs.ensureFileSync(stylesCssFileName);
+  fs.writeFileSync(stylesCssFileName, cssminifier(siteCss), { encoding: 'utf8' });
 }
 
 generate();

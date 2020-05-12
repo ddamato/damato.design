@@ -6,6 +6,10 @@
   const codeHighlightStylesLight = document.getElementById('hljs-light');
   const codeHighlightStylesDark = document.getElementById('hljs-dark');
 
+  const navigationLinks = document.querySelector('.navigation a');
+  const navigationToggle = document.getElementById('navigation-toggle');
+  navigationLinks.addEventListener('click', () =>  navigationToggle.checked = false);
+
   function toggleCodeHighlight() {
     const body = window.getComputedStyle(document.body);
     const color = body.getPropertyValue('background-color');
