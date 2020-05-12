@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": " rm -rf _site && npm run compile && npm run generate && npm run bundle && npm run copy",
+    "build": " rm -rf _site && npm run compile && npm run bundle && npm run copy",
     "compile": "node ./bin/compile.js",
     "bundle": "node ./bin/bundle.js",
-    "generate": "node ./bin/generate.js",
-    "copy": "cp -r images _site && cp -r scripts _site"
+    "copy": "cp -r images _site"
   },
   "repository": {
     "type": "git",
