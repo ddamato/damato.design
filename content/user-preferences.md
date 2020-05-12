@@ -1,7 +1,7 @@
 ---
-page: Getting Started
+page: Introduction
 anchor: User Preferences
-order: 2
+order: 3
 ---
 
 ## user preferences

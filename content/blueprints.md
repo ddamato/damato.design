@@ -1,6 +1,6 @@
 ---
-page: Components
-order: 7
+page: Blueprints
+order: 6
 ---
 
 # be **heard**

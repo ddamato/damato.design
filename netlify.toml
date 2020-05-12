@@ -4,5 +4,5 @@
 
 [[redirects]]
   from = "/"
-  to = "/getting-started"
+  to = "/introduction"
   status = 200 # Hide the url as index
