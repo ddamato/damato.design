@@ -17,7 +17,6 @@ class ToggleRange extends HTMLElement {
       this._input.min = 0;
       this._input.max = 1;
       this._input.style.pointerEvents = 'none';
-      this.addEventListener('click', () => this.chosen = !this.chosen);
     }
 
     if (this.type === 'range') {
@@ -26,6 +25,17 @@ class ToggleRange extends HTMLElement {
       this._input.min = this.min;
       this._input.max = this.max;
       this._input.step = this.getAttribute('step');
+    }
+  }
+
+  connectedCallback() {
+    if (this.type === 'toggle') {
+      this.addEventListener('click', () => {
+        this.chosen = !this.chosen;
+      });
+    }
+
+    if (this.type === 'range') {
       this._input.addEventListener('input', (ev) => {
         this.value = ev.target.value;
       });
@@ -46,6 +56,7 @@ class ToggleRange extends HTMLElement {
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
+
     if (attrName === 'chosen' && this.type === 'toggle') {
       this._input.value = Number(this.chosen);
       this._input.setAttribute('value', this._input.value);
