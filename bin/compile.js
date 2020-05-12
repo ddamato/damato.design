@@ -75,7 +75,7 @@ function renderConfig(config) {
   const id = slug ? `id="${slug}"` : '';
   if (markdown) {
     const html = md.render(markdown);
-    return `<section ${id} class="content-section" data-page="${page}">${html}</section>`;
+    return `<div ${id} class="content-anchor"><section class="content-section" data-page="${page}">${html}</section></div>`;
   }
   return '';
 }
