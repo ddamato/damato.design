@@ -22,7 +22,7 @@ body {
   min-height: 100vh;
   max-width: 960px;
   margin: 0 auto;
-  padding: 1rem;
+  padding-left: 1rem;
   display: flex;
 }
 
@@ -33,7 +33,6 @@ body {
   background-color: var(--box--backgroundColor);
   color: var(--box--foregroundColor);
   border-radius: 2px;
-  margin-right: 1rem;
   position: sticky;
   top: 1rem;
   align-self: flex-start;
@@ -125,8 +124,21 @@ body {
   display: none;
 }
 
+#navigation-toggle:focus + nav .nav-button {
+  border-bottom: 1px solid var(--control--outlineColor);
+}
+
+#navigation-toggle:checked + nav .nav-button:before {
+  content: 'Close';
+}
+
+#navigation-toggle:checked + nav .nav-button:after {
+  content: '\f00d';
+}
+
 .app > main {
   flex: 1;
+  margin: 1rem;
 }
 
 .controls {
