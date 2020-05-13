@@ -94,7 +94,7 @@
 	content: "\f060";
 }
 
-.selectSummary[type="details"] .selectSummary--header {
+.selectSummary[type="summary"] .selectSummary--header {
 	color: var(--accent--defaultColor);
 }
 
@@ -102,19 +102,19 @@
 	color: var(--accent--defaultColor);
 }
 
-.selectSummary[type="details"] .selectSummary--label:before {
+.selectSummary[type="summary"] .selectSummary--label:before {
 	content: "SHOW";
 }
 
-.selectSummary[type="details"] .selectSummary--label:after {
+.selectSummary[type="summary"] .selectSummary--label:after {
 	content: "\f06e";
 }
 
-.selectSummary[type="details"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label:before {
+.selectSummary[type="summary"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label:before {
 	content: "HIDE";
 }
 
-.selectSummary[type="details"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label:after {
+.selectSummary[type="summary"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label:after {
 	content: "\f070";
 }
 
@@ -140,7 +140,7 @@
 	border-color: var(--accent--defaultColor);
 }
 
-.selectSummary[type="details"] .selectSummary--content {
+.selectSummary[type="summary"] .selectSummary--content {
 	padding: 0 1rem;
 }
 

@@ -33,7 +33,7 @@ function audienceContainers(tokens, idx) {
     }
 
     return `
-      <select-summary type="details" class="${type}" open>
+      <select-summary type="summary" class="${type}" open>
         <span slot="title">${title}</span>
       `;
   }
@@ -48,8 +48,11 @@ md.use(mdCollapsible)
 const sitemap = [];
 
 async function compile() {
-  const files = await glob.readdirPromise('content/*.md');
-  files.forEach((file) => {
+  const contentFiles = await glob.readdirPromise('content/*.md');
+  const componentFiles = await glob.readdirPromise('components/**/*.md');
+  const mdFiles = [].concat(contentFiles, componentFiles).filter((file) => path.extname(file) === '.md');
+  
+  mdFiles.forEach((file) => {
     const contents = fs.readFileSync(file).toString();
     prepareSitemap(path.basename(file, '.md'), fm(contents));
   });

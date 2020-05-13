@@ -13,7 +13,7 @@ class SelectSummary extends HTMLElement {
     this._contentSlot = this.shadowRoot.querySelector('slot:not([name])');
     
 
-    if (this.type !== 'details') {
+    if (this.type !== 'summary') {
       this._selectSummary.classList.add('selectSummary--single');
       this._contentSlot.addEventListener('slotchange', () => {
         const options = this._contentSlot.assignedElements();

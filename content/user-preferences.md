@@ -25,37 +25,6 @@ var myName = "Donnie";
 
 Some different content
 
-### Sample input
-<blu-textfield selfdocument input-placeholder="Enter text here">
-  Label
-  <button class="button" slot="button">Submit</button>
-</blu-textfield>
-
-### blueprint dropdown
-<blu-selectsummary selfdocument type="select">
-  <span slot="title">Option 1</span>
-  <button class="selectSummary--option">Option 1</button>
-  <button class="selectSummary--option">Option 2</button>
-  <button class="selectSummary--option">Option 3</button>
-</blu-selectsummary>
-
-### blueprint toggle
-<blu-togglerange selfdocument type="toggle" input-value="1" input-min="0" input-max="1">
-  Toggle
-</blu-togglerange>
-
-### blueprint range
-<blu-togglerange selfdocument type="range" input-value="3" input-min="0" input-max="10">
-  Range
-  <output slot="output">3</output>
-</blu-togglerange>
-
-### Sample dropdown
-<select-summary type="select">
-  <button class="selectSummary--option">Option 1</button>
-  <button class="selectSummary--option">Option 2</button>
-  <button class="selectSummary--option">Option 3</button>
-</select-summary>
 
 ### Sample engineering content
 ::: audience-engineer

@@ -118,7 +118,7 @@ function renderCode(slot) {
 const SELF_CLOSING = [].concat(voidElements, svgElements);
 
 function prepareHTML(html) {
-  const tags = html.replace(/>\s*(\w+)\s*</gm, '>$1<').replace(/>\s+</gm, '>\n<').split('\n');
+  const tags = html.replace(/>\s*([a-zA-Z0-9 ]+)\s*</gm, '>$1<').replace(/>\s+</gm, '>\n<').split('\n');
   let indent = 0;
  html = tags.map((tag) => {
 
