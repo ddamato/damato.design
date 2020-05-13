@@ -1,3 +1,34 @@
+const svgElements = [
+  'circle',
+  'ellipse',
+  'line',
+  'path',
+  'polygon',
+  'polyline',
+  'rect',
+  'stop',
+  'use'
+];
+
+const voidElements = [
+  'area',
+  'base',
+  'br',
+  'col',
+  'command',
+  'embed',
+  'hr',
+  'img',
+  'input',
+  'keygen',
+  'link',
+  'meta',
+  'param',
+  'source',
+  'track',
+  'wbr'
+];
+
 class BluComponent extends HTMLElement {
   constructor() {
     super();
@@ -81,7 +112,34 @@ function renderCode(slot) {
 
   const remainingSlots = template.content.querySelectorAll('slot');
   [...remainingSlots].forEach((slot) => !slot.assignedNodes().length &&  slot.remove());
-  this._adjacentCode.innerHTML = template.innerHTML.replace(/[\u00A0-\u9999<>\&]/gim, (i) => '&#' + i.charCodeAt(0) + ';');;
+  this._adjacentCode.innerHTML = prepareHTML(template.innerHTML);
+}
+
+const SELF_CLOSING = [].concat(voidElements, svgElements);
+
+function prepareHTML(html) {
+  const tags = html.replace(/>\s*(\w+)\s*</gm, '>$1<').replace(/>\s+</gm, '>\n<').split('\n');
+  let indent = 0;
+ html = tags.map((tag) => {
+
+    if (/^<\//.test(tag)) {
+      indent -= 1;
+    }
+
+    let padding = '';
+    if (indent > 0) {
+      padding = Array(indent).fill('  ').join('');
+    }
+
+    const tagName = tag.replace(/<([^ ]+).*/gm, '$1');
+    if (!/\//gm.test(tag) && !~SELF_CLOSING.indexOf(tagName)) {
+      indent += 1;
+    }
+
+    return padding + tag;
+  }).join('\n');
+  html = html.replace(/[\u00A0-\u9999<>\&]/gim, (i) => '&#' + i.charCodeAt(0) + ';');
+  return html;
 }
 
 window.BluComponent = BluComponent;

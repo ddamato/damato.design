@@ -9,7 +9,7 @@ class SelectSummary extends HTMLElement {
 
     this._selectSummary = this.shadowRoot.querySelector('.selectSummary');
     this._checkbox = this.shadowRoot.querySelector('.selectSummary--checkbox');
-    this._titleSlot = this.shadowRoot.querySelector('slot[name]');
+    this._titleSlot = this.shadowRoot.querySelector('slot[name="title"]');
     this._contentSlot = this.shadowRoot.querySelector('slot:not([name])');
     
 
