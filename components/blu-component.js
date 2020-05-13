@@ -60,9 +60,9 @@ function renderCode(slot) {
   if (slotTarget) {
     const nodes = slot.assignedNodes();
     const frag = document.createDocumentFragment();
-    [...nodes].forEach((node) => frag.appendChild(node.cloneNode(true)));
+    [...nodes].forEach((node) =>frag.appendChild(node.cloneNode(true)));
     slotTarget.parentNode.replaceChild(frag, slotTarget);
-    this._currentHTML = template.innerHTML;
+    this._currentHTML = template.innerHTML.replace(/\n(\ {2,})/gmi, (m, n) => n.length % 2 === 1 ? m.slice(0, -1) : m);
   }
   this._adjacentCode.innerHTML = this._currentHTML.replace(/[\u00A0-\u9999<>\&]/gim, (i) => '&#' + i.charCodeAt(0) + ';');;
 }
