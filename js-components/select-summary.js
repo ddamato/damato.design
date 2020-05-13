@@ -12,7 +12,9 @@ class SelectSummary extends HTMLElement {
     this._titleSlot = this.shadowRoot.querySelector('slot[name="title"]');
     this._contentSlot = this.shadowRoot.querySelector('slot:not([name])');
     
+  }
 
+  connectedCallback() {
     if (this.type !== 'summary') {
       this._selectSummary.classList.add('selectSummary--single');
       this._contentSlot.addEventListener('slotchange', () => {

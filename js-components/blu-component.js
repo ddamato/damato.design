@@ -67,18 +67,30 @@ class BluComponent extends HTMLElement {
   }
 
   disconnectedCallback() {
-    if (this._adjacentPre) {
-      this._adjacentPre.remove();
+    if (this._selfdocumentation) {
+      this._selfdocumentation.remove();
     }
   }
 }
 
 function showCode() {
-  this._adjacentPre = document.createElement('pre');
+  this._selfdocumentation = document.createElement('select-summary');
+  this._selfdocumentation.setAttribute('type', 'summary');
+  this._selfdocumentation.classList.add('audience-engineer');
+  const title = document.createElement('span');
+  title.innerText = 'Blueprint HTML';
+  title.setAttribute('slot', 'title');
+  this._selfdocumentation.appendChild(title);
+  
+
+  const pre = document.createElement('pre');
   this._adjacentCode = document.createElement('code');
   this._adjacentCode.classList.add('language-html');
-  this._adjacentPre.appendChild(this._adjacentCode);
-  this.after(this._adjacentPre);
+  pre.appendChild(this._adjacentCode);
+  this._selfdocumentation.appendChild(pre);
+
+  this.after(this._selfdocumentation);
+  
   this._currentHTML = '';
 
   const slots = this.shadowRoot.querySelectorAll('slot');
