@@ -4,12 +4,13 @@ class TypescaleRange extends HTMLElement {
   constructor() {
     super();
 
-    const typescaleFactor = window.getComputedStyle(document.documentElement).getPropertyValue(TYPESCALE_CSS_CUSTOMPROPERTY);
+    const typescaleFactor = window.getComputedStyle(document.documentElement).getPropertyValue(TYPESCALE_CSS_CUSTOMPROPERTY).trim();
 
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `
     <toggle-range type="range" min="1" max="2" step="0.1" value="${typescaleFactor}">
       Typescale Factor
+      <output slot="output">${typescaleFactor}</output>
     </toggle-range>`;
 
     const toggleRange = this.shadowRoot.querySelector('toggle-range');

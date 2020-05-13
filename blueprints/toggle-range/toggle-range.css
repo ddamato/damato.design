@@ -136,6 +136,7 @@
 	transform: scale(1.5);
 }
 
+::slotted([slot="output"]),
 .toggleRange--input + .toggleRange--output {
 	margin-left: 1rem;
 }

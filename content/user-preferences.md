@@ -39,6 +39,17 @@ Some different content
   <button class="selectSummary--option">Option 3</button>
 </blu-selectsummary>
 
+### blueprint toggle
+<blu-togglerange selfdocument type="toggle" input-value="1" input-min="0" input-max="1">
+  Toggle
+</blu-togglerange>
+
+### blueprint range
+<blu-togglerange selfdocument type="range" input-value="3" input-min="0" input-max="10">
+  Range
+  <output slot="output">3</output>
+</blu-togglerange>
+
 ### Sample dropdown
 <select-summary type="select">
   <button class="selectSummary--option">Option 1</button>

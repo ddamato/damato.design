@@ -9,36 +9,31 @@ class ToggleRange extends HTMLElement {
 
     this._toggleRange = this.shadowRoot.querySelector('.toggleRange');
     this._input = this.shadowRoot.querySelector('.toggleRange--input');
-    this._output = this.shadowRoot.querySelector('.toggleRange--output');
+    this._input.step = this.getAttribute('step');
+    const outputSlot = this.shadowRoot.querySelector('slot[name="output"]');
+    outputSlot.addEventListener('slotchange', () => {
+      this._output = outputSlot.assignedElements()[0];
+    });
 
     this._toggleRange.setAttribute('type', this.type);
-
-    if (this.type === 'toggle') {
-      this._input.min = 0;
-      this._input.max = 1;
-      this._input.style.pointerEvents = 'none';
-    }
-
-    if (this.type === 'range') {
-      this._input.value = this.value;
-      this._input.setAttribute('value', this.value);
-      this._input.min = this.min;
-      this._input.max = this.max;
-      this._input.step = this.getAttribute('step');
-    }
   }
 
   connectedCallback() {
     if (this.type === 'toggle') {
-      this.addEventListener('click', () => {
-        this.chosen = !this.chosen;
-      });
+      this._input.min = 0;
+      this._input.max = 1;
+      this._input.value = this.value || Number(this.chosen);
+      this._input.setAttribute('value', this._input.value);
+      this._input.style.pointerEvents = 'none';
+      this.addEventListener('click', () => this.chosen = !this.chosen);
     }
 
     if (this.type === 'range') {
-      this._input.addEventListener('input', (ev) => {
-        this.value = ev.target.value;
-      });
+      this._input.min = this.min;
+      this._input.max = this.max;
+      this._input.value = this.value;
+      this._input.setAttribute('value', this._input.value);
+      this._input.addEventListener('input', (ev) => this.value = ev.target.value);
     }
 
     this.addEventListener('keydown', (ev) => {
@@ -64,9 +59,13 @@ class ToggleRange extends HTMLElement {
     }
 
     if (attrName === 'value' && this.type === 'range') {
-      this._output.value = this.value;
+      if (this._output) {
+        this._output.value = this.value;
+      }
+
       if (this._input.value !== newVal) {
         this._input.value = newVal;
+        this._input.setAttribute('value', this._input.value);
       }
       this.sendChangedEvent();
     }
