@@ -4,7 +4,7 @@ class BluComponent extends HTMLElement {
   }
 
   connectedCallback() {
-    const baseComponent = this.shadowRoot.children[1];
+    const baseComponent = this.shadowRoot.lastElementChild;
     const baseClassName = baseComponent.classList[0];
     this._attributeList = [];
 

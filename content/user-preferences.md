@@ -20,6 +20,14 @@ Some different content
   <button class="button" slot="button">Submit</button>
 </blu-textfield>
 
+### blueprint dropdown
+<blu-selectsummary selfdocument type="select">
+  <span slot="title">Option 1</span>
+  <button class="selectSummary--option">Option 1</button>
+  <button class="selectSummary--option">Option 2</button>
+  <button class="selectSummary--option">Option 3</button>
+</blu-selectsummary>
+
 ### Sample dropdown
 <select-summary type="select">
   <button class="selectSummary--option">Option 1</button>
