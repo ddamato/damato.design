@@ -1,5 +1,5 @@
-import html from '../blueprints/select-summary/select-summary.html';
-import css from '../blueprints/select-summary/select-summary.css';
+import html from '../components/select-summary/select-summary.html';
+import css from '../components/select-summary/select-summary.css';
 
 class SelectSummary extends HTMLElement {
   constructor() {

@@ -13,7 +13,7 @@ const html = require('rollup-plugin-html');
 const postcssPlugin = require('rollup-plugin-postcss');
 
 const SCRIPTS_PATH = path.resolve(__dirname, '..', 'scripts');
-const COMPONENT_PATH = path.resolve(__dirname, '..', 'components');
+const COMPONENT_PATH = path.resolve(__dirname, '..', 'js-components');
 const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site');
 
 async function bundleCSS() {
@@ -56,7 +56,7 @@ async function bundle() {
   let siteCss = await bundleCSS();
   let siteJs = await bundleJS();
 
-  const files = await glob.readdirPromise('blueprints/**');
+  const files = await glob.readdirPromise('components/**');
   const blueprints = {};
   files.forEach((file) => {
     const extension = path.extname(file);

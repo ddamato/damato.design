@@ -1,5 +1,5 @@
-import html from '../blueprints/toggle-range/toggle-range.html';
-import css from '../blueprints/toggle-range/toggle-range.css';
+import html from '../components/toggle-range/toggle-range.html';
+import css from '../components/toggle-range/toggle-range.css';
 
 class ToggleRange extends HTMLElement {
   constructor() {
