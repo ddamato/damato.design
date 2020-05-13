@@ -45,7 +45,7 @@ class BluComponent extends HTMLElement {
 function showCode() {
   this._adjacentPre = document.createElement('pre');
   this._adjacentCode = document.createElement('code');
-  this._adjacentCode.classList.add('hljs');
+  this._adjacentCode.classList.add('language-html');
   this._adjacentPre.appendChild(this._adjacentCode);
   this.after(this._adjacentPre);
   this._currentHTML = '';

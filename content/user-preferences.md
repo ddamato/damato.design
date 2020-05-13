@@ -12,6 +12,17 @@ order: 3
 Content specific for designers
 :::
 
+```css
+.myButton {
+  background-color: transparent;
+  color: #111;
+}
+```
+
+```javascript
+var myName = "Donnie";
+```
+
 Some different content
 
 ### Sample input
