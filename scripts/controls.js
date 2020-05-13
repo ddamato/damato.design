@@ -3,26 +3,10 @@
   const audienceDesignerControl = document.getElementById('audience-designer');
   const audienceEngineerControl = document.getElementById('audience-engineer');
 
-  const codeHighlightStylesLight = document.getElementById('hljs-light');
-  const codeHighlightStylesDark = document.getElementById('hljs-dark');
-
   const navigationLinks = document.querySelectorAll('.navigation a');
   const navigationToggle = document.getElementById('navigation-toggle');
   [...navigationLinks].forEach((link) => link.addEventListener('click', () =>  navigationToggle.checked = false));
 
-  function toggleCodeHighlight() {
-    const body = window.getComputedStyle(document.body);
-    const color = body.getPropertyValue('background-color');
-    const average = color.replace(/rgba?\(([^\)]+)\)/gm, '$1').split(',').slice(0, 3).reduce((sum, val) => sum + Number(val), 0) / 3;
-    const scale = Math.round(average / 255); // 0 === dark, 1 === light
-    if (Boolean(scale)) {
-      codeHighlightStylesDark.setAttribute('disabled', '');
-      codeHighlightStylesLight.removeAttribute('disabled');
-    } else {
-      codeHighlightStylesLight.setAttribute('disabled', '');
-      codeHighlightStylesDark.removeAttribute('disabled');
-    }
-  }
 
   function setSystemColor(bool) {
     if (bool) {
@@ -32,7 +16,6 @@
       document.documentElement.setAttribute('theme', 'inverse');
       localStorage.setItem('theme', 'inverse');
     }
-    window.setTimeout(toggleCodeHighlight, 0);
   }
 
   function setAudienceVisibility(type, bool) {
@@ -56,7 +39,6 @@
   audienceEngineerControl.chosen = !localStorage.getItem('engineer');
 
   window.setTimeout(() => { 
-    toggleCodeHighlight();
     document.body.style.removeProperty('opacity');
   }, 0);
 })();
