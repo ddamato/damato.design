@@ -9,8 +9,14 @@ code {
   background-color: var(--boxLowContrast--backgroundColor);
 
   .token.string,
-  .token.attr-value,
   .token.property {
       color: var(--accent--defaultColor);
+  }
+
+  .token.attr-value {
+    color: var(--accent--defaultColor);
+    .token.punctuation {
+      color: var(--boxLowContrast--foregroundColor);
+    }
   }
 }
