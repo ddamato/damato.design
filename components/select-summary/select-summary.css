@@ -164,3 +164,27 @@ slot[name="title"]:focus {
 ::slotted(a[slot="title"]:not(:focus)) {
 	text-decoration: none;
 }
+
+.selectSummary--option {
+  display: block;
+  margin: 0;
+  border: 0;
+  padding: .5rem 1rem;
+  color: inherit;
+  font: inherit;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.selectSummary--option:focus {
+  outline: 0;
+  text-decoration: underline;
+}
+
+.selectSummary--option:hover {
+  background-color: var(--accent--defaultColor);
+  color: var(--onAccent--defaultColor);
+}

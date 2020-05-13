@@ -1,12 +1,11 @@
 code {
-  display: block;
-  overflow-x: auto;
-  padding: .5em;
+  text-transform: initial;
+  padding: .125rem .5em;
   white-space: pre-wrap;
   border-radius: 2px;
   border: 1px solid var(--boxLowContrast--borderColor);
-  color: var(--boxLowContrast--foregroundColor);
   background-color: var(--boxLowContrast--backgroundColor);
+   color: var(--accent--defaultColor);
 
   .token.string,
   .token.property {
@@ -19,4 +18,11 @@ code {
       color: var(--boxLowContrast--foregroundColor);
     }
   }
+}
+
+pre code {
+  display: block;
+  overflow-x: auto;
+  padding: 1rem;
+  color: var(--boxLowContrast--foregroundColor);
 }

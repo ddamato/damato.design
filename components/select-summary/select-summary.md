@@ -28,7 +28,7 @@ anchor: Select-Summary
 ### Summary
 <blu-selectsummary selfdocument type="summary">
   <span slot="title">Option 1</span>
-  Sample content
+  <p>Sample content</p>
 </blu-selectsummary>
 
 
