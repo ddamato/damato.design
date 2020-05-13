@@ -76,11 +76,12 @@ function renderCode(slot) {
       frag.appendChild(cloned);
     });
     slotTarget.parentNode.replaceChild(frag, slotTarget);
+    this._currentHTML = template.innerHTML;
   }
+
   const remainingSlots = template.content.querySelectorAll('slot');
-  [...remainingSlots].forEach((slot) => slot.remove());
-  this._currentHTML = template.innerHTML.replace(/\n(\ {2,})/gmi, (m, n) => n.length % 2 === 1 ? m.slice(0, -1) : m);
-  this._adjacentCode.innerHTML = this._currentHTML.replace(/[\u00A0-\u9999<>\&]/gim, (i) => '&#' + i.charCodeAt(0) + ';');;
+  [...remainingSlots].forEach((slot) => !slot.assignedNodes().length &&  slot.remove());
+  this._adjacentCode.innerHTML = template.innerHTML.replace(/[\u00A0-\u9999<>\&]/gim, (i) => '&#' + i.charCodeAt(0) + ';');;
 }
 
 window.BluComponent = BluComponent;
