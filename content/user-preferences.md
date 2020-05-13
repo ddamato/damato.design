@@ -15,8 +15,9 @@ Content specific for designers
 Some different content
 
 ### Sample input
-<blu-textfield>
+<blu-textfield selfdocument input-placeholder="New placeholder value">
   Label
+  <button class="button" slot="button">Submit</button>
 </blu-textfield>
 
 ### Sample dropdown

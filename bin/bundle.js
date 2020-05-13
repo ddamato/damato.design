@@ -60,7 +60,7 @@ async function bundle() {
     if (!blueprints[basename]) {
       blueprints[basename] = {};
     }
-    blueprints[basename][extension.slice(1)] = fs.readFileSync(file).toString().replace(/\r?\n|\r/g, '');
+    blueprints[basename][extension.slice(1)] = fs.readFileSync(file).toString();//.replace(/\s{2,}|\r\n|\n|\r/gm, '');
   });
 
   siteJs += Object.keys(blueprints).map((blueprint) => {
@@ -68,15 +68,16 @@ async function bundle() {
     if (css) {
       siteCss += css;
     }
+
     const cleanName = blueprint.toLowerCase().replace(/-/gm, '');
     const className = `Blu${cleanName}`;
     const tagName = `blu-${cleanName}`;
     console.log(tagName);
-    return `class ${className} extends HTMLElement {
+    return `class ${className} extends window.BluComponent {
       constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-        this.shadowRoot.innerHTML = '<style type="text/css">${css}</style>${html}';
+        this.shadowRoot.innerHTML = \`<style type="text/css">${css}</style>${html}\`;
       }
     }
     
