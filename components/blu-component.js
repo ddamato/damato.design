@@ -6,6 +6,8 @@ class BluComponent extends HTMLElement {
   connectedCallback() {
     const baseComponent = this.shadowRoot.children[1];
     const baseClassName = baseComponent.classList[0];
+    this._attributeList = [];
+
     [...this.attributes].forEach((attr) => {
       if (attr.name === 'selfdocument') {
         return;
@@ -13,12 +15,20 @@ class BluComponent extends HTMLElement {
 
       const parts = attr.name.split('-');
       let target = baseComponent;
+      let targetClassSelector = `.${baseClassName}`;
       if (parts.length > 1) {
-        target = baseComponent.querySelector(`.${baseClassName}--${parts[0]}`);
+        targetClassSelector = `${targetClassSelector}--${parts[0]}`;
+        target = baseComponent.querySelector(targetClassSelector);
       }
-      target.setAttribute(parts.pop(), attr.nodeValue);
-    });
 
+      const entry = {
+        target: targetClassSelector,
+        name: parts.pop(),
+        value: attr.nodeValue
+      };
+      this._attributeList.push(entry);
+      target.setAttribute(entry.name, entry.value);
+    });
 
     if (this.hasAttribute('selfdocument')) {
       showCode.call(this);
@@ -60,7 +70,11 @@ function renderCode(slot) {
   if (slotTarget) {
     const nodes = slot.assignedNodes();
     const frag = document.createDocumentFragment();
-    [...nodes].forEach((node) =>frag.appendChild(node.cloneNode(true)));
+    [...nodes].forEach((node) => {
+      const cloned = node.cloneNode(true);
+      cloned.removeAttribute && cloned.removeAttribute('slot');
+      frag.appendChild(cloned);
+    });
     slotTarget.parentNode.replaceChild(frag, slotTarget);
     this._currentHTML = template.innerHTML.replace(/\n(\ {2,})/gmi, (m, n) => n.length % 2 === 1 ? m.slice(0, -1) : m);
   }
