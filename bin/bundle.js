@@ -17,7 +17,7 @@ const COMPONENT_PATH = path.resolve(__dirname, '..', 'components');
 const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site');
 
 async function bundleCSS() {
-  const pcssFileOrder = ['vars.pcss', 'index.pcss', 'content.pcss', 'mobile.pcss'];
+  const pcssFileOrder = ['vars.pcss', 'index.pcss', 'content.pcss', 'mobile.pcss', 'hljs.pcss'];
   const pcss = pcssFileOrder.reduce((pcss, pcssFileName) => {
     const filePath = path.resolve(__dirname, '..', 'styles', pcssFileName);
     return pcss + fs.readFileSync(filePath, { encoding: 'utf8'});
