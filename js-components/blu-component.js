@@ -73,7 +73,7 @@ class BluComponent extends HTMLElement {
   }
 }
 
-function showCode() {
+function initSelfdocument() {
   this._selfdocumentation = document.createElement('select-summary');
   this._selfdocumentation.setAttribute('type', 'summary');
   this._selfdocumentation.classList.add('audience-engineer');
@@ -81,7 +81,6 @@ function showCode() {
   title.innerText = 'Blueprint HTML';
   title.setAttribute('slot', 'title');
   this._selfdocumentation.appendChild(title);
-  
 
   const pre = document.createElement('pre');
   this._adjacentCode = document.createElement('code');
@@ -90,7 +89,10 @@ function showCode() {
   this._selfdocumentation.appendChild(pre);
 
   this.after(this._selfdocumentation);
-  
+}
+
+function showCode() {
+  initSelfdocument.call(this);
   this._currentHTML = '';
 
   const slots = this.shadowRoot.querySelectorAll('slot');
