@@ -4,11 +4,17 @@ anchor: Principles
 order: 2
 ---
 
-## priniciples
+## Priniciples
+These design principles are intended to help guide important directions this design system takes in its growth.
 
-### Consistency
-Whatever design, pattern, or value that is decided should be considered for use across the system; not in the initial place that it was considered. Ensuring that parts of the system look and work similarily maintains integrity so the user trusts the application's workflow throughout. If the user came upon a piece of the workflow that didn't adhere to what they percieve as part of the application; that trust is lost.
+### All users matter
+Consider everyone when creating or modifying the experience. Reference standards in accessibility and localization to provide a fully usable experience to all. Consider not only the users but also their technology. 
 
-### Inclusivity
-It is important to consider all users when designing/engineering a design system. The design system will aim to highlight and use standards in accessibility and localization throughout.
+### Keep consistency
+Ensure that the parts of the system belong together in design and engineering. A user within an experience will trust a system that seems connected over one with uncanny parts.
+
+### Refrain from reinvention
+Use designs, patterns, or elements that users are familiar with. Curb creativity in favor of a usable experience and add personality appropriately.
+
+
 
