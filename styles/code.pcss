@@ -1,11 +1,35 @@
-code {
-  text-transform: initial;
-  padding: .125rem .5em;
-  white-space: pre-wrap;
-  border-radius: 2px;
+pre {
+  resize: both;
+  min-width: 250px;
+  max-width: 100%;
+  overflow: hidden;
   border: 1px solid var(--boxLowContrast--borderColor);
   background-color: var(--boxLowContrast--backgroundColor);
-   color: var(--accent--defaultColor);
+  color: var(--accent--defaultColor);
+
+  &[class*=language-] {
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    overflow: auto;
+    line-height: 1.5;
+    text-align: left;
+  }
+}
+
+:not(pre) > code {
+  border: 1px solid var(--boxLowContrast--borderColor);
+  background-color: var(--boxLowContrast--backgroundColor);
+  color: var(--accent--defaultColor);
+}
+
+code {
+  white-space: pre;
+  text-transform: initial;
+  padding: .125rem .5em;
+  border-radius: 2px;
+  overflow-x: scroll;
 
   .token.string,
   .token.property {
