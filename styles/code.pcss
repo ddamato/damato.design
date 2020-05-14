@@ -2,32 +2,33 @@ pre {
   resize: both;
   min-width: 250px;
   max-width: 100%;
-  overflow: hidden;
+  overflow: auto;
   border: 1px solid var(--boxLowContrast--borderColor);
   background-color: var(--boxLowContrast--backgroundColor);
   color: var(--accent--defaultColor);
-
-  &[class*=language-] {
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    word-wrap: normal;
-    overflow: auto;
-    line-height: 1.5;
-    text-align: left;
-  }
 }
 
+/* Code block */
+pre code {
+  padding: 1rem;
+  color: var(--boxLowContrast--foregroundColor);
+  display: block;
+}
+
+/* Inline code */
 :not(pre) > code {
+  padding: .125rem .25em;
+  color: var(--accent--defaultColor);
   border: 1px solid var(--boxLowContrast--borderColor);
   background-color: var(--boxLowContrast--backgroundColor);
-  color: var(--accent--defaultColor);
 }
 
 code {
   white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
   text-transform: initial;
-  padding: .125rem .5em;
   border-radius: 2px;
   overflow-x: scroll;
 
@@ -42,11 +43,4 @@ code {
       color: var(--boxLowContrast--foregroundColor);
     }
   }
-}
-
-pre code {
-  display: block;
-  overflow-x: auto;
-  padding: 1rem;
-  color: var(--boxLowContrast--foregroundColor);
 }
