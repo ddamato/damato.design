@@ -5,6 +5,8 @@ order: 1
 
 # Design **Delightful** Systems
 
-Hello, welcome to the **DAMATO** Design System!
+Welcome to the **DAMATO** Design System architected by [Donnie D'Amato](https://donniedamato.info)
 
-Architected by [Donnie D'Amato](https://donniedamato.info), he has built and maintained design systems for [large](https://www.compass.com) [companies](https://www.godaddy.com) by being an active liasion between the product design and engineering teams. He has interdisplicinary skills in both art and technology which help craft solutions for different user needs. His interest in design systems comes from a curiousity of how the entire system is viewed by the user; how they respond and interact with it.
+Donnie has built and maintained design systems for [large](https://www.compass.com) [companies](https://www.godaddy.com) by being an active liasion between the product design and engineering teams. He has interdisplicinary skills in both art and technology which help craft solutions for different needs. His interest in design systems comes from a curiousity about how the entire system is viewed by the user; how they respond and interact with it.
+
+More details about his professional experience in design and engineering can be found on [LinkedIn](https://www.linkedin.com/in/fauxserious/).
