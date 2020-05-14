@@ -4,6 +4,9 @@ order: 1
 ---
 
 # design **delightful** systems
-Here's some introduction content for the page
 
-Disrupt farm-to-table lumbersexual godard, food truck fanny pack irony man bun. Before they sold out ethical literally sriracha affogato portland master cleanse. Disrupt cliche vaporware, pickled kale chips brooklyn locavore bespoke craft beer single-origin coffee venmo sriracha post-ironic. Pickled twee squid man braid kickstarter. Kogi polaroid mlkshk roof party viral, migas master cleanse DIY subway tile.
+Hello, welcome to the **DAMATO** Design System!
+
+Architected by [Donnie D'Amato](https://donniedamato.info), he has built and maintained design systems for [large](https://www.compass.com) [companies](https://www.godaddy.com) by being an active liasion between the product design and engineering teams. He has interdisplicinary skills in both art and technology which help craft solutions for different user needs. His interest in design systems comes from a curiousity of how the entire system is viewed by the user; how they respond and interact with it.
+
+The following is the execution of what a design system could be when business needs are removed and user needs remain.

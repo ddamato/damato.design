@@ -24,17 +24,20 @@
 
   a {
     color: var(--accent--defaultColor);
-    text-decoration: none;
-    background-image: linear-gradient(currentColor, currentColor);
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 0% 1px;
-    transition: background-size .218s ease;
+    padding: 0 4px;
+    border-radius: 2px;
+    display: inline-block;
+    margin: 0 -4px;
   }
 
-  a:focus, a:hover {
-    outline: 0;
-    background-size: 100% 1px;
+  a:hover {
+    text-decoration: none;
+    background-color: var(--accent--defaultColor);
+    color: var(--onAccent--defaultColor);
+  }
+  
+  a:focus {
+    outline: 1px solid var(--control--outlineColor);
   }
 
   h1 {
