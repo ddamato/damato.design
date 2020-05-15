@@ -16,7 +16,7 @@ class ToggleRange extends HTMLElement {
     const outputSlot = this.shadowRoot.querySelector('slot[name="output"]');
     outputSlot.addEventListener('slotchange', () => {
       this._output = outputSlot.assignedElements()[0];
-      this._output.value = this._output.innerText || this.value;
+      this._output.value = this._output.value || this._output.innerText || this.value;
     });
 
     this._toggleRange.setAttribute('type', this.type);
