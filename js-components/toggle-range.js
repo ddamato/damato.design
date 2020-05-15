@@ -20,23 +20,6 @@ class ToggleRange extends HTMLElement {
     });
 
     this._toggleRange.setAttribute('type', this.type);
-
-    // Need to determine click as immediate touchdown/touchup, as user could shift range
-    let timedownStart;
-    const onMousedown = () => timedownStart = new Date().getTime();
-    const onMouseup = () => {
-      if (this.shadowRoot.activeElement !== this._input) {
-        this._input.focus();
-      }
-
-      if (this.type === 'toggle' && new Date().getTime() - timedownStart < 300)  {
-        this.value = Number(!this.value);
-      }
-    };
-    this.addEventListener('mousedown', onMousedown);
-    this.addEventListener('mouseup', onMouseup);
-    this.addEventListener('touchdown', onMousedown);
-    this.addEventListener('touchup', onMouseup);
   }
   
 
@@ -57,16 +40,45 @@ class ToggleRange extends HTMLElement {
       this._input.value = this.value;
       this._input.setAttribute('value', this._input.value);
     }
+    this._direction = this.value === this.max ? -1 : 1;
 
     this._input.addEventListener('input', (ev) => this.value = ev.target.value);
     this._input.addEventListener('change', (ev) => this.value = ev.target.value);
 
+    // Need to determine click as immediate touchdown/touchup, as user could shift range
+    let timedownStart;
+    const onMousedown = () => timedownStart = new Date().getTime();
+    const onMouseup = () => {
+      if (this.shadowRoot.activeElement !== this._input) {
+        this._input.focus();
+      }
+
+      if (this.type === 'toggle' && new Date().getTime() - timedownStart < 300)  {
+        this._traverseStep();
+      }
+    };
+    this.addEventListener('mousedown', onMousedown);
+    this.addEventListener('mouseup', onMouseup);
+    this.addEventListener('touchdown', onMousedown);
+    this.addEventListener('touchup', onMouseup);
+
     this.addEventListener('keydown', (ev) => {
-      if (ev.code.toLowerCase() === 'space' && this.type === 'toggle') {
+      if (ev.code.toLowerCase() === 'space') {
         ev.preventDefault();
-        this.value = Number(!this.value);
+        this._traverseStep();
       }
     });
+  }
+
+  _traverseStep() {
+    const step = Number(this.getAttribute('step')) || 1;
+    const update = formatter(step, this.value + (step * this._direction));
+
+    if (update > this.max || update < this.min) {
+      this._direction *= -1;
+    }
+
+    this.value = formatter(step, this.value + (step * this._direction));
   }
 
   static get observedAttributes() {
@@ -142,6 +154,15 @@ class ToggleRange extends HTMLElement {
     });
     this.dispatchEvent(event);
   }
+}
+
+function formatter(step, num) {
+  const signfigantDigitMax = 6;
+  const stepRef = [...Array(signfigantDigitMax).keys()]
+    .map((index) => Math.pow(10, index) * step)
+    .findIndex((num) => num === parseInt(num));
+  return parseFloat(num.toFixed(stepRef));
+
 }
 
 window.customElements.define('toggle-range', ToggleRange);
