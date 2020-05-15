@@ -4,6 +4,7 @@
 
 .toggleRange {
 	display: inline-flex;
+	flex-direction: row-reverse;
 	align-items: center;
 	justify-content: flex-start;
 	cursor: pointer;
