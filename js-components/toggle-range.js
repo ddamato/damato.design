@@ -87,6 +87,7 @@ class ToggleRange extends HTMLElement {
 
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (attrName === 'value') {
+      this._direction = Number(oldVal) > Number(newVal) ? -1 : 1;
       if (this._output) {
         this._output.value = this.value;
       }
