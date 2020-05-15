@@ -1,9 +1,9 @@
 .button {
   font: inherit;
-  background-color: var(--action--backgroundColor);
+  background-color: transparent;
+  border: 1px solid transparent;
   color: var(--action--foregroundColor);
   padding: .5rem 1rem;
-  border: 1px solid transparent;
   cursor: pointer;
   border-radius: 2px;
   text-transform: uppercase;
@@ -12,7 +12,25 @@
   text-decoration: none;
 }
 
+.button[type="primary"] {
+  background-color: var(--action--backgroundColor);
+  color: var(--action--foregroundColor);
+  border: 1px solid var(--action--borderColor);
+}
+
+.button[type="secondary"] {
+  background-color: transparent;
+  color: var(--action--foregroundColor);
+  border: 1px solid var(--action--borderColor);
+}
+
 .button:focus {
-  outline: 1px solid;
+  outline: 1px solid var(--action--outlineColor);
 	outline-offset: -3px;
+}
+
+.button:hover {
+  background-color: var(--actionHovered--backgroundColor);
+  color: var(--actionHovered--foregroundColor);
+  border: 1px solid var(--actionHovered--borderColor);
 }

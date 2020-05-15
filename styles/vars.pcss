@@ -66,6 +66,10 @@ html[hide-engineer]:not([hide-designer]) {
   --action--backgroundColor: var(--accent--defaultColor);
   --action--foregroundColor: var(--onAccent--defaultColor);
   --action--borderColor: var(--accent--defaultColor);
+
+  --actionHovered--backgroundColor: var(--accent--defaultColor);
+  --actionHovered--foregroundColor: var(--onAccent--defaultColor);
+  --actionHovered--borderColor: var(--accent--defaultColor);
 }
 
 /* DARK THEME */
@@ -96,6 +100,11 @@ html[hide-engineer]:not([hide-designer]) {
   --action--backgroundColor: var(--accent--defaultColor);
   --action--foregroundColor: var(--onAccent--defaultColor);
   --action--borderColor: var(--accent--defaultColor);
+  --action--outlineColor: rgb(var(--color-white--0));
+
+  --actionHovered--backgroundColor: rgb(var(--color-black--0));
+  --actionHovered--foregroundColor: var(--accent--defaultColor);
+  --actionHovered--borderColor: rgb(var(--color-black--0));
 }
 
 :root { @include light-theme() }
