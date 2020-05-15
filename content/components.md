@@ -9,7 +9,7 @@ The components provided below are presented with "Blueprint" examples, using the
 
 ::: audience-engineer
 ### Markup decisions
-One of the key decisions in ensuring that we can include interactivity without JavaScript is by setting HTML elements in a deliberate structure to allow for CSS selectors to act with conditional logic.
+One of the key factors in ensuring that we can include interactivity without JavaScript is by setting HTML elements in a deliberate structure to allow for CSS selectors to act with conditional logic.
 
 For example, in the interactive components below, the `<input>` element found within is typically the first child of the element's container. This allows the CSS sibling selectors (`+`, `~`) to help determine what elements exist in the container and make visual changes based on those elements.
 
