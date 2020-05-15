@@ -4,7 +4,6 @@
 
 .toggleRange {
 	display: inline-flex;
-	flex-direction: row-reverse;
 	align-items: center;
 	justify-content: flex-start;
 	cursor: pointer;
@@ -34,6 +33,7 @@
 	text-transform: uppercase;
 	text-align: right;
 	line-height: 1;
+	order: -1;
 }
 
 .toggleRange--input {
