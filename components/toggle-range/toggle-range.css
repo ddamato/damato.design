@@ -50,14 +50,12 @@
 	width: 3rem;
 }
 
-.toggleRange:focus {
-	outline: 0;
+.toggleRange:focus-within .toggleRange--input {
+	border-color: var(--control--outlineColor);
 }
 
-.toggleRange:focus .toggleRange--input,
 .toggleRange--input:focus {
 	outline: 0;
-	border-color: var(--control--outlineColor);
 }
 
 .toggleRange[type="toggle"] .toggleRange--input[value="1"] {

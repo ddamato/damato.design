@@ -8,24 +8,46 @@ class ToggleRange extends HTMLElement {
     this.shadowRoot.innerHTML = `<style type="text/css">${css}</style>${html}`;
 
     this._toggleRange = this.shadowRoot.querySelector('.toggleRange');
+    this._label = this.shadowRoot.querySelector('.toggleRange--label');
     this._input = this.shadowRoot.querySelector('.toggleRange--input');
-    this._input.step = this.getAttribute('step');
+    this._input.id = 'toggleRange-inputId';
+    this._label.setAttribute('for', this._input.id);
+    this._input.step = this.getAttribute('step') || 1;
     const outputSlot = this.shadowRoot.querySelector('slot[name="output"]');
     outputSlot.addEventListener('slotchange', () => {
       this._output = outputSlot.assignedElements()[0];
     });
 
     this._toggleRange.setAttribute('type', this.type);
+
+    // Need to determine click as immediate touchdown/touchup, as user could shift range
+    let timedownStart;
+    const onMousedown = () => timedownStart = new Date().getTime();
+    const onMouseup = () => {
+      if (this.shadowRoot.activeElement !== this._input) {
+        this._input.focus();
+      }
+
+      if (this.type === 'toggle' && new Date().getTime() - timedownStart < 300)  {
+        this.value = Number(!this.value);
+      }
+    };
+    this.addEventListener('mousedown', onMousedown);
+    this.addEventListener('mouseup', onMouseup);
+    this.addEventListener('touchdown', onMousedown);
+    this.addEventListener('touchup', onMouseup);
   }
+  
 
   connectedCallback() {
     if (this.type === 'toggle') {
       this._input.min = 0;
       this._input.max = 1;
-      this._input.value = this.value || Number(this.chosen);
-      this._input.setAttribute('value', this._input.value);
-      this._input.style.pointerEvents = 'none';
-      this.addEventListener('click', () => this.chosen = !this.chosen);
+      if (!this.hasAttribute('value')) {
+        this.value = Number(this.chosen);
+      }
+      this._input.value = this.value;
+      this._input.setAttribute('value', this.value);
     }
 
     if (this.type === 'range') {
@@ -33,15 +55,15 @@ class ToggleRange extends HTMLElement {
       this._input.max = this.max;
       this._input.value = this.value;
       this._input.setAttribute('value', this._input.value);
-      this._input.addEventListener('input', (ev) => this.value = ev.target.value);
     }
 
+    this._input.addEventListener('input', (ev) => this.value = ev.target.value);
+    this._input.addEventListener('change', (ev) => this.value = ev.target.value);
+
     this.addEventListener('keydown', (ev) => {
-      if (document.activeElement === this && ev.code.toLowerCase() === 'space') {
+      if (ev.code.toLowerCase() === 'space' && this.type === 'toggle') {
         ev.preventDefault();
-        if (this.type === 'toggle') {
-          this.chosen = !this.chosen;
-        }
+        this.value = Number(!this.value);
       }
     });
   }
@@ -51,21 +73,15 @@ class ToggleRange extends HTMLElement {
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
-
-    if (attrName === 'chosen' && this.type === 'toggle') {
-      this._input.value = Number(this.chosen);
-      this._input.setAttribute('value', this._input.value);
-      this.sendChangedEvent();
-    }
-
-    if (attrName === 'value' && this.type === 'range') {
+    if (attrName === 'value') {
       if (this._output) {
         this._output.value = this.value;
       }
+      this._input.value = this.value;
+      this._input.setAttribute('value', this.value);
 
-      if (this._input.value !== newVal) {
-        this._input.value = newVal;
-        this._input.setAttribute('value', this._input.value);
+      if (this.type == 'toggle') {
+        this.chosen = Boolean(this.value);
       }
       this.sendChangedEvent();
     }
