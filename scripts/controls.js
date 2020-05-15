@@ -38,7 +38,5 @@
   audienceDesignerControl.chosen = !localStorage.getItem('designer');
   audienceEngineerControl.chosen = !localStorage.getItem('engineer');
 
-  window.setTimeout(() => { 
-    document.body.classList.remove('hidden');
-  }, 0);
+  window.setTimeout(() => document.body.classList.remove('hidden'), 0);
 })();

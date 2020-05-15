@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 }
 
+.selectSummary[flyout] {
+	position: relative;
+}
+
 .selectSummary :focus,
 ::slotted(a:focus) {
 	outline: 0;
@@ -130,6 +134,15 @@
 	border-bottom-left-radius: 2px;
 	border-bottom-right-radius: 2px;
 	display: none;
+	background-color: var(--box--backgroundColor);
+}
+
+.selectSummary[flyout] .selectSummary--content {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	z-index: 1;
 }
 
 .selectSummary:not([type="menu"]) .selectSummary--content {

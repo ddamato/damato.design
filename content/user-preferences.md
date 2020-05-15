@@ -9,7 +9,7 @@ order: 3
 At the top of each page are controls that set user preferences across the site. They're saved for each time you visit and you can change them at any time. Setting a toggle will alter the presentation of the site in different ways.
 
 ### System Color
-Many sites are exploring the ability to provide a light and dark theme for the user as it might add to the overall user experience and readability of the site's content. The toggle featured here is a bit different as it doesn't toggle between light and dark themes specifically; it toggles between your system preferred color theme and the contrast.
+Many sites are exploring the ability to provide a light and dark theme for the user as it might add to the overall user experience and readability of the site's content. The toggle featured here is a bit different as it doesn't toggle between light and dark themes specifically; it toggles between your system preferred color theme and the contrast. This design decisions was based on the article [Your dark mode toggle is broken](https://kilianvalkhof.com/2020/design/your-dark-mode-toggle-is-broken/) by [Kilian Valkhof](https://kilianvalkhof.com/).
 
 So, for example, if your system is set to dark mode, then on first visit this page should also have a dark theme applied. Switching the toggle will then change to a light theme. This will be different for users who have either set the system to a light theme or have not set a preference.
 
