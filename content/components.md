@@ -13,5 +13,5 @@ One of the key decisions in ensuring that we can include interactivity without J
 
 For example, in the interactive components below, the `<input>` element found within is typically the first child of the element's container. This allows the CSS sibling selectors (`+`, `~`) to help determine what elements exist in the container and make visual changes based on those elements.
 
-In a simple case, the ["Checkbox Hack"](https://css-tricks.com/the-checkbox-hack/) is used to open/close the `summary-select` component by targeting affecting the visibility of the content container depending on if the checkbox is `:checked` or not.
+In a simple case, the ["Checkbox Hack"](https://css-tricks.com/the-checkbox-hack/) is used to open/close the [summary-select](#summary-select) component by targeting the `input[type="checkbox"]:checked` selector and affecting the visibility of the sibling content container.
 :::

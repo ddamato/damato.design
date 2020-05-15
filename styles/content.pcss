@@ -118,6 +118,13 @@
     line-height: var(--textQuote--lineHeight);
     position: relative;
     padding-left: 4rem;
+    display: flow-root;
+  }
+
+  blockquote a,
+  blockquote a:hover {
+    color: inherit;
+    text-decoration: underline;
   }
 
   blockquote:before {
@@ -144,11 +151,14 @@
     font-weight: var(--textCaption--fontWeight);
     line-height: var(--textCaption--lineHeight);
     margin-top: 1rem;
+    float: right;
+    margin-left: 1rem;
   }
 
   blockquote em:before {
     content: "\002014";
     margin-right: 1ch;
+    text-decoration: none;
   }
 
   .audience-designer {
