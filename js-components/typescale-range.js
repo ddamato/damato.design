@@ -10,7 +10,7 @@ class TypescaleRange extends HTMLElement {
     this.shadowRoot.innerHTML = `
     <toggle-range type="range" min="1" max="2" step="0.1" value="${typescaleFactor}">
       Typescale Factor
-      <output slot="output">${typescaleFactor}</output>
+      <output slot="output"></output>
     </toggle-range>`;
 
     const toggleRange = this.shadowRoot.querySelector('toggle-range');
