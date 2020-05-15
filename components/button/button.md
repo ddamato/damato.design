@@ -11,3 +11,5 @@ anchor: Button
 
 <blu-button selfdocument type="secondary">Secondary Button</blu-button>
 
+<blu-button selfdocument disabled>Disabled Button</blu-button>
+

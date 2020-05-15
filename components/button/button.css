@@ -2,7 +2,7 @@
   font: inherit;
   background-color: transparent;
   border: 1px solid transparent;
-  color: var(--action--foregroundColor);
+  color: inherit;
   padding: .5rem 1rem;
   cursor: pointer;
   border-radius: 2px;
@@ -20,7 +20,7 @@
 
 .button[type="secondary"] {
   background-color: transparent;
-  color: var(--action--foregroundColor);
+  color: inherit;
   border: 1px solid var(--action--borderColor);
 }
 
@@ -29,8 +29,13 @@
 	outline-offset: -3px;
 }
 
-.button:hover {
+.button:not([disabled]):hover {
   background-color: var(--actionHovered--backgroundColor);
   color: var(--actionHovered--foregroundColor);
   border: 1px solid var(--actionHovered--borderColor);
+}
+
+.button[disabled] {
+  opacity: .4;
+  cursor: not-allowed;
 }
