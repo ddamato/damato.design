@@ -86,6 +86,10 @@ class ToggleRange extends HTMLElement {
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
+    if (attrName === 'chosen' && this.type === 'toggle') {
+      this.value = Number(this.chosen);
+    }
+
     if (attrName === 'value') {
       this._direction = Number(oldVal) > Number(newVal) ? -1 : 1;
       if (this._output) {
@@ -94,8 +98,9 @@ class ToggleRange extends HTMLElement {
       this._input.value = this.value;
       this._input.setAttribute('value', this.value);
 
-      if (this.type == 'toggle') {
-        this.chosen = Boolean(this.value);
+      const asBool = Boolean(this.value);
+      if (this.type == 'toggle' && this.chosen !== asBool) {
+        this.chosen = asBool
       }
       this.sendChangedEvent();
     }
