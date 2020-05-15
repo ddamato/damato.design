@@ -16,6 +16,16 @@ body {
   font-weight: var(--text--fontWeight);
   line-height: var(--text--lineHeight);
   transition: opacity 1s ease;
+  opacity: 1;
+}
+
+body.hidden {
+  opacity: 0;
+  animation: unhide 1s 2s ease forwards;
+}
+
+@keyframes unhide {
+  to { opacity: 1; }
 }
 
 .app {

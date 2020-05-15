@@ -39,6 +39,6 @@
   audienceEngineerControl.chosen = !localStorage.getItem('engineer');
 
   window.setTimeout(() => { 
-    document.body.style.removeProperty('opacity');
+    document.body.classList.remove('hidden');
   }, 0);
 })();
