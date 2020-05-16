@@ -43,7 +43,7 @@ The primary button should be designed to draw attention to the action.
 The secondary button should only be used along side a primary button when a second choice is available to the user.
 
 ::: audience-designer
-### Design specifications (primary)
+### Design specifications (secondary)
 - Background color is set as transparent, border color is set as the accent color, foreground color inherits from the container.
 - Hover interaction sets the background color to a low contrast of the container, foreground color is now an accent color.
 :::
@@ -54,7 +54,7 @@ The secondary button should only be used along side a primary button when a seco
 The disabled state of the button reduces the opacity and sets the mouse cursor to show a disabled state.
 
 ::: audience-designer
-### Design specifications (primary)
+### Design specifications (disabled)
 - Opacity is set to .4 for all buttons, cursor is changed to not-allowed.
 - Hover interactions no longer activate.
 :::

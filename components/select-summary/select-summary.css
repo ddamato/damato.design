@@ -142,6 +142,7 @@
 	transform: rotateX(-90deg);
 	opacity: 0;
 	position: absolute;
+	max-width: 100%;
 	transition: 0s linear;
 	display: flow-root;
 	z-index: 1;
