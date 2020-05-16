@@ -4,8 +4,11 @@ anchor: Select-Summary
 ---
 
 ## Select-Summary
+The select-summary component is a hybrid of a few components found in design systems which show and hide content. Each version allows for control via the spacebar to open and close the content drawer. By default, content will disrupt the remaining document flow. In other words, the content area does not flyout and appear on top of other content; it will push content down.
 
-### Select
+### Select type
+When in the "select" configuration, the component acts like a stylized `<select>` component. Additional JavaScript is required for the value to appear in the title slot on selection. 
+
 <blu-selectsummary selfdocument type="select">
   <span slot="title">Option 1</span>
   <button class="selectSummary--option">Option 1</button>
@@ -13,19 +16,30 @@ anchor: Select-Summary
   <button class="selectSummary--option">Option 3</button>
 </blu-selectsummary>
 
----
+Example of a JavaScript enhanced version:
 
-### Menu
-<blu-selectsummary selfdocument type="menu">
-  <span slot="title">Option 1</span>
+<select-summary type="select">
   <button class="selectSummary--option">Option 1</button>
   <button class="selectSummary--option">Option 2</button>
   <button class="selectSummary--option">Option 3</button>
+</select-summary>
+
+---
+
+### Menu type
+When in the "menu" configuration, the component is prepared to hold navigational items. No additional JavaScript is required for this component to work.
+
+<blu-selectsummary selfdocument type="menu">
+  <span slot="title">Group</span>
+  <a class="selectSummary--option" href="#">Child link 1</a>
+  <a class="selectSummary--option" href="#">Child link 2</a>
+  <a class="selectSummary--option" href="#">Child link 3</a>
 </blu-selectsummary>
 
 ---
 
-### Summary
+### Summary type
+
 <blu-selectsummary selfdocument type="summary">
   <span slot="title">Option 1</span>
   <p>Sample content</p>

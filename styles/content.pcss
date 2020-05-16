@@ -22,20 +22,20 @@
     margin-bottom: 0 !important;
   }
 
-  a {
+  a:not([href="#"]) {
     color: var(--accent--defaultColor);
     padding: 0 4px;
     border-radius: 2px;
     margin: 0 -4px;
   }
 
-  a:hover {
+  a:not([href="#"]):hover {
     text-decoration: none;
     background-color: var(--accent--defaultColor);
     color: var(--onAccent--defaultColor);
   }
   
-  a:focus {
+  a:not([href="#"]):focus {
     outline: 1px solid var(--control--outlineColor);
   }
 
