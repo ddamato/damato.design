@@ -142,11 +142,13 @@
 	transform: rotateX(-90deg);
 	opacity: 0;
 	position: absolute;
-	transition: .218s ease;
+	transition: 0s linear;
 	display: flow-root;
+	z-index: 1;
 }
 
 .selectSummary[flyout] .selectSummary--content {
+	position: absolute;
 	top: 100%;
 	left: 0;
 	width: 100%;
@@ -155,6 +157,18 @@
 
 .selectSummary:not([type="menu"]) .selectSummary--content {
 	border-color: var(--accent--defaultColor);
+}
+
+.selectSummary[type="menu"] .selectSummary--header {
+	border: 0;
+	border-radius: 0;
+}
+
+.selectSummary[type="menu"] .selectSummary--content {
+	border-color: var(--accent--defaultColor);
+	margin-left: 1rem;
+	border-right: 0;
+	border-bottom: 0;
 }
 
 .selectSummary[type="menu"] .selectSummary--checkbox:checked ~ .selectSummary--content {
@@ -169,6 +183,7 @@
 	position: static;
 	transform: rotateX(0);
 	opacity: 1;
+	transition: .218s ease;
 }
 
 .selectSummary[type="menu"] ::slotted(a),
