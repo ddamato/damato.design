@@ -9,8 +9,8 @@ Buttons are a quintessential part of every design system as they invoke the user
 
 ::: audience-designer
 ### Design specifications
-- Horizontal spacing is 1rem (16px), vertical spacing is .5rem (8px).
-- Text is set as all uppercase and bold (700), font-size is decreased slightly (.9em) to counter this emphasis. Line-height at 1.5.
+- Horizontal spacing is 1rem (16px), vertical spacing is .5rem (8px). This provides a large target area for both cursor targetting and various sizes of tapping instruments.
+- Text is set as all uppercase and medium weight (500), font-size is decreased slightly (.9em) to counter this emphasis. Line-height at 1.5.
 - Borders are always applied, and are set to the background color unless specified. This keeps alignment with other buttons which may have a visible border.
 - Border-radius is set at 2px, matching the radius of other containers in the system.
 - Margins are not applied directly to the component's style but are instead dictated by the layout and should adhere to spacing guidelines.
