@@ -7,23 +7,56 @@ anchor: Button
 
 Buttons are a quintessential part of every design system as they invoke the user to take an action. 
 
+::: audience-designer
+### Design specifications
+- Horizontal spacing is 1rem (16px), vertical spacing is .5rem (8px).
+- Text is set as all uppercase and bold (700), font-size is decreased slightly (.9em) to counter this emphasis. Line-height at 1.5.
+- Borders are always applied, and are set to the background color unless specified. This keeps alignment with other buttons which may have a visible border.
+- Border-radius is set at 2px, matching the radius of other containers in the system.
+- Margins are not applied directly to the component's style but are instead dictated by the layout and should adhere to spacing guidelines.
+- Buttons come in **one size** that relates to the font. Emphasis is expected to be shown through the use of "primary" and "secondary" versions. More variations are not necessary as this does not provide a consistent experience.
+:::
+
 ### Default button
 The default button is provided without standout colors as the use is expect to target anciliary actions beyond primary and secondary buttons. This also designed to all buttons uses the default styles as a base to keep them consistent. The further variations of the button will come from additional attributes.
+
+::: audience-designer
+### Design specifications (default)
+- Background color is set as transparent, foreground color inherit's from the container.
+- Hover interaction sets the background color to a low contrast of the container, foreground color is now an accent color.
+:::
 
 <blu-button selfdocument>Default button</blu-button>
 
 ### Primary Button
 The primary button should be designed to draw attention to the action.
 
+::: audience-designer
+### Design specifications (primary)
+- Background color is set as an accent color, foreground color is explicitly set as a color to compliment the accent color.
+- Hover interaction sets the background color to a low contrast of the container, foreground color is now an accent color.
+:::
+
 <blu-button selfdocument type="primary">Primary Button</blu-button>
 
 ### Secondary Button
 The secondary button should only be used along side a primary button when a second choice is available to the user.
+
+::: audience-designer
+### Design specifications (primary)
+- Background color is set as transparent, border color is set as the accent color, foreground color inherits from the container.
+- Hover interaction sets the background color to a low contrast of the container, foreground color is now an accent color.
+:::
 
 <blu-button selfdocument type="secondary">Secondary Button</blu-button>
 
 ### Disabled Button
 The disabled state of the button reduces the opacity and sets the mouse cursor to show a disabled state.
 
+::: audience-designer
+### Design specifications (primary)
+- Opacity is set to .4 for all buttons, cursor is changed to not-allowed.
+- Hover interactions no longer activate.
+:::
 <blu-button selfdocument disabled>Disabled Button</blu-button>
 

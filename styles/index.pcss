@@ -29,6 +29,23 @@ body.hidden {
   to { opacity: 1; }
 }
 
+main a {
+  color: var(--accent--defaultColor);
+  padding: 0 4px;
+  border-radius: 2px;
+  margin: 0 -4px;
+}
+
+main a:hover {
+  text-decoration: none;
+  background-color: var(--accent--defaultColor);
+  color: var(--onAccent--defaultColor);
+}
+
+main a:focus {
+  outline: 1px var(--focused--outlineStyle) var(--control--outlineColor);
+}
+
 .app {
   min-height: 100vh;
   padding-left: 1rem;

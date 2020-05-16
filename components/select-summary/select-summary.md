@@ -11,19 +11,19 @@ When in the "select" configuration, the component acts like a stylized `<select>
 
 <blu-selectsummary selfdocument type="select">
   <span slot="title">Option 1</span>
-  <button class="selectSummary--option">Option 1</button>
-  <button class="selectSummary--option">Option 2</button>
-  <button class="selectSummary--option">Option 3</button>
+  <button class="selectSummary--option" value="1">Option 1</button>
+  <button class="selectSummary--option" value="2">Option 2</button>
+  <button class="selectSummary--option" value="3">Option 3</button>
 </blu-selectsummary>
 
 Example of a JavaScript enhanced version; value changes on selection:
 
 <select-summary type="select">
   <span slot="title">Pick a fruit</span>
-  <button class="selectSummary--option">Apple</button>
-  <button class="selectSummary--option">Banana</button>
-  <button class="selectSummary--option">Pear</button>
-  <button class="selectSummary--option">Orange</button>
+  <button class="selectSummary--option" value="apple">Apple</button>
+  <button class="selectSummary--option" value="banana">Banana</button>
+  <button class="selectSummary--option" value="pear">Pear</button>
+  <button class="selectSummary--option" value="orange">Orange</button>
 </select-summary>
 
 ---

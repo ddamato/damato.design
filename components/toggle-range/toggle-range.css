@@ -53,6 +53,7 @@
 
 .toggleRange:focus-within .toggleRange--input {
 	border-color: var(--control--outlineColor);
+	border-style: var(--focused--outlineStyle);
 }
 
 .toggleRange--input:focus {

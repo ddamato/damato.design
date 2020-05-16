@@ -15,7 +15,7 @@
 }
 
 .selectSummary--checkbox:focus + .selectSummary--header {
-	outline: 1px solid var(--control--outlineColor);
+	outline: 1px var(--focused--outlineStyle) var(--control--outlineColor);
 	outline-offset: -3px;
 }
 
@@ -166,14 +166,16 @@
 	display: block;
 }
 
+.selectSummary a[slot="title"],
 ::slotted(a[slot="title"]) {
 	color: inherit;
 }
 
 slot[name="title"]:focus {
-	outline: 1px solid #fff;
+	outline: 1px var(--focused--outlineStyle) #fff;
 }
 
+.selectSummary a[slot="title"]:not(:focus),
 ::slotted(a[slot="title"]:not(:focus)) {
 	text-decoration: none;
 }

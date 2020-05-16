@@ -22,23 +22,6 @@
     margin-bottom: 0 !important;
   }
 
-  a:not([href="#"]) {
-    color: var(--accent--defaultColor);
-    padding: 0 4px;
-    border-radius: 2px;
-    margin: 0 -4px;
-  }
-
-  a:not([href="#"]):hover {
-    text-decoration: none;
-    background-color: var(--accent--defaultColor);
-    color: var(--onAccent--defaultColor);
-  }
-  
-  a:not([href="#"]):focus {
-    outline: 1px solid var(--control--outlineColor);
-  }
-
   h1 {
     font-size: var(--textHeading1--fontSize);
     font-weight: var(--textHeading1--fontWeight);
@@ -83,6 +66,32 @@
 
   img {
     max-width: 100%;
+  }
+
+  ul:not([class]) {
+    list-style: none;
+    --customMarker--setting: 2rem;
+    padding-left: var(--customMarker--setting);
+
+    & > li:before {
+      content: "\f101";
+      font-family: fontawesome;
+      color: var(--accent--defaultColor);
+      margin-left: calc(var(--customMarker--setting) * -1);
+      width: var(--customMarker--setting);
+      display: inline-block;
+      transform: translateX(0);
+      transition: .218s ease;
+    }
+
+    & > li:hover:before {
+      transform: translateX(.5rem);
+    }
+
+    & > li:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
   }
 
   hr {

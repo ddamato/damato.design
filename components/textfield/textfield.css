@@ -31,7 +31,7 @@
 }
 
 .textfield--input:focus {
-  outline: 1px solid var(--control--outlineColor);
+  outline: 1px var(--focused--outlineStyle) var(--control--outlineColor);
 }
 
 .textfield--button {
@@ -48,6 +48,6 @@
 }
 
 .textfield--button:focus {
-  outline: 1px solid;
+  outline: 1px var(--focused--outlineStyle);
 	outline-offset: -3px;
 }
