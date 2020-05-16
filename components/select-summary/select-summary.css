@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 }
 
+.selectSummary {
+	perspective: 1000px;
+}
+
 .selectSummary[flyout] {
 	position: relative;
 }
@@ -133,12 +137,16 @@
 	border-top: 0;
 	border-bottom-left-radius: 2px;
 	border-bottom-right-radius: 2px;
-	display: none;
 	background-color: var(--box--backgroundColor);
+	transform-origin: center top;
+	transform: rotateX(-90deg);
+	opacity: 0;
+	position: absolute;
+	transition: .218s ease;
+	display: flow-root;
 }
 
 .selectSummary[flyout] .selectSummary--content {
-	position: absolute;
 	top: 100%;
 	left: 0;
 	width: 100%;
@@ -158,7 +166,9 @@
 }
 
 :not(.selectSummary--single) .selectSummary--checkbox:checked ~ .selectSummary--content {
-	display: flow-root;
+	position: static;
+	transform: rotateX(0);
+	opacity: 1;
 }
 
 .selectSummary[type="menu"] ::slotted(a),
