@@ -10,6 +10,7 @@ class SelectSummary extends HTMLElement {
     this._selectSummary = this.shadowRoot.querySelector('.selectSummary');
     this._checkbox = this.shadowRoot.querySelector('.selectSummary--checkbox');
     this._titleSlot = this.shadowRoot.querySelector('slot[name="title"]');
+    this._titleRef = this.querySelector('[slot="title"]');
     this._contentSlot = this.shadowRoot.querySelector('slot:not([name])');
     
   }
@@ -30,7 +31,7 @@ class SelectSummary extends HTMLElement {
             }
 
             option.addEventListener('click', () => {
-              this._titleSlot.innerHTML = option.innerText;
+              this.setTitleRef(option.innerText);
               this.value = option.getAttribute('value');
               this.sendChangedEvent();
             })
@@ -38,12 +39,23 @@ class SelectSummary extends HTMLElement {
         });
 
         if (this.type === 'select') {
-          this._titleSlot.innerHTML = chosen.innerText;
+          if (!this._titleRef) {
+            this.setTitleRef(chosen.innerText);
+          }
           this.value = chosen.getAttribute('value');
           this.sendChangedEvent();
         }
       });
     }
+  }
+
+  setTitleRef(innerText) {
+    if (!this._titleRef) {
+      this._titleRef = document.createElement('span');
+      this._titleRef.slot = 'title';
+      this.appendChild(this._titleRef);
+    }
+    this._titleRef.innerHTML = innerText;
   }
 
   static get observedAttributes() {

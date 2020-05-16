@@ -16,12 +16,14 @@ When in the "select" configuration, the component acts like a stylized `<select>
   <button class="selectSummary--option">Option 3</button>
 </blu-selectsummary>
 
-Example of a JavaScript enhanced version:
+Example of a JavaScript enhanced version; value changes on selection:
 
 <select-summary type="select">
-  <button class="selectSummary--option">Option 1</button>
-  <button class="selectSummary--option">Option 2</button>
-  <button class="selectSummary--option">Option 3</button>
+  <span slot="title">Pick a fruit</span>
+  <button class="selectSummary--option">Apple</button>
+  <button class="selectSummary--option">Banana</button>
+  <button class="selectSummary--option">Pear</button>
+  <button class="selectSummary--option">Orange</button>
 </select-summary>
 
 ---
@@ -39,10 +41,11 @@ When in the "menu" configuration, the component is prepared to hold navigational
 ---
 
 ### Summary type
+When in the "summary" configuration, the component acts similarly to native HTML5 `<details>` and `<summary>` components. No additional JavaScript is required for this component.
 
 <blu-selectsummary selfdocument type="summary">
-  <span slot="title">Option 1</span>
-  <p>Sample content</p>
+  <span slot="title">Want to hear a joke about construction?</span>
+  <p>I’m still working on it.</p>
 </blu-selectsummary>
 
 
