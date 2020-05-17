@@ -4,16 +4,28 @@ anchor: Textfield
 ---
 
 ## Textfield
-The textfield is composed of a single input and label with an optional button to accompany the component. The following displays use with `.button[type="primary"]`
+The textfield is composed of a single input and label with an optional button to accompany the component. 
 
-<blu-textfield selfdocument input-placeholder="Enter text here">
+<blu-textfield selfdocument input-placeholder="Input w/o button">
+  Label
+</blu-textfield>
+
+<blu-textfield selfdocument input-placeholder="Input with primary button">
   Label
   <button class="button" slot="button" type="primary">Submit</button>
 </blu-textfield>
 
-It is not recommended to use the `.button[type="secondary"]` as its borders will conflict with the component's borders.
+<blu-textfield selfdocument input-placeholder="Input with secondary button">
+  Label
+  <button class="button" slot="button" type="secondary">Submit</button>
+</blu-textfield>
 
-<blu-textfield selfdocument input-placeholder="Enter text here">
+<blu-textfield selfdocument input-placeholder="Input with default button">
   Label
   <button class="button" slot="button">Submit</button>
+</blu-textfield>
+
+<blu-textfield selfdocument input-placeholder="Input with disabled button">
+  Label
+  <button class="button" slot="button" disabled>Submit</button>
 </blu-textfield>

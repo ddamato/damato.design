@@ -30,6 +30,7 @@
 
 .textfield--input:focus {
   outline: 1px var(--focused--outlineStyle) var(--control--outlineColor);
+  outline-offset: -4px;
 }
 
 .textfield :not(.textfield--label):not(.textfield--input),
