@@ -108,18 +108,10 @@ main a:focus {
   margin-left: auto;
   cursor: pointer;
   display: none;
-}
-
-.nav-button:before {
-  content: 'Menu';
   font-weight: 500;
   text-transform: uppercase;
-  margin-right: 1ch;
-}
-
-.nav-button:after {
-  content: '\f0c9';
-  font-family: fontawesome;
+  align-items: center;
+  border: 1px solid transparent;
 }
 
 #navigation-toggle {
@@ -131,14 +123,6 @@ main a:focus {
 
 #navigation-toggle:focus + nav .nav-button {
   border-bottom: 1px solid var(--control--outlineColor);
-}
-
-#navigation-toggle:checked + nav .nav-button:before {
-  content: 'Close';
-}
-
-#navigation-toggle:checked + nav .nav-button:after {
-  content: '\f00d';
 }
 
 .app > main {
