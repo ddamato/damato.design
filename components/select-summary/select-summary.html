@@ -1,12 +1,12 @@
 <div class="selectSummary" type>
   <input id="selectSummary--checkbox" type="checkbox" class="selectSummary--checkbox"/>
-  <div class="selectSummary--header">
-    <slot name="title"></slot>
-    <label for="selectSummary--checkbox" class="selectSummary--label">
-      <slot name="indicator-open"></slot>
-      <slot name="indicator-close"></slot>
-    </label>
-  </div>
+  <label for="selectSummary--checkbox" class="selectSummary--label">
+    <span class="selectSummary--value">
+      <slot name="value"></slot>
+    </span>
+    <slot name="indicator-open"></slot>
+    <slot name="indicator-close"></slot>
+  </label>
   <div class="selectSummary--content">
    <slot></slot>
   </div>

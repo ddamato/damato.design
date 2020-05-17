@@ -22,19 +22,19 @@ function audienceContainers(tokens, idx) {
   if (tokens[idx].nesting === 1) {
     const type = tokens[idx].info.trim();
 
-    let title;
+    let value;
 
     if (type === 'audience-designer') {
-      title = 'Designer Info';
+      value = 'Designer Info';
     }
 
     if (type === 'audience-engineer') {
-      title = 'Engineer Info';
+      value = 'Engineer Info';
     }
 
     return `
       <select-summary type="summary" class="${type}" open>
-        <span slot="title">${title}</span>
+        <span slot="value">${value}</span>
       `;
   }
 

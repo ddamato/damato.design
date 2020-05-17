@@ -6,197 +6,62 @@
 	perspective: 1000px;
 }
 
-.selectSummary[flyout] {
-	position: relative;
-}
-
-.selectSummary :focus,
-::slotted(a:focus) {
-	outline: 0;
-	text-decoration: underline;
-}
-
-.selectSummary--checkbox:focus + .selectSummary--header {
-	outline: 1px var(--focused--outlineStyle) var(--control--outlineColor);
-	outline-offset: -3px;
-}
-
-.selectSummary--header {
-	position: relative;
-	font-weight: 500;
-	font-size: .9rem;
-	border: 1px solid transparent;
-	border-radius: 2px;
-	display: flex;
-}
-
-.selectSummary:not([type="menu"]) .selectSummary--header {
-	border-color: var(--accent--defaultColor);
-}
-
-.selectSummary--checkbox:checked + .selectSummary--header {
-	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
-}
-
-.selectSummary[type="menu"] .selectSummary--checkbox:checked + .selectSummary--header {
-	border-color: var(--accent--defaultColor);
-}
-
-.selectSummary--header > * {
-	display: block;
-	padding: .5rem 1rem;
-}
-
-.selectSummary--label {
-	cursor: pointer;
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	text-transform: uppercase;
-	text-align: right;
-}
-
-.selectSummary[type="menu"] .selectSummary--label {
-	position: static;
-	flex: 1;
-}
-
-.selectSummary--single .selectSummary--label,
-.selectSummary--single .selectSummary--checkbox {
-	display: none;
-}
-
-.selectSummary:not([type="select"]) .selectSummary--header {
-	text-transform: uppercase;
-}
-
-.selectSummary[type="menu"] .selectSummary--header:hover {
-	background-color: var(--accent--defaultColor);
-	color: var(--onAccent--defaultColor);
-	cursor: pointer;
-}
-
-.selectSummary[type="menu"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label {
-	width: auto;
-}
-
-.selectSummary[type="summary"] .selectSummary--header {
-	color: var(--accent--defaultColor);
-}
-
-.selectSummary:not([type="summary"]) .selectSummary--label {
-	color: var(--accent--defaultColor);
-}
-
-.selectSummary[type="menu"] .selectSummary--header:hover .selectSummary--label {
-	color: var(--onAccent--defaultColor);
-}
-
 .selectSummary--checkbox {
 	position: absolute;
 	opacity: 0;
 	pointer-events: none;
 }
 
-.selectSummary--checkbox:not(:checked) + .selectSummary--header .selectSummary--indicatorOpen,
-.selectSummary--checkbox:not(:checked) + .selectSummary--header ::slotted([slot="indicator-open"]),
-.selectSummary--checkbox:checked + .selectSummary--header .selectSummary--indicatorClose,
-.selectSummary--checkbox:checked + .selectSummary--header ::slotted([slot="indicator-close"]) {
-	display: none;
-}
- 
-.selectSummary--content {
-	border: 1px solid transparent;
-	border-top: 0;
-	border-bottom-left-radius: 2px;
-	border-bottom-right-radius: 2px;
-	background-color: var(--box--backgroundColor);
-	transform-origin: center top;
-	transform: rotateX(-90deg);
-	opacity: 0;
-	position: absolute;
-	max-width: 100%;
-	transition: 0s linear;
-	display: flow-root;
-	z-index: 1;
+.selectSummary--checkbox:focus ~ .selectSummary--label .selectSummary--indicatorOpen,
+.selectSummary--checkbox:focus ~ .selectSummary--label ::slotted([slot="indicator-open"]),
+.selectSummary--checkbox:focus ~ .selectSummary--label .selectSummary--indicatorClose,
+.selectSummary--checkbox:focus ~ .selectSummary--label ::slotted([slot="indicator-close"]) {
+	outline: 1px var(--focused--outlineStyle) var(--control--outlineColor);
 }
 
-.selectSummary[flyout] .selectSummary--content {
-	position: absolute;
-	top: 100%;
-	left: 0;
-	width: 100%;
-	z-index: 1;
+.selectSummary--label {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	margin: 0;
+	padding-right: .5rem;
 }
 
-.selectSummary:not([type="menu"]) .selectSummary--content {
-	border-color: var(--accent--defaultColor);
+.selectSummary--value {
+	margin-right: 1rem;
 }
 
-.selectSummary[type="menu"] .selectSummary--header {
-	border: 0;
-	border-radius: 0;
-}
-
-.selectSummary[type="menu"] .selectSummary--content {
-	border-color: var(--accent--defaultColor);
-	margin-left: 1rem;
-	border-right: 0;
-	border-bottom: 0;
-}
-
-.selectSummary[type="menu"] .selectSummary--checkbox:checked ~ .selectSummary--content {
-	border-color: var(--accent--defaultColor);
-}
-
-.selectSummary[type="summary"] .selectSummary--content {
-	padding: 0 1rem;
-}
-
-:not(.selectSummary--single) .selectSummary--checkbox:checked ~ .selectSummary--content {
-	position: static;
-	transform: rotateX(0);
-	opacity: 1;
-	transition: .218s ease;
-}
-
-.selectSummary[type="menu"] ::slotted(a),
-.selectSummary[type="select"] ::slotted(button)  {
-	display: block;
-}
-
-.selectSummary a[slot="title"],
-::slotted(a[slot="title"]) {
+.selectSummary ::slotted([slot="value"]) {
 	color: inherit;
 }
 
-slot[name="title"]:focus {
-	outline: 1px var(--focused--outlineStyle) #fff;
-}
-
-.selectSummary a[slot="title"]:not(:focus),
-::slotted(a[slot="title"]:not(:focus)) {
-	text-decoration: none;
+.selectSummary--content {
+	position: absolute;
+	opacity: 0;
+	transform: rotateX(-90deg);
+	transform-origin: center top;
+	max-width: 100%;
+	left: 0;
+	top: 100%;
+	transition: 0s linear;
+	display: flow-root;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
 }
 
 .selectSummary--option {
-  display: block;
-  margin: 0;
-  border: 0;
-  padding: .5rem 1rem;
-  color: inherit;
-  font: inherit;
-  background: none;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-  text-decoration: none;
+	display: block;
+	margin: 0;
+	border: 0;
+	padding: .5rem 1rem;
+	color: inherit;
+	font: inherit;
+	background: none;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	text-decoration: none;
 }
 
 .selectSummary--option:focus {
@@ -207,4 +72,79 @@ slot[name="title"]:focus {
 .selectSummary--option:hover {
   background-color: var(--accent--defaultColor);
   color: var(--onAccent--defaultColor);
+}
+
+/* States */
+.selectSummary--checkbox:checked ~ .selectSummary--label .selectSummary--indicatorOpen,
+.selectSummary--checkbox:checked ~ .selectSummary--label ::slotted([slot="indicator-open"]),
+.selectSummary--checkbox:not(:checked) ~ .selectSummary--label .selectSummary--indicatorClose,
+.selectSummary--checkbox:not(:checked) ~ .selectSummary--label ::slotted([slot="indicator-close"]) {
+	display: none;
+}
+
+.selectSummary--checkbox:checked ~ .selectSummary--content {
+	position: static;
+	transform: rotateX(0deg);
+	opacity: 1;
+	transition: .218s ease;
+}
+
+.selectSummary--checkbox:not(:checked) ~ .selectSummary--content > * {
+	display: none;
+}
+
+/* Types */
+/* type="select" */
+.selectSummary[type="select"] .selectSummary--label {
+	border: 1px solid var(--accent--defaultColor);
+	padding: .5rem 1rem;
+}
+
+.selectSummary[type="select"] .selectSummary--content {
+	border-bottom: 1px solid var(--accent--defaultColor);
+	border-left: 1px solid var(--accent--defaultColor);
+	border-right: 1px solid var(--accent--defaultColor);
+}
+
+/* type="menu" */
+.selectSummary[type="menu"] .selectSummary--label {
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: .9rem;
+	padding: .5rem 1rem;
+}
+
+.selectSummary[type="menu"] .selectSummary--label:hover {
+	background-color: var(--accent--defaultColor);
+	color: var(--onAccent--defaultColor);
+}
+
+.selectSummary[type="menu"] .selectSummary--content {
+	margin-left: 1rem;
+	border-left: 1px solid var(--accent--defaultColor);
+}
+
+/* type="summary" */
+.selectSummary[type="summary"] .selectSummary--label {
+	border-bottom: 1px solid var(--accent--defaultColor);
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: .9rem;
+	color: var(--accent--defaultColor);
+}
+
+.selectSummary[type="summary"] .selectSummary--value {
+	display: inline-block;
+	border-top: 1px solid var(--accent--defaultColor);
+	border-left: 1px solid var(--accent--defaultColor);
+	border-right: 1px solid var(--accent--defaultColor);
+	padding: .5rem 1rem;
+}
+
+.selectSummary[type="summary"] .selectSummary--content {
+	border-bottom: 1px solid var(--accent--defaultColor);
+	border-left: 1px solid var(--accent--defaultColor);
+	border-right: 1px solid var(--accent--defaultColor);
+	padding-left: 1rem;
+	padding-right: 1rem;
 }

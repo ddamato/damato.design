@@ -78,10 +78,10 @@ function initSelfdocument() {
   this._selfdocumentation.setAttribute('type', 'summary');
   this._selfdocumentation.classList.add('audience-engineer');
   // title slot
-  const title = document.createElement('span');
-  title.innerText = 'Blueprint HTML';
-  title.setAttribute('slot', 'title');
-  this._selfdocumentation.appendChild(title);
+  const value = document.createElement('span');
+  value.innerText = 'Blueprint HTML';
+  value.setAttribute('slot', 'value');
+  this._selfdocumentation.appendChild(value);
 
   // icon slot
   const open = getIndicator('code-brackets', 'open');

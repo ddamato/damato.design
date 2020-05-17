@@ -29,11 +29,14 @@ body.hidden {
   to { opacity: 1; }
 }
 
+a {
+  padding: 0 4px;
+  margin: 0 -4px;
+}
+
 main a {
   color: var(--accent--defaultColor);
-  padding: 0 4px;
   border-radius: 2px;
-  margin: 0 -4px;
 }
 
 main a:hover {
@@ -42,7 +45,7 @@ main a:hover {
   color: var(--onAccent--defaultColor);
 }
 
-main a:focus {
+a:focus {
   outline: 1px var(--focused--outlineStyle) var(--control--outlineColor);
 }
 

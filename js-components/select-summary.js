@@ -9,8 +9,8 @@ class SelectSummary extends HTMLElement {
 
     this._selectSummary = this.shadowRoot.querySelector('.selectSummary');
     this._checkbox = this.shadowRoot.querySelector('.selectSummary--checkbox');
-    this._titleSlot = this.shadowRoot.querySelector('slot[name="title"]');
-    this._titleRef = this.querySelector('[slot="title"]');
+    this._valueSlot = this.shadowRoot.querySelector('slot[name="value"]');
+    this._valueRef = this.querySelector('[slot="value"]');
     this._contentSlot = this.shadowRoot.querySelector('slot:not([name])');
 
     this._indicatorOpenRef = this.querySelector('[slot="indicator-open"]');
@@ -48,7 +48,7 @@ class SelectSummary extends HTMLElement {
             }
 
             option.addEventListener('click', () => {
-              this.setTitleRef(option.innerText);
+              this.setValueRef(option.innerText);
               this.value = option.getAttribute('value');
               this.sendChangedEvent();
             })
@@ -56,8 +56,8 @@ class SelectSummary extends HTMLElement {
         });
 
         if (this.type === 'select') {
-          if (!this._titleRef) {
-            this.setTitleRef(chosen.innerText);
+          if (!this._valueRef) {
+            this.setValueRef(chosen.innerText);
           }
           this.value = chosen.getAttribute('value');
           this.sendChangedEvent();
@@ -66,13 +66,13 @@ class SelectSummary extends HTMLElement {
     }
   }
 
-  setTitleRef(innerText) {
-    if (!this._titleRef) {
-      this._titleRef = document.createElement('span');
-      this._titleRef.slot = 'title';
-      this.appendChild(this._titleRef);
+  setValueRef(innerText) {
+    if (!this._valueRef) {
+      this._valueRef = document.createElement('span');
+      this._valueRef.slot = 'value';
+      this.appendChild(this._valueRef);
     }
-    this._titleRef.innerHTML = innerText;
+    this._valueRef.innerHTML = innerText;
   }
 
   static get observedAttributes() {
@@ -120,7 +120,7 @@ class SelectSummary extends HTMLElement {
   sendChangedEvent() {
     const event = new CustomEvent('change', {
       detail: {
-        name: this._titleSlot.innerText,
+        name: this._valueSlot.innerText,
         type: this.type,
         value: this.value
       }
