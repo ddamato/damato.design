@@ -168,13 +168,13 @@ a:focus {
   padding-top: var(--scrollOffset);
 }
 
-svg-icon[fallback]:not(:defined):before {
-  content: attr(fallback);
-  font-family: fontawesome;
-  display: inline-flex;
-  width: var(--svgIcon--dimension, 1.5em);
-  height: var(--svgIcon--dimension, 1.5em);
+svg-icon:not(:defined) {
+  font-family: "Material Icons";
+  text-transform: none;
+  text-align: center;
+  font-size: 1.5em;
   color: var(--svgIcon--fill, currentColor);
+
 }
 
 @media screen and

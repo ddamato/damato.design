@@ -84,8 +84,8 @@ function initSelfdocument() {
   this._selfdocumentation.appendChild(value);
 
   // icon slot
-  const open = getIndicator('code-brackets', 'open');
-  const close = getIndicator('code-brackets', 'close');
+  const open = getIndicator('code-brackets', 'open', 'code');
+  const close = getIndicator('code-brackets', 'close', 'code');
   this._selfdocumentation.appendChild(open);
   this._selfdocumentation.appendChild(close);
 
@@ -164,10 +164,11 @@ function prepareHTML(html) {
   return html;
 }
 
-function getIndicator(value, state) {
+function getIndicator(value, state, fallback) {
   const className = `selectSummary--indicator${state.charAt(0).toUpperCase() + state.slice(1)}`;
   const svgIcon = document.createElement('svg-icon');
   svgIcon.value = value;
+  svgIcon.innerText = fallback;
   svgIcon.slot = `indicator-${state}`;
   svgIcon.classList.add(className);
   return svgIcon;

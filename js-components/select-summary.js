@@ -18,16 +18,16 @@ class SelectSummary extends HTMLElement {
 
     if (!this._indicatorOpenRef) {
       const state = 'open';
-      this.type === 'select' && this.appendChild(getIndicator('caret-down', state));
-      this.type === 'menu' && this.appendChild(getIndicator('plus', state));
-      this.type === 'summary' && this.appendChild(getIndicator('eye-open', state));
+      this.type === 'select' && this.appendChild(getIndicator('caret-down', state, 'keyboard_arrow_down'));
+      this.type === 'menu' && this.appendChild(getIndicator('plus', state, 'add'));
+      this.type === 'summary' && this.appendChild(getIndicator('eye-open', state, 'visibility'));
     }
 
     if (!this._indicatorCloseRef) {
       const state = 'close';
-      this.type === 'select' && this.appendChild(getIndicator('caret-down', state));
-      this.type === 'menu' && this.appendChild(getIndicator('plus', state));
-      this.type === 'summary' && this.appendChild(getIndicator('eye-close', state));
+      this.type === 'select' && this.appendChild(getIndicator('caret-down', state, 'keyboard_arrow_down'));
+      this.type === 'menu' && this.appendChild(getIndicator('plus', state, 'add'));
+      this.type === 'summary' && this.appendChild(getIndicator('eye-close', state, 'visibility_off'));
     }
     
   }
@@ -129,9 +129,10 @@ class SelectSummary extends HTMLElement {
   }
 }
 
-function getIndicator(value, state) {
+function getIndicator(value, state, fallback) {
   const className = `selectSummary--indicator${state.charAt(0).toUpperCase() + state.slice(1)}`;
   const svgIcon = document.createElement('svg-icon');
+  svgIcon.innerText = fallback;
   svgIcon.value = value;
   svgIcon.slot = `indicator-${state}`;
   svgIcon.classList.add(className);

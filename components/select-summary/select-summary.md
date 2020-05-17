@@ -11,8 +11,8 @@ When in the "select" configuration, the component acts like a stylized `<select>
 
 <blu-selectsummary selfdocument type="select">
   <span slot="value">Option 1</span>
-  <svg-icon value="caret-down" slot="indicator-open" class="selectSummary--indicatorOpen"></svg-icon>
-  <svg-icon value="caret-down" slot="indicator-close" class="selectSummary--indicatorClose"></svg-icon>
+  <svg-icon value="caret-down" slot="indicator-open" class="selectSummary--indicatorOpen">keyboard_arrow_down</svg-icon>
+  <svg-icon value="caret-down" slot="indicator-close" class="selectSummary--indicatorClose">keyboard_arrow_down</svg-icon>
   <button class="selectSummary--option" value="1">Option 1</button>
   <button class="selectSummary--option" value="2">Option 2</button>
   <button class="selectSummary--option" value="3">Option 3</button>
@@ -22,8 +22,8 @@ Example of a JavaScript enhanced version; value changes on selection:
 
 <select-summary type="select">
   <span slot="value">Pick a fruit</span>
-  <svg-icon value="caret-down" slot="indicator-open" class="selectSummary--indicatorOpen"></svg-icon>
-  <svg-icon value="caret-down" slot="indicator-close" class="selectSummary--indicatorClose"></svg-icon>
+  <svg-icon value="caret-down" slot="indicator-open" class="selectSummary--indicatorOpen">keyboard_arrow_down</svg-icon>
+  <svg-icon value="caret-down" slot="indicator-close" class="selectSummary--indicatorClose">keyboard_arrow_down</svg-icon>
   <button class="selectSummary--option" value="apple">Apple</button>
   <button class="selectSummary--option" value="banana">Banana</button>
   <button class="selectSummary--option" value="pear">Pear</button>
@@ -37,8 +37,8 @@ When in the "menu" configuration, the component is prepared to hold navigational
 
 <blu-selectsummary selfdocument type="menu">
   <span slot="value">Group</span>
-  <svg-icon value="plus" slot="indicator-open" class="selectSummary--indicatorOpen"></svg-icon>
-  <svg-icon value="plus" slot="indicator-close" class="selectSummary--indicatorClose"></svg-icon>
+  <svg-icon value="plus" slot="indicator-open" class="selectSummary--indicatorOpen">add</svg-icon>
+  <svg-icon value="plus" slot="indicator-close" class="selectSummary--indicatorClose">add</svg-icon>
   <a class="selectSummary--option" href="javascript:void(0);">Child link 1</a>
   <a class="selectSummary--option" href="javascript:void(0);">Child link 2</a>
   <a class="selectSummary--option" href="javascript:void(0);">Child link 3</a>
@@ -51,8 +51,8 @@ When in the "summary" configuration, the component acts similarly to native HTML
 
 <blu-selectsummary selfdocument type="summary">
   <span slot="value">Want to hear a joke about construction?</span>
-  <svg-icon value="eye-close" slot="indicator-open" class="selectSummary--indicatorOpen"></svg-icon>
-  <svg-icon value="eye-open" slot="indicator-close" class="selectSummary--indicatorClose"></svg-icon>
+  <svg-icon value="eye-close" slot="indicator-open" class="selectSummary--indicatorOpen">visibility_off</svg-icon>
+  <svg-icon value="eye-open" slot="indicator-close" class="selectSummary--indicatorClose">visibility</svg-icon>
   <p>I’m still working on it.</p>
 </blu-selectsummary>
 
