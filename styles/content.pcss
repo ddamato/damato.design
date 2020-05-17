@@ -50,7 +50,17 @@
     margin-bottom: 0;
   }
 
-  [slot="value"] + h3 {
+  h4 {
+    font-size: var(--textHeading4--fontSize);
+    font-weight: var(--textHeading4--fontWeight);
+    font-family: var(--textHeading4--fontFamily);
+    line-height: var(--textHeading4--lineHeight);
+    text-transform: uppercase;
+    margin-top: 2em;
+    margin-bottom: 0;
+  }
+
+  [slot="value"] + h3, [slot="value"] + h4 {
     margin-top: 1rem;
   }
 
@@ -172,13 +182,13 @@
 
   .audience-designer {
     display: block;
-    margin: 4rem 0;
+    margin: 3rem 0;
     --accent--defaultColor: var(--accent--designerColor);
   }
 
   .audience-engineer {
     display: block;
-    margin: 4rem 0;
+    margin: 3rem 0;
     --accent--defaultColor: var(--accent--engineerColor);
   }
 }

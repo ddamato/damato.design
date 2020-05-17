@@ -20,14 +20,14 @@ class SelectSummary extends HTMLElement {
       const state = 'open';
       this.type === 'select' && this.appendChild(getIndicator('caret-down', state));
       this.type === 'menu' && this.appendChild(getIndicator('plus', state));
-      this.type === 'summary' && this.appendChild(getIndicator('eye-close', state));
+      this.type === 'summary' && this.appendChild(getIndicator('eye-open', state));
     }
 
     if (!this._indicatorCloseRef) {
       const state = 'close';
       this.type === 'select' && this.appendChild(getIndicator('caret-down', state));
       this.type === 'menu' && this.appendChild(getIndicator('plus', state));
-      this.type === 'summary' && this.appendChild(getIndicator('eye-open', state));
+      this.type === 'summary' && this.appendChild(getIndicator('eye-close', state));
     }
     
   }
