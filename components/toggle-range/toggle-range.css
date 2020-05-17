@@ -1,7 +1,3 @@
-*, *:before, *:after {
-	box-sizing: border-box;
-}
-
 .toggleRange {
 	display: inline-flex;
 	align-items: center;

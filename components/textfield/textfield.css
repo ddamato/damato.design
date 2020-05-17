@@ -1,7 +1,3 @@
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
 .textfield {
   border: 1px solid var(--control--borderColor);
   display: flex;
@@ -34,20 +30,6 @@
   outline: 1px var(--focused--outlineStyle) var(--control--outlineColor);
 }
 
-.textfield--button {
-  font: inherit;
-  background-color: var(--action--backgroundColor);
-  color: var(--action--foregroundColor);
-  padding: .5rem 1rem;
-  border: 1px solid transparent;
-  cursor: pointer;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-size: .9rem;
-  font-weight: 500;
-}
-
-.textfield--button:focus {
-  outline: 1px var(--focused--outlineStyle);
-	outline-offset: -3px;
+.textfield ::slotted([slot="button"]) {
+  border-radius: 0 !important;
 }

@@ -49,7 +49,7 @@ async function bundleJS() {
 }
 
 function composeStyles(css) {
-  return `<style type="text/css">${css.replace(/\\/g, '\\\\')}</style>`;
+  return `<style type="text/css"> *, *:before, *:after { box-sizing: border-box; } ${css.replace(/\\/g, '\\\\')}</style>`;
 }
 
 async function bundle() {
