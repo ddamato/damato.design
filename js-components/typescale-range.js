@@ -4,7 +4,10 @@ class TypescaleRange extends HTMLElement {
   constructor() {
     super();
 
-    const typescaleFactor = window.getComputedStyle(document.documentElement).getPropertyValue(TYPESCALE_CSS_CUSTOMPROPERTY).trim();
+    const typescaleFactor = window
+      .getComputedStyle(document.documentElement)
+      .getPropertyValue(TYPESCALE_CSS_CUSTOMPROPERTY)
+      .trim();
 
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `

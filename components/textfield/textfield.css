@@ -1,5 +1,4 @@
 .textfield {
-  border: 1px solid var(--control--borderColor);
   display: flex;
   border-radius: 2px;
   vertical-align: middle;
@@ -12,24 +11,28 @@
   padding: .5rem 1rem;
   border-right: inherit;
   line-height: 1.5rem;
+  border: 0;
+  border-bottom: 1px solid var(--control--borderColor);
 }
 
 .textfield--input {
   flex: 1;
   background: transparent;
-  border: 0;
   font: inherit;
   color: inherit;
   padding: 0 .5rem;
   align-self: stretch;
   line-height: 1.5rem;
   width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--control--borderColor);
 }
 
 .textfield--input:focus {
   outline: 1px var(--focused--outlineStyle) var(--control--outlineColor);
 }
 
+.textfield :not(.textfield--label):not(.textfield--input),
 .textfield ::slotted([slot="button"]) {
-  border-radius: 0 !important;
+  margin-left: 1rem;
 }

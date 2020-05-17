@@ -82,7 +82,7 @@
 	position: static;
 	transform: rotateX(0deg);
 	opacity: 1;
-	transition: .218s ease;
+	transition: 0s ease-out;
 }
 
 .selectSummary--checkbox:not(:checked) ~ .selectSummary--content > * {
