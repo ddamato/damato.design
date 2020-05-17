@@ -1,6 +1,7 @@
 import html from '../components/toggle-range/toggle-range.html';
 import css from '../components/toggle-range/toggle-range.css';
 
+const TAP_DELAY_MS = 500;
 class ToggleRange extends HTMLElement {
   constructor() {
     super();
@@ -53,7 +54,7 @@ class ToggleRange extends HTMLElement {
         this._input.focus();
       }
 
-      if (this.type === 'toggle' && new Date().getTime() - timedownStart < 300)  {
+      if (this.type === 'toggle' && new Date().getTime() - timedownStart < TAP_DELAY_MS)  {
         this._traverseStep();
       }
     };
