@@ -29,6 +29,7 @@
 	font-size: .9rem;
 	border: 1px solid transparent;
 	border-radius: 2px;
+	display: flex;
 }
 
 .selectSummary:not([type="menu"]) .selectSummary--header {
@@ -59,7 +60,13 @@
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-  text-transform: uppercase;
+	text-transform: uppercase;
+	text-align: right;
+}
+
+.selectSummary[type="menu"] .selectSummary--label {
+	position: static;
+	flex: 1;
 }
 
 .selectSummary--single .selectSummary--label,
@@ -67,17 +74,8 @@
 	display: none;
 }
 
-.selectSummary--label:after {
-	font-family: fontawesome;
-	margin-left: 1ch;
-}
-
 .selectSummary:not([type="select"]) .selectSummary--header {
 	text-transform: uppercase;
-}
-
-.selectSummary[type="menu"] .selectSummary--label:after {
-	content: "\f067";
 }
 
 .selectSummary[type="menu"] .selectSummary--header:hover {
@@ -86,20 +84,8 @@
 	cursor: pointer;
 }
 
-.selectSummary[type="menu"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label:after {
-	content: "\f068";
-}
-
 .selectSummary[type="menu"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label {
 	width: auto;
-}
-
-.selectSummary[type="select"] .selectSummary--label:after {
-	content: "\f063";
-}
-
-.selectSummary[type="select"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label:after {
-	content: "\f060";
 }
 
 .selectSummary[type="summary"] .selectSummary--header {
@@ -110,28 +96,19 @@
 	color: var(--accent--defaultColor);
 }
 
-.selectSummary[type="summary"] .selectSummary--label:before {
-	content: "SHOW";
-}
-
-.selectSummary[type="summary"] .selectSummary--label:after {
-	content: "\f06e";
-}
-
-.selectSummary[type="summary"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label:before {
-	content: "HIDE";
-}
-
-.selectSummary[type="summary"] .selectSummary--checkbox:checked + .selectSummary--header .selectSummary--label:after {
-	content: "\f070";
-}
-
 .selectSummary--checkbox {
 	position: absolute;
 	opacity: 0;
 	pointer-events: none;
 }
 
+.selectSummary--checkbox:not(:checked) + .selectSummary--header .selectSummary--indicatorOpen,
+.selectSummary--checkbox:not(:checked) + .selectSummary--header ::slotted([slot="indicator-open"]),
+.selectSummary--checkbox:checked + .selectSummary--header .selectSummary--indicatorClose,
+.selectSummary--checkbox:checked + .selectSummary--header ::slotted([slot="indicator-close"]) {
+	display: none;
+}
+ 
 .selectSummary--content {
 	border: 1px solid transparent;
 	border-top: 0;

@@ -12,6 +12,23 @@ class SelectSummary extends HTMLElement {
     this._titleSlot = this.shadowRoot.querySelector('slot[name="title"]');
     this._titleRef = this.querySelector('[slot="title"]');
     this._contentSlot = this.shadowRoot.querySelector('slot:not([name])');
+
+    this._indicatorOpenRef = this.querySelector('[slot="indicator-open"]');
+    this._indicatorCloseRef = this.querySelector('[slot="indicator-close"]');
+
+    if (!this._indicatorOpenRef) {
+      const state = 'open';
+      this.type === 'select' && this.appendChild(getIndicator('caret-down', state));
+      this.type === 'menu' && this.appendChild(getIndicator('plus', state));
+      this.type === 'summary' && this.appendChild(getIndicator('eye-close', state));
+    }
+
+    if (!this._indicatorCloseRef) {
+      const state = 'close';
+      this.type === 'select' && this.appendChild(getIndicator('caret-down', state));
+      this.type === 'menu' && this.appendChild(getIndicator('plus', state));
+      this.type === 'summary' && this.appendChild(getIndicator('eye-open', state));
+    }
     
   }
 
@@ -110,6 +127,15 @@ class SelectSummary extends HTMLElement {
     });
     this.dispatchEvent(event);
   }
+}
+
+function getIndicator(value, state) {
+  const className = `selectSummary--indicator${state.charAt(0).toUpperCase() + state.slice(1)}`;
+  const svgIcon = document.createElement('svg-icon');
+  svgIcon.value = value;
+  svgIcon.slot = `indicator-${state}`;
+  svgIcon.classList.add(className);
+  return svgIcon;
 }
 
 window.customElements.define('select-summary', SelectSummary);

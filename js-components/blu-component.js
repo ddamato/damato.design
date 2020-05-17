@@ -77,10 +77,18 @@ function initSelfdocument() {
   this._selfdocumentation = document.createElement('select-summary');
   this._selfdocumentation.setAttribute('type', 'summary');
   this._selfdocumentation.classList.add('audience-engineer');
+  // title slot
   const title = document.createElement('span');
   title.innerText = 'Blueprint HTML';
   title.setAttribute('slot', 'title');
   this._selfdocumentation.appendChild(title);
+
+  // icon slot
+  const open = getIndicator('code-brackets', 'open');
+  const close = getIndicator('code-brackets', 'close');
+  this._selfdocumentation.appendChild(open);
+  this._selfdocumentation.appendChild(close);
+
 
   const pre = document.createElement('pre');
   this._adjacentCode = document.createElement('code');
@@ -154,6 +162,15 @@ function prepareHTML(html) {
   }).join('\n');
   html = html.replace(/[\u00A0-\u9999<>\&]/gim, (i) => '&#' + i.charCodeAt(0) + ';');
   return html;
+}
+
+function getIndicator(value, state) {
+  const className = `selectSummary--indicator${state.charAt(0).toUpperCase() + state.slice(1)}`;
+  const svgIcon = document.createElement('svg-icon');
+  svgIcon.value = value;
+  svgIcon.slot = `indicator-${state}`;
+  svgIcon.classList.add(className);
+  return svgIcon;
 }
 
 window.BluComponent = BluComponent;

@@ -2,7 +2,10 @@
   <input id="selectSummary--checkbox" type="checkbox" class="selectSummary--checkbox"/>
   <div class="selectSummary--header">
     <slot name="title"></slot>
-    <label for="selectSummary--checkbox" class="selectSummary--label"></label>
+    <label for="selectSummary--checkbox" class="selectSummary--label">
+      <slot name="indicator-open"></slot>
+      <slot name="indicator-close"></slot>
+    </label>
   </div>
   <div class="selectSummary--content">
    <slot></slot>
