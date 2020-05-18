@@ -29,7 +29,7 @@ class A11yColor extends HTMLElement {
    return window
     .getComputedStyle(document.documentElement)
     .getPropertyValue(ACCENT_CSS_CUSTOMPROPERTY)
-    .trim();
+    .replace(/\s+/gm, '');
   }
 
   _manageObserver() {
@@ -49,4 +49,7 @@ class A11yColor extends HTMLElement {
   }
 }
 
-window.customElements.define('a11y-color', A11yColor);
+window.customElements.whenDefined('closest-color').then(() => {
+  window.customElements.define('a11y-color', A11yColor);
+})
+

@@ -42,7 +42,7 @@
 	margin: 0 .5rem;
   background: linear-gradient(180deg, 
     transparent calc(50% - 1px), 
-    currentColor calc(50%), 
+    var(--box--foregroundColor) calc(50%), 
     transparent calc(50% + 1px)
   );
 }
