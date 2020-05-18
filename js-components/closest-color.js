@@ -1,7 +1,6 @@
 import html from '../components/closest-color/closest-color.html';
 import css from '../components/closest-color/closest-color.css';
 
-const ACCENT_CSS_CUSTOMPROPERTY = '--accent--defaultColor';
 const COLORVALUE_CSS_PROPERTY = '--closestColor--value';
 
 class ClosestColor extends HTMLElement {
@@ -15,36 +14,29 @@ class ClosestColor extends HTMLElement {
     this._outputDistance = this.shadowRoot.querySelector('.closestColor--outputDistance');
     this._outputClosest = this.shadowRoot.querySelector('.closestColor--outputClosest');
 
+    this._userchange = false;
+
     if (this.hasAttribute('hexjson')) {
       this.loadColors(this.getAttribute('hexjson')).then(() => this._initColor());
     }
 
     this._inputColor.addEventListener('change', (ev) => {
+      this._userchange = true;
       const rgb = this._hexToRGB(ev.target.value);
       this._renderColors(rgb, true);
     });
   }
 
-  connectedCallback() {
-    this._manageObserver();
+  static get observedAttributes() {
+    return ['value'];
   }
 
-  disconnectedCallback() {
-    this._manageObserver();
-  }
-
-  _manageObserver() {
-    if (this._observer) {
-      this._observer.disconnect();
-      return;
+  attributeChangedCallback(attrName) {
+    if (attrName === 'value') {
+      if (Array.isArray(this._rgbColors)) {
+        this._initColor();
+      }
     }
-
-    this._observer = new MutationObserver((entries) => {
-      entries.forEach(({ attributeName }) => {
-        attributeName !== 'style' && this._initColor();
-      });
-    })
-    this._observer.observe(document.documentElement, { attributes: true });
   }
 
   _parseCss(css) {
@@ -55,15 +47,56 @@ class ClosestColor extends HTMLElement {
     return '#000000';
   }
 
-  _renderColors(rgb, apply) {
+  _renderColors(rgb) {
     const { closest, distance, original } = this.getClosestColor(rgb);
     this._setOutputColor(this._outputChosen, original);
     this._outputChosen.style.setProperty('color', this._getContrast(original));
-    const accentColor = this._setOutputColor(this._outputClosest, closest);
     this._outputDistance.value = distance && distance.toFixed(2);
-    if (apply) {
-      document.documentElement.style.setProperty(ACCENT_CSS_CUSTOMPROPERTY, accentColor);
+    this.rgb = this._setOutputColor(this._outputClosest, closest);
+    this.hex = this._parseCss(this.rgb);
+    this.sendChangedEvent();
+  }
+
+  get rgb() {
+    if (!this.hasAttribute('rgb')) {
+      return this._parseCss(this._hexToRGB(this.hex));
     }
+    return this.getAttribute('rgb');
+  }
+
+  set rgb(newVal) {
+    this.setAttribute('rgb', newVal);
+  }
+
+  get hex() {
+    if (!this.hasAttribute('hex')) {
+      return this._hexToRGB(this._inputColor.value);
+    }
+    return this.getAttribute('hex');
+  }
+
+  set hex(newVal) {
+    this.setAttribute('hex', newVal);
+  }
+
+  get value() {
+    return this.getAttribute('value');
+  }
+
+  set value(newVal) {
+    this.setAttribute('value', newVal);
+  }
+
+  sendChangedEvent() {
+    const event = new CustomEvent('change', {
+      detail: {
+        hex: this.hex,
+        rgb: this.rgb,
+        value: this.value,
+        userchange: this._userchange,
+      }
+    });
+    this.dispatchEvent(event);
   }
 
   _getContrast(rgb) {
@@ -114,13 +147,17 @@ class ClosestColor extends HTMLElement {
 
   _initColor() {
     // css rgb() string
-    const accentColor = window
-      .getComputedStyle(document.documentElement)
-      .getPropertyValue(ACCENT_CSS_CUSTOMPROPERTY)
-      .trim();
+    let hex = this._inputColor.value;
+    if (this.value && this.value.startsWith('#')) {
+      hex = this.value;
+    }
+
+    if (this.value && this.value.startsWith('rgb')) {
+      hex = this._parseCss(this.value);
+    }
 
     // requires 6-digit hex
-    this._inputColor.value = this._parseCss(accentColor);
+    this._inputColor.value = hex;
     const rgb = this._hexToRGB(this._inputColor.value);
     this._renderColors(rgb);
   }
