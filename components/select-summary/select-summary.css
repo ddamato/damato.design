@@ -35,8 +35,6 @@
 .selectSummary--content {
 	position: absolute;
 	opacity: 0;
-	transform: rotateX(-90deg);
-	transform-origin: center top;
 	max-width: 100%;
 	left: 0;
 	top: 100%;
@@ -80,9 +78,8 @@
 
 .selectSummary--checkbox:checked ~ .selectSummary--content {
 	position: static;
-	transform: rotateX(0deg);
 	opacity: 1;
-	transition: 0s ease-out;
+	transition: .218s ease-in-out;
 }
 
 .selectSummary--checkbox:not(:checked) ~ .selectSummary--content > * {

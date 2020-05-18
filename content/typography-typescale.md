@@ -69,3 +69,6 @@ label {
 }
 ```
 :::
+
+https://utopia.fyi/blog/css-modular-scales/
+https://blog.envylabs.com/responsive-typographic-scales-in-css-b9f60431d1c4

@@ -6,6 +6,7 @@ anchor: Button
 ## Button
 
 Buttons are a quintessential part of every design system as they invoke the user to take an action. 
+https://medium.com/eightshapes-llc/buttons-in-design-systems-eac3acf7e23
 
 ::: audience-designer
 - Horizontal spacing is 1rem (16px), vertical spacing is .5rem (8px). This provides a large target area for both cursor targetting and various sizes of tapping instruments.
