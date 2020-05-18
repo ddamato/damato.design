@@ -6,6 +6,8 @@ anchor: Textfield
 ## Textfield
 The textfield is composed of a single input and label with an optional button to accompany the component. 
 
+https://medium.com/google-design/the-evolution-of-material-designs-text-fields-603688b3fe03
+
 <blu-textfield selfdocument input-placeholder="Input w/o button">
   Label
 </blu-textfield>

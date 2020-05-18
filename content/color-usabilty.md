@@ -13,3 +13,4 @@ Disrupt farm-to-table lumbersexual godard, food truck fanny pack irony man bun. 
 https://dev.to/finnhvman/which-colors-look-good-on-black-and-white-2pe6
 https://ux.stackexchange.com/questions/73763/background-colour-suitable-for-both-black-and-white-text
 https://stackoverflow.com/questions/9018016/how-to-compare-two-colors-for-similarity-difference
+https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color

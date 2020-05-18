@@ -1,0 +1,104 @@
+.closestColor {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	grid-template-areas: "label-chosen label-distance label-closest"
+		"output-chosen output-distance output-closest";
+	position: relative;
+}
+
+.closestColor--input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.closestColor--label {
+	font-size: .9em;
+	font-weight: 500;
+	text-transform: uppercase;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: .5rem;
+}
+
+.closestColor--outputClosest,
+.closestColor--outputChosen {
+	background-color: var(--closestColor--value);
+	padding: .5rem 1rem;
+	color: var(--onAccent--defaultColor);
+	border-radius: 2px;
+}
+
+.closestColor--distance {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 .5rem;
+  background: linear-gradient(180deg, 
+    transparent calc(50% - 1px), 
+    currentColor calc(50%), 
+    transparent calc(50% + 1px)
+  );
+}
+
+.closestColor--outputDistance {
+	background: var(--box--backgroundColor);
+	border-radius: 2px;
+	padding: .5rem;
+}
+
+.closestColor--labelChosen {
+  grid-area: label-chosen;
+}
+
+.closestColor--labelDistance {
+  grid-area: label-distance;
+}
+
+.closestColor--labelClosest {
+  grid-area: label-closest;
+}
+
+.closestColor--outputChosen {
+  grid-area: output-chosen;
+}
+
+.closestColor--distance {
+  grid-area: output-distance;
+}
+
+.closestColor--outputClosest {
+  grid-area: output-closest;
+}
+
+
+@media (max-width: 768px) {
+	.closestColor {
+		grid-template-columns: auto 1fr;
+		grid-template-areas: "label-chosen output-chosen"
+		"label-distance output-distance"
+		"label-closest output-closest";
+		justify-items: flex-start;
+	}
+	
+	.closestColor--label {
+		margin-bottom: 0;
+		margin-right: 1rem;
+	}
+	
+	.closestColor--distance {
+		background: linear-gradient(90deg, 
+        transparent calc(50% - 1px), 
+        currentColor calc(50%), 
+        transparent calc(50% + 1px)
+    );
+		padding: 1rem 0;
+		margin: .5rem 0;
+	}
+}
