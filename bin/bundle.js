@@ -67,7 +67,7 @@ async function bundle() {
     blueprints[basename][extension.slice(1)] = fs.readFileSync(file).toString();
   });
 
-  siteJs += Object.keys(blueprints).map((blueprint) => {
+  const bluComponents = Object.keys(blueprints).map((blueprint) => {
     const { html, css } = blueprints[blueprint];
     if (css) {
       siteCss += css;
@@ -77,7 +77,7 @@ async function bundle() {
     const className = `Blu${cleanName}`;
     const tagName = `blu-${cleanName}`;
     console.log(tagName);
-    return `class ${className} extends window.BluComponent {
+    return `class ${className} extends BluComponent {
       constructor() {
         super();
         this.attachShadow({ mode: 'open' });
@@ -87,6 +87,11 @@ async function bundle() {
     
     window.customElements.define('${tagName}', ${className});`
   }).join('');
+
+  siteJs += `window.customElements.whenDefined('blu-component').then(() => {
+    const BluComponent = window.customElements.get('blu-component');
+    ${bluComponents}
+  })`;
 
   const scriptsFileName = `${COMPILED_SITE_PATH}/scripts.js`;
   const stylesCssFileName = `${COMPILED_SITE_PATH}/styles.css`;

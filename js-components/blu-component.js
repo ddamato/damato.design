@@ -174,5 +174,4 @@ function getIndicator(value, state, fallback) {
   return svgIcon;
 }
 
-window.BluComponent = BluComponent;
 window.customElements.define('blu-component', BluComponent);
