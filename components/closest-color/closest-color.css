@@ -1,9 +1,50 @@
 .closestColor {
-	display: grid;
-	grid-template-columns: auto 1fr auto;
-	grid-template-areas: "label-chosen label-distance label-closest"
-		"output-chosen output-distance output-closest";
+	list-style: none;
+	margin: .5rem auto;
+	padding: 0;
+	text-align: center;
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 	position: relative;
+}
+
+/* vertical line for mobile */
+.closestColor:before {
+	content: "";
+	position: absolute;
+	width: calc((300px - 100%) * -300);
+	max-width: 1rem;
+	height: 50%;
+	right: 50%;
+	margin-right: calc(-7.5ch - 1px);
+	top: 25%;
+	opacity: 1;
+	z-index: 0;
+	background: linear-gradient(90deg, 
+	    var(--box--backgroundColor) calc(50% - 1px), 
+			var(--box--foregroundColor) calc(50%), 
+			var(--box--backgroundColor) calc(50% + 1px)
+	  );
+}
+
+/* horizontal line for desktop */
+.closestColor:after {
+	content: "";
+	position: absolute;
+	width: calc((540px - 100%) * -540);
+	max-width: 50%;
+	height: 100%;
+	left: 50%;
+	transform: translatex(-50%);
+	top: 0;
+	opacity: 1;
+	z-index: 0;
+	background: linear-gradient(180deg, 
+		var(--box--backgroundColor) calc(72% - 1px), 
+	  var(--box--foregroundColor) calc(72%), 
+		var(--box--backgroundColor) calc(72% + 1px)
+	);
 }
 
 .closestColor--input {
@@ -14,17 +55,37 @@
 	height: 100%;
 	opacity: 0;
 	cursor: pointer;
+	z-index: 2;
+}
+
+.closestColor--display {
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: center;	
+	align-items: center;
+	min-width: 33%;
+	width: calc((540px - 100%) * 540);
+	max-width: 100%;
 }
 
 .closestColor--label {
-	font-size: .9em;
-	font-weight: 500;
-	text-transform: uppercase;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	display: inline-block;
 	padding: .5rem 1rem;
+	width: calc((300px - 100%) * 300);
+	max-width: 100%;
+	min-width: 11ch;
+	white-space: pre;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: .9em;
+	z-index: 1;
+}
+
+.closestColor--display > :last-child {
+	display: inline-block;
+	min-width: 12ch;
+	max-width: 100%;
+	z-index: 1;
 }
 
 .closestColor--outputClosest,
@@ -32,68 +93,22 @@
 	background-color: var(--closestColor--value);
 	padding: .5rem 1rem;
 	color: var(--onAccent--defaultColor);
-	border-radius: 2px;
+	border: .5rem solid var(--box--backgroundColor);
+	white-space: pre;
 }
 
 .closestColor--distance {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0 .5rem;
-  background: linear-gradient(180deg, 
-    transparent calc(50% - 1px), 
-    var(--box--foregroundColor) calc(50%), 
-    transparent calc(50% + 1px)
-  );
+	border-color: transparent;
+	border-style: solid;
+	border-left-width: 1.5rem;
+	border-right-width: 1.5rem;
+	border-top-width: .5rem;
+	border-bottom-width: .5rem;
 }
 
 .closestColor--outputDistance {
-	background: var(--box--backgroundColor);
-	border-radius: 2px;
+	display: inline-block;
 	padding: .5rem;
+	background-color: var(--box--backgroundColor);
 }
 
-.closestColor--labelChosen {
-  grid-area: label-chosen;
-}
-
-.closestColor--labelDistance {
-  grid-area: label-distance;
-}
-
-.closestColor--labelClosest {
-  grid-area: label-closest;
-}
-
-.closestColor--outputChosen {
-  grid-area: output-chosen;
-}
-
-.closestColor--distance {
-  grid-area: output-distance;
-}
-
-.closestColor--outputClosest {
-  grid-area: output-closest;
-}
-
-
-@media (max-width: 768px) {
-	.closestColor {
-		grid-template-columns: auto 1fr;
-		grid-template-areas: "label-chosen output-chosen"
-		"label-distance output-distance"
-		"label-closest output-closest";
-		justify-items: flex-start;
-	}
-	
-	.closestColor--distance {
-		background: linear-gradient(90deg, 
-        transparent calc(50% - 1px), 
-        currentColor calc(50%), 
-        transparent calc(50% + 1px)
-    );
-		padding: 1rem 0;
-		margin: .5rem 0;
-	}
-}
