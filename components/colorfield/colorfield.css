@@ -1,4 +1,4 @@
-.closestColor {
+.colorfield {
 	list-style: none;
 	margin: .5rem auto;
 	padding: 0;
@@ -9,12 +9,12 @@
 	position: relative;
 }
 
-.closestColor:focus-within {
+.colorfield:focus-within {
 	outline: 1px var(--focused--outlineStyle) var(--control--outlineColor);
 }
 
 /* vertical line for mobile */
-.closestColor:before {
+.colorfield:before {
 	content: "";
 	position: absolute;
 	width: calc((300px - 100%) * -300);
@@ -33,7 +33,7 @@
 }
 
 /* horizontal line for desktop */
-.closestColor:after {
+.colorfield:after {
 	content: "";
 	position: absolute;
 	width: calc((540px - 100%) * -540);
@@ -51,7 +51,7 @@
 	);
 }
 
-.closestColor--input {
+.colorfield--input {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -62,7 +62,7 @@
 	z-index: 2;
 }
 
-.closestColor--display {
+.colorfield--display {
 	display: inline-flex;
 	flex-wrap: wrap;
 	justify-content: center;	
@@ -72,8 +72,7 @@
 	max-width: 100%;
 }
 
-.closestColor--label {
-	display: inline-block;
+.colorfield--label {
 	padding: .5rem 1rem;
 	width: calc((300px - 100%) * 300);
 	max-width: 100%;
@@ -83,25 +82,27 @@
 	font-weight: 500;
 	font-size: .9em;
 	z-index: 1;
+	display: inline-flex;
+  justify-content: center;
 }
 
-.closestColor--display > :last-child {
+.colorfield--display > :last-child {
 	display: inline-block;
 	min-width: 12ch;
 	max-width: 100%;
 	z-index: 1;
 }
 
-.closestColor--outputClosest,
-.closestColor--outputChosen {
-	background-color: var(--closestColor--value);
+.colorfield--outputInput,
+.colorfield--outputValue {
+	background-color: var(--colorfield--color, transparent);
 	padding: .5rem 1rem;
 	color: var(--onAccent--defaultColor);
 	border: .5rem solid var(--box--backgroundColor);
 	white-space: pre;
 }
 
-.closestColor--distance {
+.colorfield--delta {
 	border-color: transparent;
 	border-style: solid;
 	border-left-width: 1.5rem;
@@ -110,7 +111,7 @@
 	border-bottom-width: .5rem;
 }
 
-.closestColor--outputDistance {
+.colorfield--outputDelta {
 	display: inline-block;
 	padding: .5rem;
 	background-color: var(--box--backgroundColor);
