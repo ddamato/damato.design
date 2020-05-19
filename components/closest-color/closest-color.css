@@ -9,6 +9,10 @@
 	position: relative;
 }
 
+.closestColor:focus-within {
+	outline: 1px var(--focused--outlineStyle) var(--control--outlineColor);
+}
+
 /* vertical line for mobile */
 .closestColor:before {
 	content: "";
