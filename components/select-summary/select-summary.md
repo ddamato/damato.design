@@ -6,6 +6,8 @@ anchor: Select-Summary
 ## Select-Summary
 The select-summary component is a hybrid of a few components found in design systems which show and hide content. Each version allows for control via the spacebar to open and close the content drawer. By default, content will disrupt the remaining document flow. In other words, the content area does not flyout and appear on top of other content; it will push content down.
 
+https://www.modulz.app/blog/under-the-spotlight-select
+
 ### type:select
 When in the "select" configuration, the component acts like a stylized `<select>` component. Additional JavaScript is required for the value to appear in the value slot on selection. 
 
