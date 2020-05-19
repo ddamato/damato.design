@@ -41,9 +41,9 @@
 	opacity: 1;
 	z-index: 0;
 	background: linear-gradient(180deg, 
-		var(--box--backgroundColor) calc(72% - 1px), 
-	  var(--box--foregroundColor) calc(72%), 
-		var(--box--backgroundColor) calc(72% + 1px)
+		var(--box--backgroundColor) calc(70% - 1px), 
+	  var(--box--foregroundColor) calc(70%), 
+		var(--box--backgroundColor) calc(70% + 1px)
 	);
 }
 

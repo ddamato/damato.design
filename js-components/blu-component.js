@@ -104,9 +104,13 @@ function showCode() {
   this._currentHTML = '';
 
   const slots = this.shadowRoot.querySelectorAll('slot');
-  [...slots].forEach((slot) => {
-    slot.addEventListener('slotchange', () =>  renderCode.call(this, slot));
-  });
+  if (!slots.length) {
+    renderCode.call(this)
+  } else {
+    [...slots].forEach((slot) => {
+      slot.addEventListener('slotchange', () =>  renderCode.call(this, slot));
+    });
+  }
 }
 
 function renderCode(slot) {
@@ -118,22 +122,25 @@ function renderCode(slot) {
 
   const template = document.createElement('template');
   template.innerHTML = this._currentHTML;
-  const query = slot.name ? `slot[name="${slot.name}"]` : 'slot:not([name])';
-  const slotTarget = template.content.querySelector(query);
-  if (slotTarget) {
-    const nodes = slot.assignedNodes();
-    const frag = document.createDocumentFragment();
-    [...nodes].forEach((node) => {
-      const cloned = node.cloneNode(true);
-      cloned.removeAttribute && cloned.removeAttribute('slot');
-      frag.appendChild(cloned);
-    });
-    slotTarget.parentNode.replaceChild(frag, slotTarget);
-    this._currentHTML = template.innerHTML;
+
+  if (slot) {
+    const query = slot.name ? `slot[name="${slot.name}"]` : 'slot:not([name])';
+    const slotTarget = template.content.querySelector(query);
+    if (slotTarget) {
+      const nodes = slot.assignedNodes();
+      const frag = document.createDocumentFragment();
+      [...nodes].forEach((node) => {
+        const cloned = node.cloneNode(true);
+        cloned.removeAttribute && cloned.removeAttribute('slot');
+        frag.appendChild(cloned);
+      });
+      slotTarget.parentNode.replaceChild(frag, slotTarget);
+      this._currentHTML = template.innerHTML;
+    }
+    const remainingSlots = template.content.querySelectorAll('slot');
+    [...remainingSlots].forEach((slot) => !slot.assignedNodes().length &&  slot.remove());
   }
 
-  const remainingSlots = template.content.querySelectorAll('slot');
-  [...remainingSlots].forEach((slot) => !slot.assignedNodes().length &&  slot.remove());
   this._adjacentCode.innerHTML = prepareHTML(template.innerHTML);
 }
 
@@ -142,7 +149,7 @@ const SELF_CLOSING = [].concat(voidElements, svgElements);
 function prepareHTML(html) {
   const tags = html.replace(/>\s*([a-zA-Z0-9 ]+)\s*</gm, '>$1<').replace(/>\s+</gm, '>\n<').split('\n');
   let indent = 0;
- html = tags.map((tag) => {
+  html = tags.map((tag) => {
 
     if (/^<\//.test(tag)) {
       indent -= 1;
