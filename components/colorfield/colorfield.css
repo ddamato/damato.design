@@ -94,10 +94,11 @@
 
 .colorfield--outputInput,
 .colorfield--outputValue {
-	background-color: var(--colorfield--color, var(--box--backgroundColor));
+	background-color: var(--colorfield--backgroundColor, var(--boxLowContrast--backgroundColor));
+	color: var(--colorfield--foregroundColor, var(--box--foregroundColor));
 	padding: .5rem 1rem;
-	color: var(--onAccent--defaultColor);
 	border: .5rem solid var(--box--backgroundColor);
+	border-radius: calc(.5rem + 2px);
 	white-space: pre;
 }
 

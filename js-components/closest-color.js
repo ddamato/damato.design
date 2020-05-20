@@ -1,3 +1,6 @@
+const HEXJSON_URL = 'json/a11yColorsOnBlackAndWhite.json';
+const ACCENT_CSS_CUSTOMPROPERTY = '--accent--defaultColor';
+
 class ClosestColor extends HTMLElement {
   constructor() {
     super();
@@ -20,11 +23,45 @@ class ClosestColor extends HTMLElement {
       }
     };
 
-    if (this.hasAttribute('hexjson')) {
-      this.loadColors(this.getAttribute('hexjson')).then(() => {
-        this._colorfield.color = this.value;
-      });
+    this._colorfield.addEventListener('change', (ev) => {
+      if (ev.detail.userchange) {
+        document.documentElement.style.setProperty(ACCENT_CSS_CUSTOMPROPERTY, ev.detail.value);
+      }
+    });
+
+    this.loadColors(HEXJSON_URL).then(() => this._colorfield.color = this.value);
+  }
+
+  connectedCallback() {
+    this._manageObserver();
+    this.value = this._getAccentColor();
+  }
+
+  disconnectedCallback() {
+    this._manageObserver();
+  }
+
+  _getAccentColor() {
+    return window
+     .getComputedStyle(document.documentElement)
+     .getPropertyValue(ACCENT_CSS_CUSTOMPROPERTY)
+     .replace(/\s+/gm, '');
+   }
+
+   _manageObserver() {
+    if (this._observer) {
+      this._observer.disconnect();
+      return;
     }
+
+    this._observer = new MutationObserver((entries) => {
+      entries.forEach(({ attributeName }) => {
+        if (attributeName !== 'style') {
+          this.value = this._getAccentColor();
+        }
+      });
+    })
+    this._observer.observe(document.documentElement, { attributes: true });
   }
 
   get value() {

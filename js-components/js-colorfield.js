@@ -2,7 +2,8 @@ import html from '../components/colorfield/colorfield.html';
 import css from '../components/colorfield/colorfield.css';
 import { BOX_SIZING } from '../const.json';
 
-const COLORFIELD_CSS_PROPERTY = '--colorfield--color';
+const COLORFIELD_BACKGROUNDCOLOR = '--colorfield--backgroundColor';
+const COLORFIELD_FOREGROUNDCOLOR = '--colorfield--foregroundColor';
 
 class JsColorfield extends HTMLElement {
   constructor() {
@@ -61,23 +62,48 @@ class JsColorfield extends HTMLElement {
   }
 
   _setOutput(output, value) {
-    if (this.hasAttribute('hex') && value.startsWith('rgb')) {
-      value = this.rgbStringToHex(value);
+    const values = {};
+
+    if (value.startsWith('rgb')) {
+      values.hex = this.rgbStringToHex(value),
+      values.rgb = value;
     }
 
-    if (this.hasAttribute('rgb') && value.startsWith('#')) {
-      value = this.rgbToString(this.hexToRGB(value));
+    if (value.startsWith('#')) {
+      values.hex = value,
+      values.rgb = this.rgbToString(this.hexToRGB(value));
+    }
+
+    if (this.hasAttribute('hex')) {
+      output.value = values.hex
+    }
+
+    if (this.hasAttribute('rgb')) {
+      output.value = values.rgb;
     }
 
     if (this.hasAttribute('colorvalue') || output ===  this._outputInput) {
-      output.style.setProperty(COLORFIELD_CSS_PROPERTY, value);
+      const contrast = this._getContrastHex(values.hex);
+      output.style.setProperty(COLORFIELD_BACKGROUNDCOLOR, output.value);
+      output.style.setProperty(COLORFIELD_FOREGROUNDCOLOR, contrast);
+    } else {
+      output.value = value;
     }
-
-    output.value = value;
   }
 
-  _getContrastHex(rgb) {
-    return rgb && (rgb.r*0.299) + (rgb.g*0.587) + (rgb.b*0.114) > 186 ? '#000000' : '#ffffff';
+  getLuminance({ r, g, b }) {
+    const multipliers = [ 0.2126, 0.7152, 0.0722 ];
+    return [r, g, b].map((v) => {
+      v /= 255;
+      return v <= 0.03928
+          ? v / 12.92
+          : Math.pow( (v + 0.055) / 1.055, 2.4 );
+    }).reduce((lum, v, i) =>  lum + (v * multipliers[i]), 0);
+  }
+
+  _getContrastHex(hex) {
+    const luma = this.getLuminance(this.hexToRGB(hex));
+    return luma > Math.sqrt(1.05 * 0.05) - 0.05 > 0.179 ? '#000' : '#fff';
   }
 
   hexToRGB(hex) {
@@ -99,10 +125,6 @@ class JsColorfield extends HTMLElement {
       return '#' + match.slice(0, 3).map((digit) => parseInt(digit).toString(16).padStart(2, '0')).join('');
     }
     return '#000000';
-  }
-
-  _getContrast(rgb) {
-    return rgb && (rgb.r*0.299) + (rgb.g*0.587) + (rgb.b*0.114) > 186 ? '#000000' : '#ffffff';
   }
 
   get color() {

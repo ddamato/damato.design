@@ -1,34 +1,54 @@
-const HEXJSON_URL = 'json/a11yColorsOnBlackAndWhite.json';
 const ACCENT_CSS_CUSTOMPROPERTY = '--accent--defaultColor';
+const BACKGROUND_CSS_CUSTOMPROPERTY = '--box--backgroundColor';
+const FOREGROUND_CSS_CUSTOMPROPERTY = '--box--foregroundColor';
 
 class A11yColor extends HTMLElement {
   constructor() {
     super();
 
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = `<closest-color hexjson="${HEXJSON_URL}"></closest-color>`;
+    this.shadowRoot.innerHTML = `
+    <js-colorfield>
+      <label slot="label-input">Text Color</label>
+      <label slot="label-delta">Ratio</label>
+      <label slot="label-value">WCAG AA</label>
+    </js-colorfield>`;
 
-    this._closestColor = this.shadowRoot.querySelector('closest-color');
-    this._closestColor.addEventListener('change', (ev) => {
-      if (ev.detail.userchange) {
-        document.documentElement.style.setProperty(ACCENT_CSS_CUSTOMPROPERTY, ev.detail.hex);
+    this._colors = {
+      backgroundColor: this._getComputedColor(BACKGROUND_CSS_CUSTOMPROPERTY),
+      foregroundColor: this._getComputedColor(FOREGROUND_CSS_CUSTOMPROPERTY),
+      accentColor: this._getComputedColor(ACCENT_CSS_CUSTOMPROPERTY),
+    }
+    
+    this._colorfield = this.shadowRoot.querySelector('js-colorfield');
+    this._colorfield.onColorchange = (hex) => {
+
+      const params =  [
+        this._colorfield.rgbStringToHex(this._colors.backgroundColor),
+        hex
+      ].map(this._colorfield.hexToRGB);
+
+      const ratio = this.getContrastRatio(...params);
+      return {
+        delta: `${(1/ratio).toFixed(1)}:1`,
+        value: ratio < 1/4.5 ? 'Pass' : 'Fail'
       }
-    });
+    };
   }
 
   connectedCallback() {
     this._manageObserver();
-    this._closestColor.value = this._getAccentColor();
+    this._colorfield.color = this._colorfield.rgbStringToHex(this._colors.foregroundColor);
   }
 
   disconnectedCallback() {
     this._manageObserver();
   }
 
-  _getAccentColor() {
+  _getComputedColor(cssCustomProp) {
    return window
     .getComputedStyle(document.documentElement)
-    .getPropertyValue(ACCENT_CSS_CUSTOMPROPERTY)
+    .getPropertyValue(cssCustomProp)
     .replace(/\s+/gm, '');
   }
 
@@ -39,17 +59,27 @@ class A11yColor extends HTMLElement {
     }
 
     this._observer = new MutationObserver((entries) => {
-      entries.forEach(({ attributeName }) => {
-        if (attributeName !== 'style') {
-          this._closestColor.value = this._getAccentColor();
+      entries.forEach(() => {
+        this._colors = {
+          backgroundColor: this._getComputedColor(BACKGROUND_CSS_CUSTOMPROPERTY),
+          foregroundColor: this._getComputedColor(FOREGROUND_CSS_CUSTOMPROPERTY),
+          accentColor: this._getComputedColor(ACCENT_CSS_CUSTOMPROPERTY),
         }
+        this._colorfield.color = this._colorfield.rgbStringToHex(this._colors.foregroundColor);
       });
     })
     this._observer.observe(document.documentElement, { attributes: true });
   }
+
+  getContrastRatio(bgColor, fgColor) {
+    const bgLuma = this._colorfield.getLuminance(bgColor);
+    const fgLuma = this._colorfield.getLuminance(fgColor);
+    return bgLuma > fgLuma 
+      ? ((fgLuma + 0.05) / (bgLuma + 0.05))
+      : ((bgLuma + 0.05) / (fgLuma + 0.05));
+  }
 }
 
-window.customElements.whenDefined('closest-color').then(() => {
+window.customElements.whenDefined('js-colorfield').then(() => {
   window.customElements.define('a11y-color', A11yColor);
-})
-
+});
