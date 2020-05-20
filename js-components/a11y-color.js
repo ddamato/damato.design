@@ -34,6 +34,12 @@ class A11yColor extends HTMLElement {
         value: ratio < 1/4.5 ? 'Pass' : 'Fail'
       }
     };
+
+    this._colorfield.addEventListener('change', (ev) => {
+      if (ev.detail.userchange) {
+        document.documentElement.style.setProperty(FOREGROUND_CSS_CUSTOMPROPERTY, ev.detail.input);
+      }
+    });
   }
 
   connectedCallback() {
@@ -59,13 +65,15 @@ class A11yColor extends HTMLElement {
     }
 
     this._observer = new MutationObserver((entries) => {
-      entries.forEach(() => {
-        this._colors = {
-          backgroundColor: this._getComputedColor(BACKGROUND_CSS_CUSTOMPROPERTY),
-          foregroundColor: this._getComputedColor(FOREGROUND_CSS_CUSTOMPROPERTY),
-          accentColor: this._getComputedColor(ACCENT_CSS_CUSTOMPROPERTY),
+      entries.forEach(({ attributeName }) => {
+        if (attributeName !== 'style') {
+          this._colors = {
+            backgroundColor: this._getComputedColor(BACKGROUND_CSS_CUSTOMPROPERTY),
+            foregroundColor: this._getComputedColor(FOREGROUND_CSS_CUSTOMPROPERTY),
+            accentColor: this._getComputedColor(ACCENT_CSS_CUSTOMPROPERTY),
+          }
+          this._colorfield.color = this._colorfield.rgbStringToHex(this._colors.foregroundColor);
         }
-        this._colorfield.color = this._colorfield.rgbStringToHex(this._colors.foregroundColor);
       });
     })
     this._observer.observe(document.documentElement, { attributes: true });

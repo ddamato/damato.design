@@ -49,6 +49,7 @@ class JsColorfield extends HTMLElement {
       detail: {
         delta: this.delta,
         value: this.value,
+        input: this._input.value,
         userchange,
       }
     });
@@ -132,6 +133,7 @@ class JsColorfield extends HTMLElement {
   }
 
   set color(newVal) {
+
     if (newVal.startsWith('rgb')) {
       newVal = this.rgbStringToHex(newVal);
     }
