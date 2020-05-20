@@ -140,4 +140,4 @@ function getIndicator(value, state, fallback) {
   return svgIcon;
 }
 
-window.customElements.define('select-summary', SelectSummary);
+window.customElements.define('js-selectsummary', SelectSummary);

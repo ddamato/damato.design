@@ -173,4 +173,4 @@ function formatter(step, num) {
 
 }
 
-window.customElements.define('toggle-range', ToggleRange);
+window.customElements.define('js-togglerange', ToggleRange);

@@ -19,7 +19,7 @@
   }
 
   function setAudienceVisibility(type, bool) {
-    const audienceSummary = document.querySelectorAll(`select-summary.audience-${type}`);
+    const audienceSummary = document.querySelectorAll(`js-selectsummary.audience-${type}`);
     [...audienceSummary].forEach((summary) => summary.open = bool);
     if (bool) {
       document.documentElement.removeAttribute(`hide-${type}`);

@@ -74,7 +74,7 @@ class BluComponent extends HTMLElement {
 }
 
 function initSelfdocument() {
-  this._selfdocumentation = document.createElement('select-summary');
+  this._selfdocumentation = document.createElement('js-selectsummary');
   this._selfdocumentation.setAttribute('type', 'summary');
   this._selfdocumentation.classList.add('audience-engineer');
   // title slot

@@ -22,7 +22,7 @@ When in the "select" configuration, the component acts like a stylized `<select>
 
 Example of a JavaScript enhanced version; value changes on selection:
 
-<select-summary type="select">
+<js-selectsummary type="select">
   <span slot="value">Pick a fruit</span>
   <svg-icon value="caret-down" slot="indicator-open" class="selectSummary--indicatorOpen">keyboard_arrow_down</svg-icon>
   <svg-icon value="caret-down" slot="indicator-close" class="selectSummary--indicatorClose">keyboard_arrow_down</svg-icon>
@@ -30,7 +30,7 @@ Example of a JavaScript enhanced version; value changes on selection:
   <button class="selectSummary--option" value="banana">Banana</button>
   <button class="selectSummary--option" value="pear">Pear</button>
   <button class="selectSummary--option" value="orange">Orange</button>
-</select-summary>
+</js-selectsummary>
 
 ---
 

@@ -33,12 +33,12 @@ function audienceContainers(tokens, idx) {
     }
 
     return `
-      <select-summary type="summary" class="${type}" open>
+      <js-selectsummary type="summary" class="${type}" open>
         <span slot="value">${value}</span>
       `;
   }
 
-  return '</select-summary>'
+  return '</js-selectsummary>'
 }
 
 md.use(mdCollapsible)
