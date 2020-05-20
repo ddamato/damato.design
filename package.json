@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/ddamato/dxs#readme",
   "devDependencies": {
+    "@rollup/plugin-json": "^4.0.3",
     "@rollup/plugin-multi-entry": "^3.0.0",
     "css-simple-minifier": "^1.0.0",
     "cssnano": "^4.1.10",

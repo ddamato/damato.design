@@ -11,10 +11,12 @@ const { rollup } = require('rollup');
 const multi = require('@rollup/plugin-multi-entry');
 const html = require('rollup-plugin-html');
 const postcssPlugin = require('rollup-plugin-postcss');
+const JsonPlugin = require('@rollup/plugin-json');
 
 const SCRIPTS_PATH = path.resolve(__dirname, '..', 'scripts');
 const COMPONENT_PATH = path.resolve(__dirname, '..', 'js-components');
 const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site');
+const { BOX_SIZING } = require('../const.json');
 
 async function bundleCSS() {
   const pcssFileOrder = ['vars.pcss', 'index.pcss', 'content.pcss', 'mobile.pcss', 'code.pcss'];
@@ -35,6 +37,7 @@ async function bundleJS() {
     plugins: [
       multi(),
       html(),
+      JsonPlugin(),
       postcssPlugin({ inject: false }),
     ],
   };
@@ -49,7 +52,7 @@ async function bundleJS() {
 }
 
 function composeStyles(css) {
-  return `<style type="text/css"> *, *:before, *:after { box-sizing: border-box; } ${css.replace(/\\/g, '\\\\')}</style>`;
+  return `<style type="text/css"> ${BOX_SIZING} ${css.replace(/\\/g, '\\\\')}</style>`;
 }
 
 async function bundle() {

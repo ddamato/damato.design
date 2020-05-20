@@ -18,10 +18,10 @@
 	content: "";
 	position: absolute;
 	width: calc((300px - 100%) * -300);
-	max-width: 1rem;
+	max-width: 18ch;
 	height: 50%;
-	right: 50%;
-	margin-right: calc(-7.5ch - 1px);
+	left: 50%;
+	margin-left: -2rem;
 	top: 25%;
 	opacity: 1;
 	z-index: 0;
@@ -75,9 +75,8 @@
 .colorfield--label {
 	padding: .5rem 1rem;
 	width: calc((300px - 100%) * 300);
+	min-width: 12ch;
 	max-width: 100%;
-	min-width: 11ch;
-	white-space: pre;
 	text-transform: uppercase;
 	font-weight: 500;
 	font-size: .9em;
@@ -88,14 +87,14 @@
 
 .colorfield--display > :last-child {
 	display: inline-block;
-	min-width: 12ch;
+	min-width: 18ch;
 	max-width: 100%;
 	z-index: 1;
 }
 
 .colorfield--outputInput,
 .colorfield--outputValue {
-	background-color: var(--colorfield--color, transparent);
+	background-color: var(--colorfield--color, var(--box--backgroundColor));
 	padding: .5rem 1rem;
 	color: var(--onAccent--defaultColor);
 	border: .5rem solid var(--box--backgroundColor);

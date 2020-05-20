@@ -1,12 +1,13 @@
 import html from '../components/toggle-range/toggle-range.html';
 import css from '../components/toggle-range/toggle-range.css';
+import { BOX_SIZING } from '../const.json';
 
 const TAP_DELAY_MS = 500;
 class ToggleRange extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = `<style type="text/css">${css}</style>${html}`;
+    this.shadowRoot.innerHTML = `<style type="text/css">${BOX_SIZING}${css}</style>${html}`;
 
     this._toggleRange = this.shadowRoot.querySelector('.toggleRange');
     this._label = this.shadowRoot.querySelector('.toggleRange--label');

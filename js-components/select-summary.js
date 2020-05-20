@@ -1,11 +1,12 @@
 import html from '../components/select-summary/select-summary.html';
 import css from '../components/select-summary/select-summary.css';
+import { BOX_SIZING } from '../const.json';
 
 class SelectSummary extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = `<style type="text/css">${css}</style>${html}`;
+    this.shadowRoot.innerHTML = `<style type="text/css">${BOX_SIZING}${css}</style>${html}`;
 
     this._selectSummary = this.shadowRoot.querySelector('.selectSummary');
     this._checkbox = this.shadowRoot.querySelector('.selectSummary--checkbox');

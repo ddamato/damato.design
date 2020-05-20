@@ -1,5 +1,6 @@
 import html from '../components/colorfield/colorfield.html';
 import css from '../components/colorfield/colorfield.css';
+import { BOX_SIZING } from '../const.json';
 
 const COLORFIELD_CSS_PROPERTY = '--colorfield--color';
 
@@ -8,7 +9,7 @@ class JsColorfield extends HTMLElement {
     super();
 
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = `<style type="text/css">${css}</style>${html}`;
+    this.shadowRoot.innerHTML = `<style type="text/css">${BOX_SIZING}${css}</style>${html}`;
     this._input = this.shadowRoot.querySelector('.colorfield--input');
     this._outputInput  = this.shadowRoot.querySelector('.colorfield--outputInput');
     this._outputDelta  = this.shadowRoot.querySelector('.colorfield--outputDelta');
