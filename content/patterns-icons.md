@@ -4,7 +4,7 @@ anchor: Icons
 order: 3
 ---
 
-# Icons
+## Icons
 
 ::: audience-engineer
 ### Using web-components

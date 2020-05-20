@@ -3,7 +3,7 @@ page: Typography
 order: 3
 ---
 
-# just my **type**
+# Just my **type**
 
 You probably haven't heard of them echo park chambray subway tile. Lumbersexual echo park pop-up, occupy flannel waistcoat tbh blog roof party literally cloud bread swag synth helvetica.
 
