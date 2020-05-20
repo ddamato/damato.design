@@ -10,8 +10,14 @@ class ToggleRange extends HTMLElement {
     this.shadowRoot.innerHTML = `<style type="text/css">${BOX_SIZING}${css}</style>${html}`;
 
     this._toggleRange = this.shadowRoot.querySelector('.toggleRange');
+    this._toggleRange.setAttribute('type', this.type);
     this._label = this.shadowRoot.querySelector('.toggleRange--label');
     this._input = this.shadowRoot.querySelector('.toggleRange--input');
+
+    if (this.type === 'checkbox') {
+      this._input.type = 'checkbox';
+    }
+
     this._input.id = 'toggleRange-inputId';
     this._label.setAttribute('for', this._input.id);
     this._input.step = this.getAttribute('step') || 1;
@@ -20,8 +26,6 @@ class ToggleRange extends HTMLElement {
       this._output = outputSlot.assignedElements()[0];
       this._output.value = this._output.value || this._output.innerText || this.value;
     });
-
-    this._toggleRange.setAttribute('type', this.type);
   }
   
 

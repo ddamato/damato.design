@@ -2,7 +2,6 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: flex-start;
-	cursor: pointer;
 	min-height: 1.5rem;
 	position: relative;
 }
@@ -29,10 +28,13 @@
 	text-transform: uppercase;
 	text-align: right;
 	line-height: 1;
+	cursor: pointer;
 	order: -1;
+	display: inline-flex;
+  align-items: center;
 }
 
-.toggleRange--input {
+.toggleRange--input:not([type="checkbox"]) {
 	-webkit-appearance: none;
 	min-width: 3rem;
 	background: transparent;
@@ -47,7 +49,7 @@
 	width: 3rem;
 }
 
-.toggleRange:focus-within .toggleRange--input {
+.toggleRange:focus-within .toggleRange--input:not([type="checkbox"]) {
 	border-color: var(--control--outlineColor);
 	border-style: var(--focused--outlineStyle);
 }
@@ -60,7 +62,7 @@
 	--toggleRange--backgroundColor: currentColor;
 }
 
-.toggleRange--input::-webkit-slider-runnable-track {
+.toggleRange--input[type="range"]::-webkit-slider-runnable-track {
 	height: 1rem;
 	margin: 0;
 	width: 100%;
@@ -72,7 +74,7 @@
 	box-sizing: content-box;
 }
 
-.toggleRange--input::-moz-range-track {
+.toggleRange--input[type="range"]::-moz-range-track {
 	height: 1rem;
 	margin: 0;
 	width: 100%;
@@ -83,7 +85,7 @@
 	border-radius: 1rem;
 }
 
-.toggleRange--input::-ms-track {
+.toggleRange--input[type="range"]::-ms-track {
 	height: 1rem;
 	margin: 0;
 	width: 100%;
@@ -94,11 +96,11 @@
 	border-radius: 1rem;
 }
 
-.toggleRange--input::-ms-fill-lower {
+.toggleRange--input[type="range"]::-ms-fill-lower {
 	background: transparent;
 }
 
-.toggleRange--input::-webkit-slider-thumb {
+.toggleRange--input[type="range"]::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	background: var(--control--backgroundColor);
 	border-radius: 1rem;
@@ -109,7 +111,7 @@
 	transform: scale(1.5);
 }
 
-.toggleRange--input::-moz-range-thumb {
+.toggleRange--input[type="range"]::-moz-range-thumb {
 	-webkit-appearance: none;
 	background: var(--control--backgroundColor);
 	border-radius: 1rem;
@@ -120,7 +122,7 @@
 	transform: scale(1.5);
 }
 
-.toggleRange--input::-ms-thumb {
+.toggleRange--input[type="range"]::-ms-thumb {
 	-webkit-appearance: none;
 	background: var(--control--backgroundColor);
 	border-radius: 1rem;
@@ -129,4 +131,51 @@
 	height: 1rem;
 	width: 1rem;
 	transform: scale(1.5);
+}
+
+.toggleRange--input[type="checkbox"] {
+	-webkit-appearance: none;
+	position: absolute;
+	background: var(--control--backgroundColor);
+	border-radius: 1rem;
+	border: 1px solid var(--toggleRange--accentColor, var(--control--borderColor));
+	height: 1rem;
+	width: 1rem;
+	margin: 0 4px;
+	transform: scale(1.5) translateX(-1rem);
+	right: 0;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.toggleRange--input[type="checkbox"]:checked {
+	transform: scale(1.5) translateX(0);
+}
+
+.toggleRange--input[type="checkbox"] + .toggleRange--label:before,
+.toggleRange--input[type="checkbox"] + .toggleRange--label:after {
+	content: "";
+	display: inline-block;
+	border-radius: 1rem;
+}
+
+.toggleRange--input[type="checkbox"] + .toggleRange--label:before {
+	position: absolute;
+	border: 1px solid transparent;
+	right: 0;
+	padding: calc(.75rem - 1px);
+  width: 3rem;
+}
+
+.toggleRange--input[type="checkbox"]:focus + .toggleRange--label:before {
+	border-color: var(--control--outlineColor);
+	border-style: var(--focused--outlineStyle);
+}
+
+.toggleRange--input[type="checkbox"] + .toggleRange--label:after {
+	border: 1px solid var(--toggleRange--accentColor, var(--control--borderColor));
+	margin-left: 1rem;
+	margin-right: 3px;
+	padding: .5rem;
+	width: calc(2.75rem - 2px);
 }

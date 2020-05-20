@@ -10,6 +10,12 @@ anchor: Toggle-Range
   Toggle
 </blu-togglerange>
 
+Use checkbox
+
+<blu-togglerange selfdocument type="checkbox" input-type="checkbox">
+  Checkbox
+</blu-togglerange>
+
 ---
 
 ### Range
