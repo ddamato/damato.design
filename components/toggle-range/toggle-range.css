@@ -31,7 +31,7 @@
 	cursor: pointer;
 	order: -1;
 	display: inline-flex;
-  align-items: center;
+	align-items: center;
 }
 
 .toggleRange--input:not([type="checkbox"]) {
