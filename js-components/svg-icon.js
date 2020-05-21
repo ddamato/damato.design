@@ -21,23 +21,31 @@ class IconManager {
     this._iconInventory = {};
   }
 
-  async fetchMarkup(value) {
-    return this._iconInventory[value] || await this.requestIcon(value);
+  fetchMarkup(value, render) {
+
+    if (typeof this._iconInventory[value] === 'string') {
+      render(this._iconInventory[value]);
+    }
+
+    if (this._iconInventory[value] instanceof Promise) {
+      this._iconInventory[value].then(render);
+    } else {
+      this.requestIcon(value).then(() => render(this._iconInventory[value]));
+    }
   }
 
   async requestIcon(value) {
     try {
-      const response = await fetch(`icons/${value}.svg`)
-      const text = await response.text();
-      this.storeResponse(value, text);
+      this._iconInventory[value] = await fetch(`icons/${value}.svg`).then((res) => res.text());
+      this.storeResponse(value);
     } catch (err) {
       console.info(`Fetch failed for icon: ${value}`);
     }
     return this._iconInventory[value] || '';
   }
 
-  storeResponse(value, text) {
-    const iconDOM = new DOMParser().parseFromString(text, 'application/xml');
+  storeResponse(value) {
+    const iconDOM = new DOMParser().parseFromString(this._iconInventory[value], 'application/xml');
     const group = iconDOM.querySelector('g');
     this._iconInventory[value] = group.innerHTML;
   }
@@ -46,11 +54,9 @@ class IconManager {
 class SvgIcon extends HTMLElement {
   constructor() {
     super();
-
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = innerHTML;
     this._svg = this.shadowRoot.querySelector('.svgIcon');
-
   }
 
   connectedCallback() {
@@ -80,7 +86,7 @@ class SvgIcon extends HTMLElement {
       window.IconManager = new IconManager();
     }
 
-    window.IconManager.fetchMarkup(this.value).then((markup) => this._svg.innerHTML = markup);
+    window.IconManager.fetchMarkup(this.value, (markup) => this._svg.innerHTML = markup);
   }
 }
 
