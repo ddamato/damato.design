@@ -17,7 +17,10 @@ https://medium.com/eightshapes-llc/buttons-in-design-systems-eac3acf7e23
 - Buttons come in **one size** that relates to the font. Emphasis is expected to be shown through the use of "primary" and "secondary" versions. More variations are not necessary as this does not provide a consistent experience.
 :::
 
-The default button is provided without standout colors as the use is expect to target anciliary actions beyond primary and secondary buttons. This also designed to all buttons uses the default styles as a base to keep them consistent. The further variations of the button will come from additional attributes.
+___
+
+### default
+The default button is provided without standout colors as it expects to target anciliary actions beyond primary and secondary buttons. This also designed to all buttons uses the default styles as a base to keep them consistent. The further variations of the button will come from additional attributes.
 
 ::: audience-designer
 - Background color is set as transparent, foreground color inherit's from the container.
@@ -26,8 +29,10 @@ The default button is provided without standout colors as the use is expect to t
 
 <blu-button selfdocument>Default button</blu-button>
 
+---
+
 ### type:primary
-The primary button should be designed to draw attention to the action.
+The primary button is designed to draw attention to the main action we expect a user to take.
 
 ::: audience-designer
 - Background color is set as an accent color, foreground color is explicitly set as a color to compliment the accent color.
@@ -35,6 +40,8 @@ The primary button should be designed to draw attention to the action.
 :::
 
 <blu-button selfdocument type="primary">Primary Button</blu-button>
+
+---
 
 ### type:secondary
 The secondary button should only be used along side a primary button when a second choice is available to the user.
@@ -45,6 +52,8 @@ The secondary button should only be used along side a primary button when a seco
 :::
 
 <blu-button selfdocument type="secondary">Secondary Button</blu-button>
+
+---
 
 ### disabled
 The disabled state of the button reduces the opacity and sets the mouse cursor to show a disabled state.

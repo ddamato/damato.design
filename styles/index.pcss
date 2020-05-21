@@ -35,8 +35,14 @@ a {
 }
 
 main a {
-  color: var(--accent--defaultColor);
+  color: currentColor;
   border-radius: 2px;
+  text-decoration: none;
+  background-image: linear-gradient( var(--accent--defaultColor),  var(--accent--defaultColor));
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition: background-size .3s;
 }
 
 main a:hover {
