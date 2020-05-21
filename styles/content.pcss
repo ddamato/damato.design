@@ -22,6 +22,10 @@
     margin-bottom: 0 !important;
   }
 
+  p {
+    margin: 2rem 0;
+  }
+
   h1 {
     font-size: var(--textHeading1--fontSize);
     font-weight: var(--textHeading1--fontWeight);
@@ -152,11 +156,11 @@
     width: 2rem;
     height: 2rem;
     left: 1rem;
-    top: 1.5rem;
+    top: 1rem;
   }
 
   blockquote p:first-child {
-    margin-top: 0;
+    margin-top: -.25em;
   }
 
   blockquote p:last-child {
@@ -190,5 +194,11 @@
     display: block;
     margin: 3rem 0;
     --accent--defaultColor: var(--accent--engineerColor);
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0 .5rem;
+    border-radius: 2px;
   }
 }

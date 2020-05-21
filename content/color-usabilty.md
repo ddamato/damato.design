@@ -6,15 +6,20 @@ order: 1
 
 ## Usability
 
-### Accent color selection
-<closest-color></closest-color>
-
 ### WCAG accessible text
+In choosing colors, accessibility must be a priority. With the layout colors selected at opposite ends of the scale, this ensures that if a gray on one side appears as text on top of a gray on the other side, the text _should_ pass accessibility standards (assuming the font size is appropriate).
+
+While there are now [different standards between AA and AAA](https://www.w3.org/TR/WCAG21/#contrast-minimum) which also relate to font size, a general rule is to ensure a 4.5:1 contrast ratio between the background color and text. Throughout the site, this ratio is typically much higher. You can use the colorfield control below to test the ratio between a chosen text color and the current background color of the site. This should also update when changing the system color.
+
 <a11y-color></a11y-color>
 
+The process in creating this functionality is outlined in the article _[Building your own color contrast checker](https://dev.to/alvaromontoro/building-your-own-color-contrast-checker-4j7o)_ which also explains the calculations involved to determine the ratio.
 
-https://dev.to/finnhvman/which-colors-look-good-on-black-and-white-2pe6
-https://ux.stackexchange.com/questions/73763/background-colour-suitable-for-both-black-and-white-text
-https://stackoverflow.com/questions/9018016/how-to-compare-two-colors-for-similarity-difference
-https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color
-https://dev.to/alvaromontoro/building-your-own-color-contrast-checker-4j7o
+### Accent color selection
+Selecting an accent color to work with both dark and light grays was _tricky_.
+
+Research claims showed that there are colors that are accessible on both black and white. The article _[Which Colors Look Good on Black and White?](https://dev.to/finnhvman/which-colors-look-good-on-black-and-white-2pe6)_ ends with a list of colors however, it would appear that these colors are _only_ for black and white. Additionally, a post within the UX Stack Exchange also asks for a _[Background colour suitable for both black and white text](https://ux.stackexchange.com/questions/73763/background-colour-suitable-for-both-black-and-white-text)_ with [an answer](https://ux.stackexchange.com/questions/73763/background-colour-suitable-for-both-black-and-white-text) providing a link to a much larger table of colors. That link is broken however, I've found a backup and have prepared a [json file](json/a11yColorsOnBlackAndWhite.json) with the referenced colors. Those colors are loaded into the colorfield component below and the accent colors were chosen from this set.
+
+<closest-color></closest-color>
+
+Admittedly, the accent colors selected for the site do not meet the 4.5:1 contrast ratio and therefore you will find the majority of text is not given an accent color _unless_ it is actionable. Actionable text styles has been modified to increase legibility to allow for accent colors to be used in these locations.
