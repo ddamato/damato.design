@@ -132,29 +132,29 @@
     background-color: var(--accent--defaultColor);
     color: var(--onAccent--defaultColor);
     margin: 0;
-    padding: 1rem;
     border-radius: 2px;
     font-style: italic;
     font-size: var(--textQuote--fontSize);
     font-weight: var(--textQuote--fontWeight);
     line-height: var(--textQuote--lineHeight);
     position: relative;
-    padding-left: 4rem;
-    display: flow-root;
+    padding: 1rem;
+    padding-left: 3.5rem;
   }
 
   blockquote a,
   blockquote a:hover {
     color: inherit;
     text-decoration: underline;
+    background: transparent;
   }
 
   blockquote:before {
     content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGc+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTIwIDJINGMtMS4xIDAtMiAuOS0yIDJ2MThsNC00aDE0YzEuMSAwIDItLjkgMi0yVjRjMC0xLjEtLjktMi0yLTJ6bTAgMTRINS4xN0w0IDE3LjE3VjRoMTZ2MTJ6TTcgOWgydjJIN3ptOCAwaDJ2MmgtMnptLTQgMGgydjJoLTJ6Ii8+PC9nPjwvc3ZnPg==");
     position: absolute;
     transform: scaleX(-1);
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     left: 1rem;
     top: 1rem;
   }
@@ -164,7 +164,7 @@
   }
 
   blockquote p:last-child {
-    margin-bottom: 0;
+    margin-bottom: -.25em;
   }
 
   blockquote em {
@@ -173,9 +173,11 @@
     font-size: var(--textCaption--fontSize);
     font-weight: var(--textCaption--fontWeight);
     line-height: var(--textCaption--lineHeight);
-    margin-top: 1rem;
+    margin: 1rem;
+    margin-right: -1rem;
+    margin-bottom: 2rem;
     float: right;
-    margin-left: 1rem;
+    width: calc(100% + 3.5rem);
   }
 
   blockquote em:before {

@@ -6,16 +6,16 @@ order: 2
 
 ## Typescale
 
-The design system adheres to a [modular typescale](https://type-scale.com/) using an augmented fourth (1.4) as the factor. Each step is identified using T-shirt sizing where the default is set to medium (`16px`, `1rem`). Each level past "extra" is numbered in that direction. You can use the control below to view how the factor affects the type on the site.
+The design system adheres to a [modular typescale](https://type-scale.com/) using an augmented fourth (1.4) as the factor. Each step is identified using T-shirt sizing where the default is set to medium 1rem (16px). Each level past "extra" is numbered in that direction. You can use the control below to view how the factor affects the type on the site.
 
 <typescale-range></typescale-range>
 
-<div style="font-size: calc(var(--remScale--2xl) * 1rem)">2xl</div>
-<div style="font-size: calc(var(--remScale--xl) * 1rem)">xl</div>
-<div style="font-size: calc(var(--remScale--lg) * 1rem)">lg</div>
-<div style="font-size: calc(var(--remScale--md) * 1rem)">md</div>
-<div style="font-size: calc(var(--remScale--sm) * 1rem)">sm</div>
-<div style="font-size: calc(var(--remScale--xs) * 1rem)">xs</div>
+<div style="font-size: calc(var(--remScale--2xl) * 1rem)">font-size: 2xl</div>
+<div style="font-size: calc(var(--remScale--xl) * 1rem)">font-size: xl</div>
+<div style="font-size: calc(var(--remScale--lg) * 1rem)">font-size: lg</div>
+<div style="font-size: calc(var(--remScale--md) * 1rem)">font-size: md</div>
+<div style="font-size: calc(var(--remScale--sm) * 1rem)">font-size: sm</div>
+<div style="font-size: calc(var(--remScale--xs) * 1rem)">font-size: xs</div>
 
 ::: audience-engineer
 ### Computing the scale in CSS
