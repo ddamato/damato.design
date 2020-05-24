@@ -117,55 +117,55 @@ html[theme="inverse"] { @include dark-theme() }
 
 /* fonts & text */
 :root {
-	--typefactor--scale: 1.4;
+	--typescale--factor: 1.4;
 	/* modular scale factors, Math.pow(scale, increment) */
-	--remScale--md: 1;
-	--remScale--lg: calc(var(--remScale--md) * var(--typefactor--scale));
-	--remScale--xl: calc(var(--remScale--lg) * var(--typefactor--scale));
-	--remScale--2xl: calc(var(--remScale--xl) * var(--typefactor--scale));
-	--remScale--3xl: calc(var(--remScale--2xl) * var(--typefactor--scale));
-	--remScale--4xl: calc(var(--remScale--3xl) * var(--typefactor--scale));
-	--remScale--sm: calc(var(--remScale--md) / var(--typefactor--scale));
-	--remScale--xs: calc(var(--remScale--sm) / var(--typefactor--scale));
+	--remscale--md: 1;
+	--remscale--lg: calc(var(--remscale--md) * var(--typescale--factor));
+	--remscale--xl: calc(var(--remscale--lg) * var(--typescale--factor));
+	--remscale--2xl: calc(var(--remscale--xl) * var(--typescale--factor));
+	--remscale--3xl: calc(var(--remscale--2xl) * var(--typescale--factor));
+	--remscale--4xl: calc(var(--remscale--3xl) * var(--typescale--factor));
+	--remscale--sm: calc(var(--remscale--md) / var(--typescale--factor));
+	--remscale--xs: calc(var(--remscale--sm) / var(--typescale--factor));
 
 
   --text--fontFamily: 'Jost', sans-serif;
-  --text--fontSize: calc(var(--remScale--md) * 1rem);
+  --text--fontSize: calc(var(--remscale--md) * 1rem);
   --text--fontWeight: 400;
   --text--lineHeight: 1.5;
 
   --textLabel--fontFamily: 'Jost', sans-serif;
-  --textLabel--fontSize: calc(var(--remScale--md) * 1rem);
+  --textLabel--fontSize: calc(var(--remscale--md) * 1rem);
   --textLabel--fontWeight: 400;
   --textLabel--lineHeight: 1.5;
 
   --textHeading1--fontFamily: 'Jost', sans-serif;
-  --textHeading1--fontSize: calc(var(--remScale--2xl) * 1rem);
+  --textHeading1--fontSize: calc(var(--remscale--2xl) * 1rem);
   --textHeading1--fontWeight: 700;
   --textHeading1--lineHeight: 1.25;
 
   --textHeading2--fontFamily: 'Jost', sans-serif;
-  --textHeading2--fontSize: calc(var(--remScale--xl) * 1rem);
+  --textHeading2--fontSize: calc(var(--remscale--xl) * 1rem);
   --textHeading2--fontWeight: 700;
   --textHeading2--lineHeight: 1.25;
 
   --textHeading3--fontFamily: 'Jost', sans-serif;
-  --textHeading3--fontSize: calc(var(--remScale--lg) * 1rem);
+  --textHeading3--fontSize: calc(var(--remscale--lg) * 1rem);
   --textHeading3--fontWeight: 500;
   --textHeading3--lineHeight: 1.25;
 
   --textHeading4--fontFamily: 'Jost', sans-serif;
-  --textHeading4--fontSize: calc(var(--remScale--md) * 1rem);
+  --textHeading4--fontSize: calc(var(--remscale--md) * 1rem);
   --textHeading4--fontWeight: 500;
   --textHeading4--lineHeight: 1.25;
 
   --textQuote--fontFamily: 'Jost', sans-serif;
-  --textQuote--fontSize: calc(var(--remScale--lg) * 1rem);
+  --textQuote--fontSize: calc(var(--remscale--lg) * 1rem);
   --textQuote--fontWeight: 500;
   --textQuote--lineHeight: 1.5;
 
   --textCaption--fontFamily: 'Jost', sans-serif;
-  --textCaption--fontSize: calc(var(--remScale--sm) * 1rem);
+  --textCaption--fontSize: calc(var(--remscale--sm) * 1rem);
   --textCaption--fontWeight: 400;
   --textCaption--lineHeight: 1.5;
 }

@@ -1,4 +1,4 @@
-const TYPESCALE_CSS_CUSTOMPROPERTY = '--typefactor-scale';
+const TYPESCALE_CSS_CUSTOMPROPERTY = '--typescale--factor';
 
 class TypescaleRange extends HTMLElement {
   constructor() {
