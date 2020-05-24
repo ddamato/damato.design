@@ -1,24 +1,25 @@
-/* brand palette */
 :root {
-  --color-white--0: 255, 255, 255;
-  --color-black--0: 0, 0, 0;
+  --color--pink: 205, 40, 175;
+  --color--blue: 5, 106, 255;
+  --color--green: 25, 130, 120;
 
-  --color-gray--100: 238, 238, 238;
-  --color-gray--200: 218, 218, 218;
-  --color-gray--600: 37, 37, 37;
-  --color-gray--700: 17, 17, 17;
-
-  --color-pink--0: 205, 40, 175;
-  --color-blue--0: 5, 106, 255;
-  --color-green--0: 25, 130, 120;
+  --grayscale--factor: 6;
+	--ultragray--1: calc(1 * var(--grayscale--factor));
+	--ultragray--2: calc(var(--ultragray--1) * var(--grayscale--factor));
+	--ultragray--3: calc(var(--ultragray--2) * var(--grayscale--factor));
+	
+	--infragray--1: calc(1 / var(--grayscale--factor));
+	--infragray--2: calc(var(--infragray--1) / var(--grayscale--factor));
+	--infragray--3: calc(var(--infragray--2) / var(--grayscale--factor));
 }
 
 /* Colors accessible on black or white */
 :root {
-  --accent--defaultColor: rgb(var(--color-green--0));
-  --accent--everyoneColor: rgb(var(--color-green--0));
-  --accent--designerColor: rgb(var(--color-pink--0));
-  --accent--engineerColor: rgb(var(--color-blue--0));
+  --accent--defaultColor: rgb(var(--color--green));
+  --accent--everyoneColor: rgb(var(--color--green));
+  --accent--designerColor: rgb(var(--color--pink));
+  --accent--engineerColor: rgb(var(--color--blue));
+  --onAccent--defaultColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--3)))); /* ~white */
 }
 
 html[hide-designer]:not([hide-engineer]) {
@@ -40,72 +41,71 @@ html[hide-engineer]:not([hide-designer]) {
 /* color intents */
 /* LIGHT (DEFAULT) THEME */
 @mixin light-theme() {
-  --onAccent--defaultColor: rgb(var(--color-white--0));
 
-  --box--backgroundColor: rgb(var(--color-white--0));
-  --box--foregroundColor: rgb(var(--color-gray--700));
-  --box--borderColor: rgb(var(--color-gray--200));
+  /* sections */
+  --box--backgroundColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--3))));
+  --box--foregroundColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--1))));
+  --box--borderColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--1))));
 
-  --boxLowContrast--backgroundColor: rgb(var(--color-gray--100));
-  --boxLowContrast--foregroundColor: rgb(var(--color-gray--700));
-  --boxLowContrast--borderColor: rgb(var(--color-gray--200));
+  /* <body> */
+  --boxLowContrast--backgroundColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--2))));
+  --boxLowContrast--foregroundColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--1))));
+  --boxLowContrast--borderColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--1))));
 
-  --boxHighContrast--backgroundColor: rgb(var(--color-gray--700));
-  --boxHighContrast--foregroundColor: rgb(var(--color-white--0));
-  --boxHighContrast--borderColor: rgb(var(--color-gray--700));
+  --boxHighContrast--backgroundColor:  hsl(0, 0%, calc(100% / (1 + var(--ultragray--2))));
+  --boxHighContrast--foregroundColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--3))));
+  --boxHighContrast--borderColor:  hsl(0, 0%, calc(100% / (1 + var(--ultragray--2))));
 
-  --boxElevated--backgroundColor: rgb(var(--color-white--0));
-  --boxElevated--borderColor: rgb(var(--color-gray--200));
-  --boxElevated--shadowColor: rgba(var(--color-gray--600), .5);
+  --boxElevated--backgroundColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--3))));
+  --boxElevated--borderColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--1))));
+  --boxElevated--shadowColor: hsla(0, 0%, calc(100% / (1 + var(--ultragray--1))), .5);
 
-  --control--backgroundColor: rgb(var(--color-white--0));
-  --control--foregroundColor: rgb(var(--color-black--0));
+  --control--backgroundColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--3))));
+  --control--foregroundColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--3))));
   --control--borderColor: var(--accent--defaultColor);
-  --control--outlineColor: rgb(var(--color-black--0));
+  --control--outlineColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--3))));
 
   --action--backgroundColor: var(--accent--defaultColor);
   --action--foregroundColor: var(--onAccent--defaultColor);
   --action--borderColor: var(--accent--defaultColor);
-  --action--outlineColor: rgb(var(--color-black--0));
+  --action--outlineColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--3))));
 
-  --actionHovered--backgroundColor: rgb(var(--color-gray--100));
+  --actionHovered--backgroundColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--2))));
   --actionHovered--foregroundColor: var(--accent--defaultColor);
-  --actionHovered--borderColor: rgb(var(--color-white--0));
+  --actionHovered--borderColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--3))));
 }
 
 /* DARK THEME */
 @mixin dark-theme() {
-  --onAccent--defaultColor: rgb(var(--color-white--0));
+  --box--backgroundColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--2))));
+  --box--foregroundColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--2))));
+  --box--borderColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--1))));
 
-  --box--backgroundColor: rgb(var(--color-gray--700));
-  --box--foregroundColor: rgb(var(--color-gray--100));
-  --box--borderColor: rgb(var(--color-gray--600));
+  --boxLowContrast--backgroundColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--3))));
+  --boxLowContrast--foregroundColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--2))));
+  --boxLowContrast--borderColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--1))));
 
-  --boxLowContrast--backgroundColor: rgb(var(--color-black--0));
-  --boxLowContrast--foregroundColor: rgb(var(--color-gray--100));
-  --boxLowContrast--borderColor: rgb(var(--color-gray--600));
+  --boxHighContrast--backgroundColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--2))));
+  --boxHighContrast--foregroundColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--3))));
+  --boxHighContrast--borderColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--2))));
 
-  --boxHighContrast--backgroundColor: rgb(var(--color-gray--100));
-  --boxHighContrast--foregroundColor: rgb(var(--color-black--0));
-  --boxHighContrast--borderColor: rgb(var(--color-gray--100));
+  --boxElevated--backgroundColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--3))));
+  --boxElevated--borderColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--1))));
+  --boxElevated--shadowColor: hsla(0, 0%, calc(100% / (1 + var(--ultragray--3))), .5);
 
-  --boxElevated--backgroundColor: rgb(var(--color-black--0));
-  --boxElevated--borderColor: rgb(var(--color-gray--600));
-  --boxElevated--shadowColor: rgba(var(--color-black--0), .5);
-
-  --control--backgroundColor: rgb(var(--color-gray--700));
-  --control--foregroundColor: rgb(var(--color-white--0));
+  --control--backgroundColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--2))));
+  --control--foregroundColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--3))));
   --control--borderColor: var(--accent--defaultColor);
-  --control--outlineColor: rgb(var(--color-white--0));
+  --control--outlineColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--3))));
 
   --action--backgroundColor: var(--accent--defaultColor);
   --action--foregroundColor: var(--onAccent--defaultColor);
   --action--borderColor: var(--accent--defaultColor);
-  --action--outlineColor: rgb(var(--color-white--0));
+  --action--outlineColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--3))));
 
-  --actionHovered--backgroundColor: rgb(var(--color-black--0));
+  --actionHovered--backgroundColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--3))));
   --actionHovered--foregroundColor: var(--accent--defaultColor);
-  --actionHovered--borderColor: rgb(var(--color-black--0));
+  --actionHovered--borderColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--3))));
 }
 
 :root { @include light-theme() }
@@ -117,16 +117,16 @@ html[theme="inverse"] { @include dark-theme() }
 
 /* fonts & text */
 :root {
-	--typefactor-scale: 1.4;
+	--typefactor--scale: 1.4;
 	/* modular scale factors, Math.pow(scale, increment) */
 	--remScale--md: 1;
-	--remScale--lg: calc(var(--remScale--md) * var(--typefactor-scale));
-	--remScale--xl: calc(var(--remScale--lg) * var(--typefactor-scale));
-	--remScale--2xl: calc(var(--remScale--xl) * var(--typefactor-scale));
-	--remScale--3xl: calc(var(--remScale--2xl) * var(--typefactor-scale));
-	--remScale--4xl: calc(var(--remScale--3xl) * var(--typefactor-scale));
-	--remScale--sm: calc(var(--remScale--md) / var(--typefactor-scale));
-	--remScale--xs: calc(var(--remScale--sm) / var(--typefactor-scale));
+	--remScale--lg: calc(var(--remScale--md) * var(--typefactor--scale));
+	--remScale--xl: calc(var(--remScale--lg) * var(--typefactor--scale));
+	--remScale--2xl: calc(var(--remScale--xl) * var(--typefactor--scale));
+	--remScale--3xl: calc(var(--remScale--2xl) * var(--typefactor--scale));
+	--remScale--4xl: calc(var(--remScale--3xl) * var(--typefactor--scale));
+	--remScale--sm: calc(var(--remScale--md) / var(--typefactor--scale));
+	--remScale--xs: calc(var(--remScale--sm) / var(--typefactor--scale));
 
 
   --text--fontFamily: 'Jost', sans-serif;
