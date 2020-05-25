@@ -6,7 +6,7 @@
   "background_color": "#ffffff",
   "theme_color": "#198278",
   "icons": [{
-    "src": "damato-leaf.svg",
+    "src": "images/damato-leaf.svg",
     "sizes": "256x256",
     "type": "image/svg+xml"
   }]

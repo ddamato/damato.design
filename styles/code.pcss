@@ -18,13 +18,14 @@ pre code {
 /* Inline code */
 :not(pre) > code {
   padding: .125rem .25em;
-  color: var(--accent--defaultColor);
+  color: var(--boxLowContrast--foregroundColor);
   border: 1px solid var(--boxLowContrast--borderColor);
   background-color: var(--boxLowContrast--backgroundColor);
   white-space: normal;
+  line-height: 1.5;
 }
 
-code {
+code, td code {
   white-space: pre;
   word-spacing: normal;
   word-break: normal;

@@ -13,11 +13,13 @@
   line-height: 1.5rem;
   border: 0;
   border-bottom: 1px solid var(--control--borderColor);
+  background: var(--control--backgroundColor);
+  border-top-left-radius: 2px;
 }
 
 .textfield--input {
   flex: 1;
-  background: transparent;
+  background: var(--control--backgroundColor);
   font: inherit;
   color: inherit;
   padding: 0 .5rem;
@@ -26,6 +28,7 @@
   width: 100%;
   border: 0;
   border-bottom: 1px solid var(--control--borderColor);
+  border-top-right-radius: 2px;
 }
 
 .textfield--input:focus {
