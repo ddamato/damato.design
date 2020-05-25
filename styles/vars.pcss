@@ -4,11 +4,12 @@
   --color--green: 25, 130, 120;
 
   --grayscale--factor: 5;
-	--ultragray--1: calc(1 * var(--grayscale--factor));
+  --midgray: 1;
+	--ultragray--1: calc(var(--midgray) * var(--grayscale--factor));
 	--ultragray--2: calc(var(--ultragray--1) * var(--grayscale--factor));
 	--ultragray--3: calc(var(--ultragray--2) * var(--grayscale--factor));
 	
-	--infragray--1: calc(1 / var(--grayscale--factor));
+	--infragray--1: calc(var(--midgray) / var(--grayscale--factor));
 	--infragray--2: calc(var(--infragray--1) / var(--grayscale--factor));
 	--infragray--3: calc(var(--infragray--2) / var(--grayscale--factor));
 }
@@ -19,7 +20,7 @@
   --accent--everyoneColor: rgb(var(--color--green));
   --accent--designerColor: rgb(var(--color--pink));
   --accent--engineerColor: rgb(var(--color--blue));
-  --onAccent--defaultColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--3)))); /* ~white */
+  --onAccent--defaultColor: rgb(255, 255, 255);
 }
 
 html[hide-designer]:not([hide-engineer]) {

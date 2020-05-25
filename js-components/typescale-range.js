@@ -24,4 +24,7 @@ class TypescaleRange extends HTMLElement {
   }
 }
 
-window.customElements.define('typescale-range', TypescaleRange);
+window.customElements.whenDefined('js-togglerange').then(() => {
+  window.customElements.define('typescale-range', TypescaleRange);
+});
+

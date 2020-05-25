@@ -6,7 +6,7 @@ order: 1
 
 ## Usability
 
-In choosing colors, accessibility must be a priority. With the layout colors selected at opposite ends of the scale, this ensures that if a gray on one side appears as text on top of a gray on the other side, the text _should_ pass accessibility standards (assuming the font size is appropriate).
+In choosing colors, accessibility must be a priority. With the layout colors selected at opposite ends of the scale, this ensures that if a gray on one side appears as text on top of a gray on the other side. The text _should_ pass accessibility standards (assuming the font size is appropriate).
 
 [Designers should avoid pure black typography — but which dark gray should we use?](https://uxdesign.cc/designers-should-avoid-pure-black-typography-but-which-dark-gray-should-we-use-2d7faa07083a)
 [Calculating Color: Dynamic Color Theming with Pure CSS](https://una.im/css-color-theming/)

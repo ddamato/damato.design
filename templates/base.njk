@@ -3,6 +3,9 @@
     {% include "head.njk" %}
   </head>
   <body class="hidden">
+    <button class="button style-reset" type="primary" onclick="document.documentElement.removeAttribute('style')">
+      <svg-icon value="clock-reverse">restore</svg-icon> Reset Styles
+    </button>
     <div class="app">
       <input type="checkbox" id="navigation-toggle"/>
       <nav>
