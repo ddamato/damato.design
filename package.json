@@ -7,7 +7,7 @@
     "build": " rm -rf _site && npm run compile && npm run bundle && npm run copy",
     "compile": "node ./bin/compile.js",
     "bundle": "node ./bin/bundle.js",
-    "copy": "cp -r images _site && cp -r icons _site && cp -r json _site"
+    "copy": "cp -r images _site && cp -r icons _site && cp -r json _site && cp manifest.json _site"
   },
   "repository": {
     "type": "git",
