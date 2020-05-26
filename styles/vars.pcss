@@ -121,50 +121,55 @@ html[theme="inverse"] { @include dark-theme() }
 	--remscale--xl: calc(var(--remscale--lg) * var(--typescale--factor));
 	--remscale--2xl: calc(var(--remscale--xl) * var(--typescale--factor));
 	--remscale--3xl: calc(var(--remscale--2xl) * var(--typescale--factor));
-	--remscale--4xl: calc(var(--remscale--3xl) * var(--typescale--factor));
 	--remscale--sm: calc(var(--remscale--md) / var(--typescale--factor));
 	--remscale--xs: calc(var(--remscale--sm) / var(--typescale--factor));
 
+  --fontFamily--sans: 'Jost', sans-serif;
+  --fontWeight--normal: 400;
+  --fontWeight--medium: 500;
+  --fontWeight--bold: 700;
+  --lineHeight--paragraph: 1.5;
+  --lineHeight--headline: 1.25;
 
-  --text--fontFamily: 'Jost', sans-serif;
-  --text--fontSize: calc(var(--remscale--md) * 1rem);
-  --text--fontWeight: 400;
-  --text--lineHeight: 1.5;
+  --textParagraph--fontFamily: var(--fontFamily--sans);
+  --textParagraph--fontSize: calc(var(--remscale--md) * 1rem);
+  --textParagraph--fontWeight: var(--fontWeight--normal);
+  --textParagraph--lineHeight: var(--lineHeight--paragraph);
 
-  --textLabel--fontFamily: 'Jost', sans-serif;
+  --textLabel--fontFamily: var(--fontFamily--sans);
   --textLabel--fontSize: calc(var(--remscale--md) * 1rem);
-  --textLabel--fontWeight: 400;
-  --textLabel--lineHeight: 1.5;
+  --textLabel--fontWeight: var(--fontWeight--normal);
+  --textLabel--lineHeight: var(--lineHeight--paragraph);
 
-  --textHeading1--fontFamily: 'Jost', sans-serif;
+  --textHeading1--fontFamily: var(--fontFamily--sans);
   --textHeading1--fontSize: calc(var(--remscale--2xl) * 1rem);
-  --textHeading1--fontWeight: 700;
-  --textHeading1--lineHeight: 1.25;
+  --textHeading1--fontWeight: var(--fontWeight--bold);
+  --textHeading1--lineHeight: var(--lineHeight--headline);
 
-  --textHeading2--fontFamily: 'Jost', sans-serif;
+  --textHeading2--fontFamily: var(--fontFamily--sans);
   --textHeading2--fontSize: calc(var(--remscale--xl) * 1rem);
-  --textHeading2--fontWeight: 700;
-  --textHeading2--lineHeight: 1.25;
+  --textHeading2--fontWeight: var(--fontWeight--bold);
+  --textHeading2--lineHeight: var(--lineHeight--headline);
 
-  --textHeading3--fontFamily: 'Jost', sans-serif;
+  --textHeading3--fontFamily: var(--fontFamily--sans);
   --textHeading3--fontSize: calc(var(--remscale--lg) * 1rem);
-  --textHeading3--fontWeight: 500;
-  --textHeading3--lineHeight: 1.25;
+  --textHeading3--fontWeight: var(--fontWeight--medium);
+  --textHeading3--lineHeight: var(--lineHeight--headline);
 
-  --textHeading4--fontFamily: 'Jost', sans-serif;
+  --textHeading4--fontFamily: var(--fontFamily--sans);
   --textHeading4--fontSize: calc(var(--remscale--md) * 1rem);
-  --textHeading4--fontWeight: 500;
-  --textHeading4--lineHeight: 1.25;
+  --textHeading4--fontWeight: var(--fontWeight--medium);
+  --textHeading4--lineHeight: var(--lineHeight--headline);
 
-  --textQuote--fontFamily: 'Jost', sans-serif;
+  --textQuote--fontFamily: var(--fontFamily--sans);
   --textQuote--fontSize: calc(var(--remscale--lg) * 1rem);
-  --textQuote--fontWeight: 500;
-  --textQuote--lineHeight: 1.5;
+  --textQuote--fontWeight: var(--fontWeight--medium);
+  --textQuote--lineHeight: var(--lineHeight--paragraph);
 
-  --textCaption--fontFamily: 'Jost', sans-serif;
+  --textCaption--fontFamily: var(--fontFamily--sans);
   --textCaption--fontSize: calc(var(--remscale--sm) * 1rem);
-  --textCaption--fontWeight: 400;
-  --textCaption--lineHeight: 1.5;
+  --textCaption--fontWeight: var(--fontWeight--normal);
+  --textCaption--lineHeight: var(--lineHeight--paragraph);
 }
 
 :root {
