@@ -77,7 +77,7 @@ Labels also are set to all capitals to differentiate from input text. Due to thi
 | `--textHeading3--fontWeight` | The font weight for h3 elements | `var(--fontWeight--medium)` |
 | `--textHeading3--lineHeight` | The line height for h3 elements | `var(--lineHeight--headline)` |
 
-#### Quateriary Heading Text
+#### Quaternary Heading Text
 | Token | Description | Value |
 | ----- | ----------- | ----- |
 | `--textHeading4--fontFamily` | The font family for h4 elements | `var(--fontFamily--sans)` |

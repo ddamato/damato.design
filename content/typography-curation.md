@@ -74,5 +74,12 @@ label {
 ### Responsive Typography Decisions
 In the current state of the system, the typography is not responsive to the viewport or device. There is an expected future to outline the technique provided in the article _[css-only fluid modular type scales](https://utopia.fyi/blog/css-modular-scales/)_ to manage font-size and line-height. In which case there will be an update to this content.
 
+[Tame line-height](https://css-tricks.com/how-to-tame-line-height-in-css/?utm_source=dailydevlinks.com&ref=dailydevlinks.com)
+
 ### One font face
 It is also a web performance benefit to only choose one font versus more than one. To differentiate between body text and headline text using one font, additional modifications such as size, kerning, leading and, casing can contribute to these variations.
+
+::: audience-engineer
+Loading fonts fast
+The fonts are curated from [Google Fonts](https://fonts.google.com/) and have been applied using the findings from _[The Fastest Google Fonts](https://csswizardry.com/2020/05/the-fastest-google-fonts/)_
+:::
