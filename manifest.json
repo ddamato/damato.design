@@ -3,6 +3,8 @@
   "short_name": "DAMATO",
   "description": "The DAMATO Design System",
   "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#198278",
   "icons": [{
