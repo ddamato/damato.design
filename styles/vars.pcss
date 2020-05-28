@@ -173,13 +173,13 @@ html[theme="inverse"] { @include dark-theme() }
 }
 
 :root {
-  --gridscale--factor: calc(8 / 16); /* grid pixels / root font size pixels */
+  --gridscale--factor: 1;
 
-  --density--sm: calc(var(--gridscale--factor) / 2); /* .25rem, 4px */
-  --density--md: calc(var(--gridscale--factor) * 1); /* .5rem, 8px */
-  --density--lg: calc(var(--gridscale--factor) * 2); /* 1rem, 16px */
-  --density--xl: calc(var(--gridscale--factor) * 4); /* 2rem, 32px */
-  --density--2xl: calc(var(--gridscale--factor) * 8); /* 4rem, 64px */
+  --density--xs: calc(var(--gridscale--factor) / 4rem); /* 4px */
+  --density--sm: calc(var(--gridscale--factor) / 2rem); /* 8px */
+  --density--md: calc(var(--gridscale--factor) * 1rem); /* 16px */
+  --density--lg: calc(var(--gridscale--factor) * 2rem); /* 32px */
+  --density--xl: calc(var(--gridscale--factor) * 4rem); /* 64px */
 }
 
 :root {
