@@ -50,7 +50,7 @@
     font-family: var(--textHeading3--fontFamily);
     line-height: var(--textHeading3--lineHeight);
     text-transform: uppercase;
-    margin-top: 2em;
+    margin-top: calc(var(--density--lg) * 1rem);
     margin-bottom: 0;
   }
 
@@ -60,7 +60,7 @@
     font-family: var(--textHeading4--fontFamily);
     line-height: var(--textHeading4--lineHeight);
     text-transform: uppercase;
-    margin-top: 2em;
+    margin-top: calc(var(--density--lg) * 1rem);
     margin-bottom: 0;
   }
 
@@ -69,7 +69,7 @@
   }
 
   h1, h2, & > h3:first-child {
-    margin: -.1em 0 1em;
+    margin: -.1em 0 calc(var(--density--md) * 1rem);
   }
 
   h1 strong,
