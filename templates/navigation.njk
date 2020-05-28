@@ -1,7 +1,7 @@
 <div class="navigation">
   {% for item in sitemap %}
   <js-selectsummary type="menu" {{ 'open' if item.page === title }}>
-    <a slot="value" href="{{ item.filename }}#">{{ item.page }}</a>
+    <a slot="value" href="{{ item.filename }}">{{ item.page }}</a>
     {% for section in item.sections %}
       <a class="selectSummary--option" href="{{ item.filename }}#{{ section.slug }}">{{ section.anchor }}</a>
     {% endfor %}
