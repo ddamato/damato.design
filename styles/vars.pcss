@@ -173,5 +173,15 @@ html[theme="inverse"] { @include dark-theme() }
 }
 
 :root {
+  --gridscale--factor: calc(8 / 16); /* grid pixels / root font size pixels */
+
+  --density--sm: calc(var(--gridscale--factor) / 2); /* .25rem, 4px */
+  --density--md: calc(var(--gridscale--factor) * 1); /* .5rem, 8px */
+  --density--lg: calc(var(--gridscale--factor) * 2); /* 1rem, 16px */
+  --density--xl: calc(var(--gridscale--factor) * 4); /* 2rem, 32px */
+  --density--2xl: calc(var(--gridscale--factor) * 8); /* 4rem, 64px */
+}
+
+:root {
   --focused--outlineStyle: dashed;
 }

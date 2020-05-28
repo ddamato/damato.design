@@ -10,7 +10,6 @@
   font-weight: 500;
   padding: .5rem 1rem;
   border-right: inherit;
-  line-height: 1.5rem;
   border: 0;
   border-bottom: 1px solid var(--control--borderColor);
   background: var(--control--backgroundColor);
@@ -24,7 +23,6 @@
   color: inherit;
   padding: 0 .5rem;
   align-self: stretch;
-  line-height: 1.5rem;
   width: 100%;
   border: 0;
   border-bottom: 1px solid var(--control--borderColor);
