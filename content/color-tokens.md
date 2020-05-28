@@ -21,7 +21,7 @@ These are applied by adding the token within an `rgb()` function.
 #### Accent color tokens
 | Token | Description | Value |
 | ----- | ----------- | ----- |
-| `--accent--defaultColor` | The color to represent an accent. This may change at the application level to another color in this family. | <span class="swatch" style="background: rgb(var(--color--green)); padding: 0 2rem" ></span> |
+| `--accent--defaultColor` | The color to represent an accent. This may change at the application level to another color in this family. | <span class="swatch" style="background: rgb(var(--color--green));" ></span> |
 | `--accent--everyoneColor` | The color to represent all audiences. | <span class="swatch" style="background: rgb(var(--color--green));" ></span> |
 | `--accent--designerColor` | The color to represent a designer audience. | <span class="swatch" style="background: rgb(var(--color--pink));" ></span> |
 | `--accent--engineerColor` | The color to represent an engineer audience. | <span class="swatch" style="background: rgb(var(--color--blue));" ></span> |

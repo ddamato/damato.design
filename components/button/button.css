@@ -3,7 +3,7 @@
   background-color: transparent;
   border: 1px solid transparent;
   color: inherit;
-  padding: .5rem 1rem;
+  padding: calc(var(--density--sm) * 1rem) calc(var(--density--md) * 1rem);
   cursor: pointer;
   border-radius: 2px;
   text-transform: uppercase;

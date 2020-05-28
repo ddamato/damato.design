@@ -21,11 +21,11 @@
 	align-items: center;
 	cursor: pointer;
 	margin: 0;
-	padding-right: .5rem;
+	padding-right: calc(var(--density--sm) * 1rem);
 }
 
 .selectSummary--value {
-	margin-right: 1rem;
+	margin-right: calc(var(--density--md) * 1rem);
 }
 
 .selectSummary ::slotted([slot="value"]) {
@@ -48,7 +48,7 @@
 	display: block;
 	margin: 0;
 	border: 0;
-	padding: .5rem 1rem;
+	padding: calc(var(--density--sm) * 1rem) calc(var(--density--md) * 1rem);
 	color: inherit;
 	font: inherit;
 	background: none;
@@ -90,7 +90,7 @@
 /* type="select" */
 .selectSummary[type="select"] .selectSummary--label {
 	border: 1px solid var(--accent--defaultColor);
-	padding: .5rem 1rem;
+	padding: calc(var(--density--sm) * 1rem) calc(var(--density--md) * 1rem);
 }
 
 .selectSummary[type="select"] .selectSummary--content {
@@ -104,7 +104,7 @@
 	text-transform: uppercase;
 	font-weight: 500;
 	font-size: .9rem;
-	padding: .5rem 1rem;
+	padding: calc(var(--density--sm) * 1rem) calc(var(--density--md) * 1rem);
 }
 
 .selectSummary[type="menu"] .selectSummary--label:hover {
@@ -113,7 +113,7 @@
 }
 
 .selectSummary[type="menu"] .selectSummary--content {
-	margin-left: 1rem;
+	margin-left: calc(var(--density--md) * 1rem);
 	border-left: 1px solid var(--accent--defaultColor);
 }
 
@@ -131,13 +131,13 @@
 	border-top: 1px solid var(--accent--defaultColor);
 	border-left: 1px solid var(--accent--defaultColor);
 	border-right: 1px solid var(--accent--defaultColor);
-	padding: .5rem 1rem;
+	padding: calc(var(--density--sm) * 1rem) calc(var(--density--md) * 1rem);
 }
 
 .selectSummary[type="summary"] .selectSummary--content {
 	border-bottom: 1px solid var(--accent--defaultColor);
 	border-left: 1px solid var(--accent--defaultColor);
 	border-right: 1px solid var(--accent--defaultColor);
-	padding-left: 1rem;
-	padding-right: 1rem;
+	padding-left: calc(var(--density--md) * 1rem);
+	padding-right: calc(var(--density--md) * 1rem);
 }

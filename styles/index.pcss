@@ -4,7 +4,8 @@
 
 html {
   scroll-behavior: smooth;
-  --scrollOffset: calc(1rem - 1px);
+  --navigationHeight: calc(var(--density--md) * 1rem);
+  --scrollOffset: calc(var(--navigationHeight) - 1px);
 }
 
 body {
@@ -57,7 +58,7 @@ a:focus {
 
 .app {
   min-height: 100vh;
-  padding-left: 1rem;
+  padding-left: calc(var(--density--md) * 1rem);
   display: flex;
   margin: 0 auto;
   max-width: 1000px;
@@ -72,25 +73,25 @@ a:focus {
   color: var(--box--foregroundColor);
   border-radius: 2px;
   position: sticky;
-  top: 1rem;
+  top: calc(var(--density--md) * 1rem);
   align-self: flex-start;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  max-height: calc(100vh - 2rem);
+  max-height: calc(100vh - var(--density--lg) * 1rem);
 }
 
 .header {
   display: flex;
   align-items: center;
-  padding: .5rem 1rem;
+  padding: calc(var(--density--sm) * 1rem) calc(var(--density--md) * 1rem);
   position: relative;
   border: 1px solid var(--box--borderColor);
 }
 
 .logo {
   max-width: 10rem;
-  margin: .5rem 0;
+  margin: calc(var(--density--sm) * 1rem) 0;
   border: 1px solid transparent;
   color: inherit;
 }
@@ -110,7 +111,7 @@ a:focus {
 
 .navigation > * {
   display: block;
-  margin: .5rem 0;
+  margin: calc(var(--density--sm) * 1rem) 0;
 }
 
 .nav-button {
@@ -136,7 +137,7 @@ a:focus {
 
 .app > main {
   flex-grow: 0;
-  margin: 1rem;
+  margin: calc(var(--density--md) * 1rem);
   max-width: calc(200% / 3);
 }
 
@@ -146,10 +147,10 @@ a:focus {
   border: 1px solid var(--box--borderColor);
   color: var(--box--foregroundColor);
   border-radius: 2px;
-  margin-bottom: 1rem;
+  margin-bottom: calc(var(--density--md) * 1rem);
   justify-content: space-between;
   overflow-x: auto;
-  padding: 1rem;
+  padding: calc(var(--density--md) * 1rem);
 }
 
 .disclaimer {
@@ -201,8 +202,8 @@ svg-icon:not(:defined) {
   position: fixed;
   bottom: 0;
   right: 0;
-  margin: 1rem;
-  transform: translateY(4rem);
+  margin: calc(var(--density--md) * 1rem);
+  transform: translateY(calc(var(--density--xl) * 1rem));
   opacity: 0;
   transition: .218s ease;
   z-index: 1;
@@ -214,7 +215,7 @@ svg-icon:not(:defined) {
 }
 
 .style-reset + .app {
-  margin-bottom: 3rem;
+  margin-bottom: calc(var(--density--xl) * 1rem);
 }
 
 html[style] .style-reset {

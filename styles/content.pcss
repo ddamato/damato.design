@@ -3,8 +3,8 @@
   border: 1px solid var(--box--borderColor);
   color: var(--box--foregroundColor);
   border-radius: 2px;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: calc(var(--density--md) * 1rem);
+  margin-bottom: calc(var(--density--md) * 1rem);
   position: relative;
 
   &[data-page]:before {
@@ -14,8 +14,8 @@
     font-size: .75rem;
     font-weight: 500;
     color: var(--box--borderColor);
-    padding-left: 1rem;
-    padding-bottom: 1rem;
+    padding-left: calc(var(--density--md) * 1rem);
+    padding-bottom: calc(var(--density--md) * 1rem);
   }
 
   > :last-child {
@@ -23,7 +23,7 @@
   }
 
   p {
-    margin: 2rem 0;
+    margin: calc(var(--density--lg) * 1rem) 0;
   }
 
   h1 {
@@ -65,7 +65,7 @@
   }
 
   [slot="value"] + h3, [slot="value"] + h4 {
-    margin-top: 1rem;
+    margin-top: calc(var(--density--md) * 1rem);
   }
 
   h1, h2, & > h3:first-child {
@@ -102,7 +102,7 @@
     }
 
     & > li:not(:last-child) {
-      margin-bottom: 1rem;
+      margin-bottom: calc(var(--density--md) * 1rem);
     }
 
   }
@@ -118,7 +118,7 @@
     width: 100%;
     text-align: left;
     border: 1px solid var(--boxLowContrast--borderColor);
-    margin: 1rem 0;
+    margin: calc(var(--density--md) * 1rem) 0;
   }
 
   th {
@@ -128,10 +128,11 @@
   
   table th,
   table td {
-    padding: .5rem;
+    padding: calc(var(--density--sm) * 1rem);
   }
 
   blockquote {
+    --blockquoteIcon--dimension: 2rem;
     background-color: var(--accent--defaultColor);
     color: var(--onAccent--defaultColor);
     margin: 0;
@@ -141,8 +142,8 @@
     font-weight: var(--textQuote--fontWeight);
     line-height: var(--textQuote--lineHeight);
     position: relative;
-    padding: 1rem;
-    padding-left: 4rem;
+    padding: calc(var(--density--md) * 1rem);
+    padding-left: calc(2 * (var(--density--md) * 1rem) + var(--blockquoteIcon--dimension));
   }
 
   blockquote a,
@@ -156,10 +157,11 @@
     content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGc+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTIwIDJINGMtMS4xIDAtMiAuOS0yIDJ2MThsNC00aDE0YzEuMSAwIDItLjkgMi0yVjRjMC0xLjEtLjktMi0yLTJ6bTAgMTRINS4xN0w0IDE3LjE3VjRoMTZ2MTJ6TTcgOWgydjJIN3ptOCAwaDJ2MmgtMnptLTQgMGgydjJoLTJ6Ii8+PC9nPjwvc3ZnPg==");
     position: absolute;
     transform: scaleX(-1);
-    width: 1.5em;
-    height: 1.5em;
-    left: 1rem;
-    top: 1rem;
+    width: var(--blockquoteIcon--dimension);
+    height: var(--blockquoteIcon--dimension);
+    left: 0;
+    top: 0;
+    margin: calc(var(--density--md) * 1rem);
   }
 
   blockquote p:first-child {
@@ -176,11 +178,11 @@
     font-size: var(--textCaption--fontSize);
     font-weight: var(--textCaption--fontWeight);
     line-height: var(--textCaption--lineHeight);
-    margin: 1rem;
-    margin-right: -1rem;
-    margin-bottom: 2rem;
+    margin: calc(var(--density--md) * 1rem);
+    margin-right: calc(var(--density--md) * -1rem);
+    margin-bottom: calc(var(--density--lg) * 1rem);
     float: right;
-    width: calc(100% + 3.5rem);
+    width: calc(100% + (var(--density--md) * 1rem) + var(--blockquoteIcon--dimension));
     color: var(--box--foregroundColor);
   }
 
@@ -193,24 +195,24 @@
 
   .audience-designer {
     display: block;
-    margin: 2rem 0;
+    margin: calc(var(--density--lg) * 1rem) 0;
     --accent--defaultColor: var(--accent--designerColor);
   }
 
   .audience-engineer {
     display: block;
-    margin: 2rem 0;
+    margin: calc(var(--density--lg) * 1rem) 0;
     --accent--defaultColor: var(--accent--engineerColor);
   }
 
   .badge {
     display: inline-block;
-    padding: 0 .5rem;
+    padding: 0 calc(var(--density--sm) * 1rem);
     border-radius: 2px;
   }
 
   .swatch {
-    padding: 0 2rem;
+    padding: 0 calc(var(--density--lg) * 1rem);
     border: 1px solid var(--boxHighContrast--borderColor);
   }
 }
