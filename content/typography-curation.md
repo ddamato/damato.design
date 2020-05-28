@@ -72,9 +72,11 @@ label {
 :::
 
 ### Responsive Typography Decisions
-In the current state of the system, the typography is not responsive to the viewport or device. There is an expected future to outline the technique provided in the article _[css-only fluid modular type scales](https://utopia.fyi/blog/css-modular-scales/)_ to manage font-size and line-height. In which case there will be an update to this content.
+In the current state of the system, the typography is not responsive to the viewport or device. While the technique outlined in _[css-only fluid modular type scales](https://utopia.fyi/blog/css-modular-scales/)_ to manage font-size and line-height is aligned with the overall approach of styles within the system, the expectation of having different scale factors between viewport sizes does not.
 
-[Tame line-height](https://css-tricks.com/how-to-tame-line-height-in-css/?utm_source=dailydevlinks.com&ref=dailydevlinks.com)
+Instead, there may exist a future where one breakpoint adjusts font size between desktop and mobile as recommended within _[Responsive Typography: The Basics](https://ia.net/topics/responsive-typography-the-basics)_ but for the moment there is only one scale with defines one set of sizes. The rest is left up to the browser and user settings of the device.
+
+[Tame line-height](https://css-tricks.com/how-to-tame-line-height-in-css/)
 
 ### One font face
 It is also a web performance benefit to only choose one font versus more than one. To differentiate between body text and headline text using one font, additional modifications such as size, kerning, leading and, casing can contribute to these variations.

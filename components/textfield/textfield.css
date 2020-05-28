@@ -6,8 +6,8 @@
 
 .textfield--label {
   text-transform: uppercase;
-  font-size: .9rem;
-  font-weight: 500;
+  font-size: calc(var(--textLabel--fontSize) * .9);
+  font-weight: var(--textLabel--fontWeight);
   padding: calc(var(--density--sm) * 1rem) calc(var(--density--md) * 1rem);
   border-right: inherit;
   border: 0;

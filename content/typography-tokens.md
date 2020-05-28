@@ -44,13 +44,22 @@ These tokens describe the place where the typography is intented to be used. The
 | `--textParagraph--fontWeight` | The font weight for paragraphs. | `var(--fontWeight--normal)` |
 | `--textParagraph--lineHeight` | The line height for paragraphs. | `var(--lineHeight--paragraph)` |
 
+#### Action Text
+Actions also are set to all capitals to differentiate from body text. Due to this modification, the text is set slightly smaller than the medium size.
+| Token | Description | Value |
+| ----- | ----------- | ----- |
+| `--textAction--fontFamily` | The font family for buttons, links | `var(--fontFamily--sans)` |
+| `--textAction--fontSize` | The font size for buttons, links, this is adjusted for the text transformation at the component for buttons | `calc(var(--fontSize--md) * 1rem)` |
+| `--textAction--fontWeight` | The font weight for buttons, links | `var(--fontWeight--medium)` |
+| `--textAction--lineHeight` | The line height for buttons, links | `var(--lineHeight--paragraph)` |
+
 #### Label Text
-Labels also are set to all capitals to differentiate from input text. Due to this modification, the text is set slightly smaller than the medium size.
+Labels also are set to all capitals to differentiate from body text. Due to this modification, the text is set slightly smaller than the medium size.
 | Token | Description | Value |
 | ----- | ----------- | ----- |
 | `--textLabel--fontFamily` | The font family for labels | `var(--fontFamily--sans)` |
-| `--textLabel--fontSize` | The font size for labels | `calc(var(--fontSize--md) * .9rem)` |
-| `--textLabel--fontWeight` | The font weight for labels | `var(--fontWeight--normal)` |
+| `--textLabel--fontSize` | The font size for labels, this is adjusted for the text transformation at the component | `calc(var(--fontSize--md) * 1rem)` |
+| `--textLabel--fontWeight` | The font weight for labels | `var(--fontWeight--medium)` |
 | `--textLabel--lineHeight` | The line height for labels | `var(--lineHeight--paragraph)` |
 
 #### Primary Heading Text

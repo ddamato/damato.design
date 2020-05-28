@@ -23,8 +23,8 @@
 
 .toggleRange--label {
   color: var(--toggleRange--accentColor, var(--control--foregroundColor));
-  font-weight: 500;
-  font-size: .9rem;
+  font-weight: var(--textLabel--fontWeight);
+  font-size: calc(var(--textLabel--fontSize) * .9);
 	text-transform: uppercase;
 	text-align: right;
 	line-height: 1;

@@ -78,8 +78,8 @@
 	min-width: 12ch;
 	max-width: 100%;
 	text-transform: uppercase;
-	font-weight: 500;
-	font-size: .9em;
+	font-weight: var(--textLabel--fontWeight);
+	font-size: calc(var(--textLabel--fontSize) * .9);
 	z-index: 1;
 	display: inline-flex;
   justify-content: center;
