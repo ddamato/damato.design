@@ -119,10 +119,23 @@
     text-align: left;
     border: 1px solid var(--boxLowContrast--borderColor);
     margin: calc(var(--density--md) * 1rem) 0;
+    position: relative;
+  }
+
+  thead {
+    border-bottom: 1px solid var(--boxLowContrast--borderColor);
+  }
+
+  thead:after {
+    content: "";
+    border-bottom: 1px solid var(--boxLowContrast--borderColor);
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-bottom: -1px;
   }
 
   th {
-    border-bottom: 1px solid var(--boxLowContrast--borderColor);
     text-transform: capitalize;
   }
   
