@@ -1,7 +1,7 @@
 ---
 page: Layout
 anchor: Design Tokens
-order: 4
+order: 1
 ---
 
 ## Design Tokens

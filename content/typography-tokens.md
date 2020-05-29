@@ -45,7 +45,7 @@ These tokens describe the place where the typography is intented to be used. The
 | `--textParagraph--lineHeight` | The line height for paragraphs. | `var(--lineHeight--paragraph)` |
 
 #### Action Text
-Actions also are set to all capitals to differentiate from body text. Due to this modification, the text is set slightly smaller than the medium size.
+Actions also are set to all capitals to differentiate from body text. Due to this modification, the text is set [slightly smaller than the medium size](https://learnui.design/blog/mobile-desktop-website-font-size-guidelines.html#3-secondary-text-should-be-about-2-sizes-smaller-than-your-paragaph-text).
 | Token | Description | Value |
 | ----- | ----------- | ----- |
 | `--textAction--fontFamily` | The font family for buttons, links | `var(--fontFamily--sans)` |
@@ -54,7 +54,7 @@ Actions also are set to all capitals to differentiate from body text. Due to thi
 | `--textAction--lineHeight` | The line height for buttons, links | `var(--lineHeight--paragraph)` |
 
 #### Label Text
-Labels also are set to all capitals to differentiate from body text. Due to this modification, the text is set slightly smaller than the medium size.
+Labels also are set to all capitals to differentiate from body text. Due to this modification, the text is set [slightly smaller than the medium size](https://learnui.design/blog/mobile-desktop-website-font-size-guidelines.html#3-secondary-text-should-be-about-2-sizes-smaller-than-your-paragaph-text).
 | Token | Description | Value |
 | ----- | ----------- | ----- |
 | `--textLabel--fontFamily` | The font family for labels | `var(--fontFamily--sans)` |

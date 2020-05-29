@@ -64,10 +64,15 @@ async function compile() {
       .map(renderConfig)
       .join('');
     const html = env.render('base.njk', { sections, sitemap, title: config.page });
+    const json = JSON.stringify({ content: sections, title: config.page });
     const pageContent = minify(html, { collapseWhitespace: true });
     const pageFileName = `${COMPILED_SITE_PATH}/${config.filename}.html`;
+    const pageJsonName = `${COMPILED_SITE_PATH}/json/${config.filename}.json`;
     fs.ensureFileSync(pageFileName);
     fs.writeFileSync(pageFileName, pageContent, { encoding: 'utf8' });
+
+    fs.ensureFileSync(pageJsonName);
+    fs.writeFileSync(pageJsonName, json, { encoding: 'utf8' });
   });
 }
 
