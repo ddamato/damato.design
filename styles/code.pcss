@@ -41,12 +41,15 @@ code, td code {
   .token.comment,
   .token.property {
       color: var(--accent--defaultColor);
+      filter: contrast(2);
   }
 
   .token.attr-value {
     color: var(--accent--defaultColor);
+    filter: contrast(2);
     .token.punctuation {
       color: var(--boxLowContrast--foregroundColor);
+      filter: initial;
     }
   }
 }
