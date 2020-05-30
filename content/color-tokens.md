@@ -54,7 +54,6 @@ This family of tokens describe containers for content.
 | `--boxHighContrast--backgroundColor` | Describes the background color of the area which relate to the main areas with a large contrast. | <span class="swatch" style="background: var(--boxHighContrast--backgroundColor)" ></span> |
 | `--boxHighContrast--foregroundColor` |  Describes the foreground (text) color of the area which relate to the main areas with a large contrast. | <span class="swatch" style="background: var(--boxHighContrast--foregroundColor)" ></span> |
 | `--boxHighContrast--borderColor` |  Describes the border color of the area which relate to the main areas with a large contrast. | <span class="swatch" style="background: var(--boxHighContrast--borderColor)" ></span> |
-| `--boxElevated--shadowColor` |  Describes the shadow color for elevated containers. This includes some translucent alpha channel. | <span class="swatch" style="background: var(--boxElevated--shadowColor)" ></span> |
 
 ### Actions
 This family descrbes colors for buttons and links. In some cases, the color on the component is either transparent or inherited from the parent.
