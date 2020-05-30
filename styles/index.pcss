@@ -56,6 +56,27 @@ a:focus {
   outline: 1px var(--focused--outlineStyle) var(--control--outlineColor);
 }
 
+a.offline {
+  position: relative;
+}
+
+a.offline:before {
+  --offlinemask--warning: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGc+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xIDIxaDIyTDEyIDIgMSAyMXptMTItM2gtMnYtMmgydjJ6bTAtNGgtMnYtNGgydjR6Ii8+PC9nPjwvc3ZnPg==");
+  content: "" / "This content is not available, please visit when reconnected to the internet.";
+  -webkit-mask: var(--offlinemask--warning);
+  mask: var(--offlinemask--warning);
+  border: 1px dashed var(--accent--defaultColor);
+  background-color: currentColor;
+  margin-left: 1ch;
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  margin: -.5em;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
