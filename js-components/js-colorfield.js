@@ -165,7 +165,7 @@ class JsColorfield extends HTMLElement {
     this.setAttribute('delta', newVal);
   }
   
-  onColorchange = Function.prototype
+  onColorchange() {}
 }
 
 window.customElements.define('js-colorfield', JsColorfield);
