@@ -1,0 +1,25 @@
+const cacheName = 'v1';
+
+self.addEventListener('install', () => {
+  console.info('Service Worker Installed');
+});
+
+self.addEventListener('activate', (ev) => {
+  console.info('Service Worker Activated');
+  ev.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(cacheNames.map((cache) => cache !== cacheName && caches.delete(cache)))
+    })
+  )
+});
+
+self.addEventListener('fetch', (ev) => {
+  ev.respondWith(
+    fetch(ev.request).then((res) => {
+      const clone = res.clone();
+      caches.open(cacheName).then((cache) => cache.put(ev.request, clone)).catch(() => {});
+      return res;
+    }).catch(() => caches.match(ev.request))
+  )
+});
+
