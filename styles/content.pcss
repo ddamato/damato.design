@@ -178,11 +178,12 @@
   }
 
   blockquote p:first-child {
-    margin-top: -.25em;
+    margin-top: calc(var(--density--xs) * -1rem);
   }
 
   blockquote p:last-child {
-    margin-bottom: -.25em;
+    margin-bottom: calc(var(--density--xs) * -1rem);
+    min-height: 2.5rem;
   }
 
   blockquote em {
@@ -194,6 +195,7 @@
     margin: calc(var(--density--md) * 1rem);
     margin-right: calc(var(--density--md) * -1rem);
     margin-bottom: calc(var(--density--lg) * 1rem);
+    padding-top: calc(var(--density--xs) * 1rem);
     float: right;
     width: calc(100% + (var(--density--md) * 1rem) + var(--blockquoteIcon--dimension));
     color: var(--box--foregroundColor);
