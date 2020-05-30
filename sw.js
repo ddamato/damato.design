@@ -16,8 +16,10 @@ self.addEventListener('activate', (ev) => {
 self.addEventListener('fetch', (ev) => {
   ev.respondWith(
     fetch(ev.request).then((res) => {
-      const clone = res.clone();
-      caches.open(cacheName).then((cache) => cache.put(ev.request, clone)).catch(() => {});
+      if (ev.request.url.startsWith('http')) {
+        const clone = res.clone();
+        caches.open(cacheName).then((cache) => cache.put(ev.request, clone)).catch(() => {});
+      }
       return res;
     }).catch(() => caches.match(ev.request))
   )
