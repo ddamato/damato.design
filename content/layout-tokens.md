@@ -15,7 +15,7 @@ These tokens describe the general family that possess all the layout values as h
 These are applied by multiplying the token within a `calc()` function by `1rem` as the value of the property.
 | Token | Description | Value |
 | ----- | ----------- | ----- |
-| `--density--xs` | Extra small spacing factor. | `.25` |
+| `--density--xs` | Extra-small spacing factor. | `.25` |
 | `--density--sm` | Small spacing factor. | `.5` |
 | `--density--md` | Medium spacing factor. | `1` |
 | `--density--lg` | Large spacing factor. | `2` |
