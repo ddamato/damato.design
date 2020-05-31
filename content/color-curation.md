@@ -61,3 +61,5 @@ Accent colors were chosen first by general hue then by [accessibility measuremen
 - <span class="badge bg-engineer">Blue</span> is meant to indicate the content is for engineers.
 
 This is unique to the purposes of this site and its contents. For most of the site, a single accent color is chosen to enhance the user interface, except in areas where a specific audience is expected.
+
+While the system _could_ have leveraged [a technique to compute the high contrast colors via CSS Custom Properties](https://css-tricks.com/css-variables-calc-rgb-enforcing-high-contrast-colors/ "CSS Variables + calc() + rgb() = Enforcing High Contrast Colors"), the accent colors were curated so that each used as a background color would pair well with a white foreground color (versus a black foreground color).
