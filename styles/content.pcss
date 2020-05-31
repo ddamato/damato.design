@@ -23,7 +23,7 @@
   }
 
   p {
-    margin: calc(var(--density--lg) * 1rem) 0;
+    margin: calc(var(--density--md) * 1rem) 0;
   }
 
   h1 {
@@ -88,13 +88,14 @@
     padding-left: var(--customMarker--setting);
 
     & > li:before {
-      content: "\0000bb";
+      content: "\0025b9";
       color: var(--accent--defaultColor);
       margin-left: calc(var(--customMarker--setting) * -1);
       width: var(--customMarker--setting);
       display: inline-block;
       transform: translateX(0);
       transition: .218s ease;
+      font-size: 1.25em;
     }
 
     & > li:hover:before {
@@ -150,7 +151,7 @@
     color: var(--onAccent--defaultColor);
     margin: 0;
     border-radius: 2px;
-    font-style: italic;
+    font-variation-settings: "ital" 1.00;
     font-size: var(--textQuote--fontSize);
     font-weight: var(--textQuote--fontWeight);
     line-height: var(--textQuote--lineHeight);
