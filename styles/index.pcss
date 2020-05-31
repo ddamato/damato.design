@@ -35,8 +35,10 @@ em {
 }
 
 a {
-  padding: 0 4px;
-  margin: 0 -4px;
+  padding: .5rem;
+  margin: -.5rem;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 main a {
@@ -44,9 +46,9 @@ main a {
   border-radius: 2px;
   text-decoration: none;
   background-image: linear-gradient( var(--accent--defaultColor),  var(--accent--defaultColor));
-  background-position: center 100%;
+  background-position: center calc(100% - .5rem);
   background-repeat: no-repeat;
-  background-size: calc(100% - 8px) 1px;
+  background-size: calc(100% - 1rem) 1px;
   transition: background-size .3s;
 }
 
