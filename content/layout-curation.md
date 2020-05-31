@@ -8,11 +8,11 @@ order: 2
 
 ### Spacing
 
-The overall method for managing spacing started by following a common paradigm in many design systems; [an 8 px/pt grid](https://material.io/design/layout/spacing-methods.html#baseline-grid). However, instead of the default spacing being the 8px value, the system starts at 16px which relates to the root font-size (1rem). Each token in the spacing system [increments exponentially](https://eightshapes.com/articles/space-in-design-systems.html). The values are then calculated by multiplying the token by 1rem. You may sample an adjustment of the scaling factor with the slider below:
+The overall method for managing spacing started by following a common paradigm in many design systems; [an 8 px/pt grid](https://material.io/design/layout/spacing-methods.html#baseline-grid "Material Design: Baseline grid"). However, instead of the default spacing being the 8px value, the system starts at 16px which relates to the root font-size (1rem). Each token in the spacing system [increments exponentially](https://eightshapes.com/articles/space-in-design-systems.html "Eight Shapes: Space in Design Systems"). The values are then calculated by multiplying the token by 1rem. You may sample an adjustment of the scaling factor with the slider below:
 
 <gridscale-range></gridscale-range>
 
-One of the first popular customizations of space was done within [the Gmail application](https://gmail.googleblog.com/2011/11/changing-information-density-in-gmails.html), where values of "comfortable", "cozy", and "compact" help provide a more personalize experience with little effort. Google Design has since [taken this concept to Material Design](https://medium.com/google-design/using-material-density-on-the-web-59d85f1918f0).
+One of the first popular customizations of space was done within [the Gmail application](https://gmail.googleblog.com/2011/11/changing-information-density-in-gmails.html "Changing information density in Gmail’s new look"), where values of "comfortable", "cozy", and "compact" help provide a more personalize experience with little effort. Google Design has since [taken this concept to Material Design](https://medium.com/google-design/using-material-density-on-the-web-59d85f1918f0 "Medium: Using Material Density on the Web").
 
 #### Columnless
 
@@ -22,7 +22,7 @@ References to other places making this decision are scarse because there is an o
 
 > Think dynamically, how are these relationships working? _Miriam Suzanne, Clarity Conf 2017_
 
-[Other](https://medium.com/subform/are-grid-systems-still-relevant-in-digital-407beb4128c1) [posts](https://learnui.design/blog/why-beginning-designers-dont-need-grids-type-scales-color-theory.html) also outline the pitfalls to watch out for when constraining a design in a responsive device.
+[Other](https://medium.com/subform/are-grid-systems-still-relevant-in-digital-407beb4128c1 "Are grid systems still relevant in digital product design?") [posts](https://learnui.design/blog/why-beginning-designers-dont-need-grids-type-scales-color-theory.html "Why Beginning Designers Don't Need to Learn Grids, Type Scales, or Color Theory (and other “Designer Dogma”)") also outline the pitfalls to watch out for when constraining a design in a responsive device.
 
 ### Elevation
 
