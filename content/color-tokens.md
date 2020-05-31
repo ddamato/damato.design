@@ -28,7 +28,7 @@ These are applied by adding the token within an `rgb()` function.
 | `--onAccent--defaultColor` | The color expected to appear on the accent color when it is used as a background. This is always set to white regardless of theme. | <span class="swatch" style="background: rgb(255, 255, 255);" ></span> |
 
 #### Grayscale tokens
-These are applied by adding the token as a lightness value within [a formula](#curation) for the `hsl()` function.
+These are applied by adding the token as a lightness value within [a formula](#curation "DAMATO Design, Color Curation") for the `hsl()` function.
 | Token | Description | Value |
 | ----- | ----------- | ----- |
 | `--infragray--3` | Three exponential steps away from middle gray, toward white. | <span class="swatch" style="background: hsl(0, 0%, calc(100% / (1 + var(--infragray--3))))" ></span> |

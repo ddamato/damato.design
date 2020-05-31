@@ -13,7 +13,7 @@ A simple rule set here was to have three shades toward both ends of grayscale; 3
 
 > It was all about contrast. _[Ether @Medium](https://medium.com/@ethersystem)_
 
-The color steps of gray follow a [logistic curve](https://mathworld.wolfram.com/LogisticEquation.html), meaning they increment exponentially from the middle gray. The formula to determine the level of gray is the following:
+The color steps of gray follow a [logistic curve](https://mathworld.wolfram.com/LogisticEquation.html "Wolfram Alpha Logistic Equation"), meaning they increment exponentially from the middle gray. The formula to determine the level of gray is the following:
 
 - **RGB**: 255 / 1 + grayscale<sup>step</sup>, result is the number for each color channel.
 - **HSL**: 100 / 1 + grayscale<sup>step</sup>, result is the percentage of lightness (0% saturation).
@@ -54,7 +54,7 @@ A drawback to this is `window.getComputedStyle()` cannot resolve this color.
 :::
 
 ### Accent colors
-Accent colors were chosen first by general hue then by [accessibility measurements](#usability) and finally applied to denote a user interaction or areas of interest. Many of the components that which can take an action are indicated using the accent color.
+Accent colors were chosen first by general hue then by [accessibility measurements](#usability "DAMATO Design, Color Usability") and finally applied to denote a user interaction or areas of interest. Many of the components that which can take an action are indicated using the accent color.
 
 - <span class="badge bg-everyone">Green</span> is meant to indicate the content is for all audiences.
 - <span class="badge bg-designer">Pink</span> is meant to indicate the content is for designers.

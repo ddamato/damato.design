@@ -7,7 +7,7 @@ order: 2
 ## Priniciples
 These design principles are intended to help guide important directions this design system takes in its growth.
 
-### All users matter
+### All users are important
 Consider everyone when creating or modifying the experience. Reference standards in accessibility and localization to provide a fully usable experience to all. Consider not only the users but also their technology. 
 
 ### Keep consistency

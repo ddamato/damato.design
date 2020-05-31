@@ -27,7 +27,6 @@ function checkPathnames(links, keys) {
       a.classList.add('offline');
       a.title = a.title + OFFLINE_MESSAGE;
     }
-    
   })
 }
 
