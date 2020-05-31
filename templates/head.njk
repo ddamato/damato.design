@@ -16,19 +16,37 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300..800;1,300..800&display=swap" rel="preload" as="style">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="preload" as="style">
+<link href="styles.css" rel="preload" as="style">
 
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link href="styles.css" rel="stylesheet" media="print" onload="this.media='all'">
 
 <noscript>
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </noscript>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<style type="text/css">
 
-<link href="styles.css" rel="stylesheet">
+  body.hidden {
+    opacity: 0;
+    animation: unhide 1s 2s ease forwards;
+  }
+
+  @keyframes unhide {
+    to { opacity: 1; }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body { background: #000; color: #fff }
+  }
+
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js" async></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-54428903-10"></script>

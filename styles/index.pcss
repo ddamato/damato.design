@@ -21,27 +21,15 @@ body {
   opacity: 1;
 }
 
-body.hidden {
-  opacity: 0;
-  animation: unhide 1s 2s ease forwards;
-}
-
-@keyframes unhide {
-  to { opacity: 1; }
-}
-
 em {
   font-style: italic;
 }
 
-a {
+main a {
   padding: .5rem;
   margin: -.5rem;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-}
-
-main a {
   color: currentColor;
   border-radius: 2px;
   text-decoration: none;
