@@ -1,11 +1,9 @@
 const path = require('path');
 const fs = require('fs-extra');
 const glob = require('glob-fs')({ gitignore: true });
-const terser = require('terser');
 const postcss = require('postcss');
 const nested = require('postcss-nested');
 const mixins = require('postcss-sassy-mixins');
-const cssminifier = require('css-simple-minifier');
 
 const { rollup } = require('rollup');
 const multi = require('@rollup/plugin-multi-entry');
@@ -99,14 +97,11 @@ async function bundle() {
   const scriptsFileName = `${COMPILED_SITE_PATH}/scripts.js`;
   const stylesCssFileName = `${COMPILED_SITE_PATH}/styles.css`;
 
-  const { code } = terser.minify(siteJs);
-  const javascript = code || siteJs;
-
   fs.ensureFileSync(scriptsFileName);
-  fs.writeFileSync(scriptsFileName, javascript, { encoding: 'utf8' });
+  fs.writeFileSync(scriptsFileName, siteJs, { encoding: 'utf8' });
 
   fs.ensureFileSync(stylesCssFileName);
-  fs.writeFileSync(stylesCssFileName, cssminifier(siteCss), { encoding: 'utf8' });
+  fs.writeFileSync(stylesCssFileName, siteCss, { encoding: 'utf8' });
 }
 
 bundle();

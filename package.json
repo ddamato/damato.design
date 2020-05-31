@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": " rm -rf _site && npm run compile && npm run bundle && npm run copy",
+    "build": " rm -rf _site && npm run compile && npm run bundle && npm run copy && npm run minify",
     "compile": "node ./bin/compile.js",
     "bundle": "node ./bin/bundle.js",
-    "copy": "mkdir -p _site && cp -r root/. _site"
+    "copy": "mkdir -p _site && cp -r root/. _site",
+    "minify": "npm run minify:css && npm run minify:js",
+    "minify:css": "cleancss -o _site/styles.min.css _site/styles.css",
+    "minify:js": "terser _site/scripts.js -o _site/scripts.min.js && terser _site/sw.js -o _site/sw.min.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +26,7 @@
   "devDependencies": {
     "@rollup/plugin-json": "^4.0.3",
     "@rollup/plugin-multi-entry": "^3.0.0",
-    "css-simple-minifier": "^1.0.0",
+    "clean-css-cli": "^4.3.0",
     "cssnano": "^4.1.10",
     "front-matter": "^3.1.0",
     "fs-extra": "^9.0.0",
