@@ -11,6 +11,24 @@
 <link rel="mask-icon" href="safari-pinned-tab.svg" color="#198278">
 <meta name="msapplication-TileColor" content="#198278">
 <meta name="theme-color" content="#ffffff">
+
+<style type="text/css">
+
+  body.hidden {
+    opacity: 0;
+    animation: unhide 1s 2s ease forwards;
+  }
+
+  @keyframes unhide {
+    to { opacity: 1; }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body { background: #000; color: #fff }
+  }
+
+</style>
+
 <link rel="prefetch" as="script" href="sw.min.js">
 <script type="text/javascript">
   window.onload = () => 'serviceWorker' in navigator && navigator.serviceWorker.register('sw.min.js').then((registration) => registration.update());
@@ -35,23 +53,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.min.css">
 </noscript>
-
-<style type="text/css">
-
-  body.hidden {
-    opacity: 0;
-    animation: unhide 1s 2s ease forwards;
-  }
-
-  @keyframes unhide {
-    to { opacity: 1; }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body { background: #000; color: #fff }
-  }
-
-</style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js" async defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js" async defer></script>
