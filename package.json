@@ -1,16 +1,14 @@
 {
   "name": "dxs",
   "version": "1.0.0",
-  "description": "",
+  "description": "DAMATO Design System created by Donnie D'Amato",
   "main": "index.js",
   "scripts": {
     "build": " rm -rf _site && npm run compile && npm run bundle && npm run copy && npm run minify",
     "compile": "node ./bin/compile.js",
     "bundle": "node ./bin/bundle.js",
     "copy": "mkdir -p _site && cp -r root/. _site",
-    "minify": "npm run minify:css && npm run minify:js",
-    "minify:css": "cleancss -o _site/styles.min.css _site/styles.css",
-    "minify:js": "terser _site/scripts.js -o _site/scripts.min.js && terser _site/sw.js -o _site/sw.min.js"
+    "minify": "ls-minifier --input=./_site --js-compressor=terser --css-compressor=clean-css --html-compressor=html-minifier --override"
   },
   "repository": {
     "type": "git",
@@ -25,26 +23,26 @@
   "homepage": "https://github.com/ddamato/dxs#readme",
   "devDependencies": {
     "@rollup/plugin-json": "^4.0.3",
-    "@rollup/plugin-multi-entry": "^3.0.0",
-    "clean-css-cli": "^4.3.0",
-    "cssnano": "^4.1.10",
-    "front-matter": "^3.1.0",
+    "@rollup/plugin-multi-entry": "^3.0.1",
+    "clean-css": "^4.2.3",
+    "front-matter": "^3.2.1",
     "fs-extra": "^9.0.0",
     "glob-fs": "^0.1.7",
     "html-minifier": "^4.0.0",
+    "ls-minifier": "^2.0.0",
     "markdown-it": "^10.0.0",
     "markdown-it-collapsible": "^1.0.0",
     "markdown-it-container": "^2.0.0",
     "markdown-it-highlightjs": "^3.1.0",
     "nunjucks": "^3.2.1",
-    "postcss": "^7.0.29",
+    "postcss": "^7.0.31",
     "postcss-cli": "^7.1.1",
     "postcss-nested": "^4.2.1",
     "postcss-sassy-mixins": "^2.1.0",
-    "rollup": "^2.8.0",
+    "rollup": "^2.12.0",
     "rollup-plugin-html": "^0.2.1",
     "rollup-plugin-postcss": "^3.1.1",
     "slug": "^2.1.1",
-    "terser": "^4.6.13"
+    "terser": "^4.7.0"
   }
 }
