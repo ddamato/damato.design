@@ -15,7 +15,7 @@
 <script type="text/javascript">
   window.onload = () => 'serviceWorker' in navigator && navigator.serviceWorker.register('sw.min.js').then((registration) => registration.update());
 </script>
-<script type="text/javascript" src="scripts.min.js" defer></script>
+<script type="text/javascript" src="scripts.min.js" async defer></script>
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preload" href="https://fonts.gstatic.com/s/jost/v2/92zatBhPNqw73oTd4jQmfxI.woff2" as="font" crossorigin>
