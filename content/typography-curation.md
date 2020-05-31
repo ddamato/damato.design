@@ -76,7 +76,7 @@ In the current state of the system, the typography is not responsive to the view
 
 Instead, there may exist a future where one breakpoint adjusts font size between desktop and mobile as recommended within _[Responsive Typography: The Basics](https://ia.net/topics/responsive-typography-the-basics)_ but for the moment there is only one scale with defines one set of sizes. The rest is left up to the browser and user settings of the device.
 
-[Tame line-height](https://css-tricks.com/how-to-tame-line-height-in-css/)
+The system has also opted to not [tame line-height](https://css-tricks.com/how-to-tame-line-height-in-css/ "How to Tame Line Height in CSS") by calculating the offset between the line-height box and the font leading, then applying a pseudo-element and transformations as it was believed the effort outweighs the benefit.
 
 ### One font face
 It is also a web performance benefit to only choose one font versus more than one. To differentiate between body text and headline text using one font, additional modifications such as size, kerning, leading and, casing can contribute to these variations.
