@@ -8,7 +8,9 @@
     "compile": "node ./bin/compile.js",
     "bundle": "node ./bin/bundle.js",
     "copy": "mkdir -p _site && cp -r root/. _site",
-    "minify": "ls-minifier --input=./_site --js-compressor=terser --css-compressor=clean-css --html-compressor=html-minifier --override"
+    "minify":"npm run minify:resources && npm run minify:content",
+    "minify:resources": "ls-minifier --input=./_site --js-compressor=terser --css-compressor=clean-css --override",
+    "minify:content": "html-minifier --conservative-collapse --minify-css --minify-js --remove-comments --output-dir _site --input-dir _site --file-ext=html"
   },
   "repository": {
     "type": "git",
