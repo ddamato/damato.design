@@ -4,7 +4,8 @@
   "description": "DAMATO Design System created by Donnie D'Amato",
   "main": "index.js",
   "scripts": {
-    "build": " rm -rf _site && npm run compile && npm run bundle && npm run copy && npm run minify",
+    "dev": "rm -rf _site && npm run compile && npm run bundle && npm run copy",
+    "build": "npm run dev && npm run minify",
     "compile": "node ./bin/compile.js",
     "bundle": "node ./bin/bundle.js",
     "copy": "mkdir -p _site && cp -r root/. _site",
