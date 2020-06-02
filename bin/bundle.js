@@ -17,7 +17,7 @@ const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site');
 const { BOX_SIZING } = require('../const.json');
 
 async function bundleCSS() {
-  const pcssFileOrder = ['vars.pcss', 'index.pcss', 'content.pcss', 'mobile.pcss', 'code.pcss'];
+  const pcssFileOrder = ['fontfaces.pcss', 'vars.pcss', 'index.pcss', 'content.pcss', 'mobile.pcss', 'code.pcss'];
   const pcss = pcssFileOrder.reduce((pcss, pcssFileName) => {
     const filePath = path.resolve(__dirname, '..', 'styles', pcssFileName);
     return pcss + fs.readFileSync(filePath, { encoding: 'utf8'});

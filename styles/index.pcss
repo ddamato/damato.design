@@ -34,6 +34,7 @@ body {
 
 em {
   font-style: italic;
+  font-variation-settings: "ital" 1;
 }
 
 main a {
@@ -233,6 +234,8 @@ svg-icon:not(:defined) {
   text-align: center;
   font-size: 1.5em;
   color: var(--svgIcon--fill, currentColor);
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
 }
 
 .style-reset {
