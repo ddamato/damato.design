@@ -6,7 +6,7 @@ order: 2
 
 ## Curation
 
-The design system adheres to a [modular typescale](https://type-scale.com/) using an augmented fourth (1.4) as the factor. Each step is identified using T-shirt sizing where the default is set to medium 1rem (16px). Each level past "extra" is numbered in that direction. You can use the control below to view how the factor affects the type on the site.
+The design system adheres to a [modular typescale](https://type-scale.com/) using an augmented fourth (1.4) as the scaling factor. Each step is identified using T-shirt sizing where the default is set to medium 1rem (16px). Each level past "extra" is numbered in that direction. You can use the control below to view how the factor affects the type on the site.
 
 <typescale-range></typescale-range>
 
@@ -17,6 +17,15 @@ The design system adheres to a [modular typescale](https://type-scale.com/) usin
 <div style="font-size: calc(var(--remscale--md) * 1rem)">font-size: md</div>
 <div style="font-size: calc(var(--remscale--sm) * 1rem)">font-size: sm</div>
 <div style="font-size: calc(var(--remscale--xs) * 1rem)">font-size: xs</div>
+
+::: audience-designer
+### Responsive Typography Decisions
+In the current state of the system, the typography is not responsive to the viewport or device. While the technique outlined in _[css-only fluid modular type scales](https://utopia.fyi/blog/css-modular-scales/)_ to manage font-size and line-height is aligned with the overall approach of styles within the system, the expectation of having different scale factors between viewport sizes does not.
+
+Instead, there may exist a future where one breakpoint adjusts font size between desktop and mobile as recommended within _[Responsive Typography: The Basics](https://ia.net/topics/responsive-typography-the-basics)_ but for the moment there is only one scale with defines one set of sizes. The rest is left up to the browser and user settings of the device.
+
+The system has also opted to not [tame line-height](https://css-tricks.com/how-to-tame-line-height-in-css/ "How to Tame Line Height in CSS") by calculating the offset between the line-height box and the font leading as it was believed the effort outweighs the benefit.
+:::
 
 ::: audience-engineer
 ### Computing the scale in CSS
@@ -69,19 +78,4 @@ label {
   font-size: var(--textLabel--fontSize);
 }
 ```
-:::
-
-### Responsive Typography Decisions
-In the current state of the system, the typography is not responsive to the viewport or device. While the technique outlined in _[css-only fluid modular type scales](https://utopia.fyi/blog/css-modular-scales/)_ to manage font-size and line-height is aligned with the overall approach of styles within the system, the expectation of having different scale factors between viewport sizes does not.
-
-Instead, there may exist a future where one breakpoint adjusts font size between desktop and mobile as recommended within _[Responsive Typography: The Basics](https://ia.net/topics/responsive-typography-the-basics)_ but for the moment there is only one scale with defines one set of sizes. The rest is left up to the browser and user settings of the device.
-
-The system has also opted to not [tame line-height](https://css-tricks.com/how-to-tame-line-height-in-css/ "How to Tame Line Height in CSS") by calculating the offset between the line-height box and the font leading, then applying a pseudo-element and transformations as it was believed the effort outweighs the benefit.
-
-### One font face
-It is also a web performance benefit to only choose one font versus more than one. To differentiate between body text and headline text using one font, additional modifications such as size, kerning, leading and, casing can contribute to these variations.
-
-::: audience-engineer
-Loading fonts fast
-The fonts are curated from [Google Fonts](https://fonts.google.com/) and have been applied using the findings from _[The Fastest Google Fonts](https://csswizardry.com/2020/05/the-fastest-google-fonts/)_
 :::
