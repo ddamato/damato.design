@@ -7,6 +7,7 @@ const md = require('markdown-it')({
 });
 const mdCollapsible = require('markdown-it-collapsible');
 const mdContainer = require('markdown-it-container');
+const mdPrism = require('markdown-it-prism');
 const minify = require('html-minifier').minify;
 const glob = require('glob-fs')({ gitignore: true });
 const nunjucks = require('nunjucks');
@@ -42,6 +43,7 @@ function audienceContainers(tokens, idx) {
 }
 
 md.use(mdCollapsible)
+  .use(mdPrism)
   .use(mdContainer, 'audience-designer', { render: audienceContainers })
   .use(mdContainer, 'audience-engineer', { render: audienceContainers });
 
