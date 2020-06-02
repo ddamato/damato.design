@@ -6,7 +6,11 @@ order: 2
 
 ## Curation
 
-The selection of colors in similar to the process outlined in _[Speccing Colors in Design Systems](https://medium.com/@ethersystem/speccing-colors-in-design-systems-f06e91ed9ca0)_. Beginning with layout colors; assuming everything is designed as grayscale. This is easy to visualize as wireframing with pencil and paper. This provides a perfect opportunity to identify the core user experience and lessen the concern about the personality of the interface. From there, accent colors were chosen to provide some charm and context.
+::: audience-designer
+The selection of colors in similar to the process outlined in _[Speccing Colors in Design Systems](https://medium.com/@ethersystem/speccing-colors-in-design-systems-f06e91ed9ca0)_. 
+:::
+
+Beginning with layout colors; assuming everything is designed as grayscale. This is easy to visualize as wireframing with pencil and paper. This provides a perfect opportunity to identify the core user experience and lessen the concern about the personality of the interface. From there, accent colors were chosen to provide some charm and context.
 
 ### Grays
 A simple rule set here was to have three shades toward both ends of grayscale; 3 dark grays (including black) and 3 light grays (including white). This means there isn't a traditional material scale of color. Colors toward the middle of the scale tend to be less accessible, especially when mixing with more saturated colors.
@@ -62,4 +66,6 @@ Accent colors were chosen first by general hue then by [accessibility measuremen
 
 This is unique to the purposes of this site and its contents. For most of the site, a single accent color is chosen to enhance the user interface, except in areas where a specific audience is expected.
 
-While the system _could_ have leveraged [a technique to compute the high contrast colors via CSS Custom Properties](https://css-tricks.com/css-variables-calc-rgb-enforcing-high-contrast-colors/ "CSS Variables + calc() + rgb() = Enforcing High Contrast Colors"), the accent colors were curated so that each used as a background color would pair well with a white foreground color (versus a black foreground color).
+::: audience-engineer
+The system _could_ have leveraged [a technique to compute the high contrast colors via CSS Custom Properties](https://css-tricks.com/css-variables-calc-rgb-enforcing-high-contrast-colors/ "CSS Variables + calc() + rgb() = Enforcing High Contrast Colors"), the accent colors were curated so that each used as a background color would pair well with a white foreground color (versus a black foreground color).
+:::
