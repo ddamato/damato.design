@@ -272,3 +272,13 @@ html[style] .style-reset {
     transition-duration: 0.001ms !important;
   }
 }
+
+@media print {
+  .screen-only {
+    display: none !important;
+  }
+
+  .app > main {
+    margin: 0;
+  }
+}

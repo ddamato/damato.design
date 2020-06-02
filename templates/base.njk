@@ -15,7 +15,7 @@
             <span class="sr-only">Logo image, to homepage</span>
             {% include "damato.svg" %}
           </a>
-          <label for="navigation-toggle" class="nav-button">
+          <label for="navigation-toggle" class="nav-button screen-only">
             Menu
             <svg-icon value="bars-horizontal">menu</svg-icon>
           </label>
@@ -23,7 +23,7 @@
         {% include "navigation.njk" %}
       </nav>
       <main>
-        <header class="controls">
+        <header class="controls screen-only">
           <js-togglerange id="system-color" type="toggle" chosen>
             System Color
           </js-togglerange>
