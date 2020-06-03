@@ -11,6 +11,7 @@ This hybrid component was designed to share styles between toggle switches and r
 - Text for the label is set as all uppercase and medium weight (500), font-size is decreased slightly (.9em) to counter this emphasis. Line-height at 1.5.
 - Labels are aligned left to the page in which the component exists. This is unique to other interactive inputs as most have 1rem (16px) of space between the label and container edge. This is because other interactive elements contain other visual motifs that span to the edge of the page while the toggle-range does not.
 - There is 1rem (16px) of space between the control and the surrounding elements.
+- When focused, a dashed outline appears around the visual control. It will not include the label.
 :::
 
 ### Toggle

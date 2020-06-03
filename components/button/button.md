@@ -5,7 +5,7 @@ anchor: Button
 
 ## Button
 
-Buttons are a quintessential part of every design system as they invoke the user to take an action. [Eight Shapes, Buttons](https://medium.com/eightshapes-llc/buttons-in-design-systems-eac3acf7e23)
+Buttons are a quintessential part of every design system as they invoke the user to take an action.
 
 ::: audience-designer
 - Horizontal spacing is 1rem (16px), vertical spacing is .5rem (8px). This provides a large target area for both cursor targetting and various sizes of tapping instruments.
@@ -14,6 +14,7 @@ Buttons are a quintessential part of every design system as they invoke the user
 - Border-radius is set at 2px, matching the radius of other containers in the system.
 - Margins are not applied directly to the component's style but are instead dictated by the layout and should adhere to spacing guidelines.
 - Buttons come in **one size** that relates to the font. Emphasis is expected to be shown through the use of "primary" and "secondary" versions. More variations are not necessary as this does not provide a consistent experience.
+- When focused, a dashed outline should appear around the button.
 :::
 
 ___
@@ -58,8 +59,8 @@ The secondary button should only be used along side a primary button when a seco
 The disabled state of the button reduces the opacity and sets the mouse cursor to show a disabled state.
 
 ::: audience-designer
-- Opacity is set to .4 for all buttons, cursor is changed to not-allowed.
-- Hover interactions no longer activate.
+- Opacity is set to .4 for all disabled buttons, cursor is changed to not-allowed.
+- Hover and focus interactions no longer activate.
 :::
 <blu-button selfdocument disabled>Disabled Button</blu-button>
 

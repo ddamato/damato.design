@@ -11,5 +11,5 @@ Interactive elements are given at least 1rem (16px) of surrounding padding to pr
 Without enough space between interactive elements, it will make it more difficult for users to accurately press the intended targets. [The average adult finger pad size is about .5in / 10mm wide](https://ux.stackexchange.com/questions/61606/spacing-between-ui-components "UX Stack Exchange Answer: Spacing between UI components"), so the provided default spacing between and around elements accounts for this.
 
 ::: audience-designer
-Similar guidelines provided by [Apple](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/adaptivity-and-layout/#general-layout-considerations) and [Google](https://material.io/components/buttons#specs)
+Similar accessibility guidelines are provided by [Apple](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/adaptivity-and-layout/#general-layout-considerations) and [Google](https://material.io/components/buttons#specs).
 :::

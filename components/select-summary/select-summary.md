@@ -4,9 +4,20 @@ anchor: Select-Summary
 ---
 
 ## Select-Summary
-The select-summary component is a hybrid of a few components found in design systems which show and hide content. Each version allows for control via the spacebar to open and close the content drawer. By default, content will disrupt the remaining document flow. In other words, the content area does not flyout and appear on top of other content; it will push content down.
+The select-summary component is a hybrid of a few components found in design systems which show and hide content.
 
-[Modulz select element](https://www.modulz.app/blog/under-the-spotlight-select)
+::: audience-designer
+- The content area does not flyout and appear on top of other content; it will push outside content down.
+- There is no default maximum height, a maximum height can be applied based on the content provided if it is believed to help the user experience. It should noted that this may include an additional scrollbar which could be challenging to navigate for some users. One scrollbar (for the page) is much easier to manage typically.
+- Each version allows for control via the spacebar to open and close the content drawer.
+- Using native HTML elements within the dropdown will also make the component accessible by using the tab key on focusable elements. JavaScript is required to provide additional functionality such as arrow key navigation for options.
+- The summary will typically display as a label unless it is meant to display one of the values within the content area (ie, type:select). Label styles are all uppercase, medium weight, a font-size of .9rem to balance the previous styles.
+- The content drawer can be styled however is appropriate to match the rest of the system in color, typography, spacing, et cetera.
+- The menu type does not have a visible container itself but is expected to exist along side siblings in a larger group.
+- The select type is designed to provide affordance to other dropdowns found across the web. It can be enhanced to provide a typeahead experience using a textfield.
+- The summary type is designed to be unique from the other types to suggest the content inside is prepared differently. This also allows for icon variations to help with clarifying content and visibility.
+- The icon in the label that displays state or helps clarify content should be focusable; indicated by a dashed outline.
+:::
 
 ### type:select
 When in the "select" configuration, the component acts like a stylized `<select>` component. Additional JavaScript is required for the value to appear in the value slot on selection. 

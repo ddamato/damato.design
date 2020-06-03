@@ -23,7 +23,7 @@ Unlike many other systems, **there is no concept of columns**. Content dictates 
 > Think dynamically, how are these relationships working? _[Miriam Suzanne, Don’t Use My Grid System](https://www.clarityconf.com/session/dont-use-my-grid-system)_
 
 ::: audience-engineer
-Components are engineered using the [Fab Four technique](https://www.freecodecamp.org/news/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848/) where appropriate. This eliminates the need for a page-level media query to manage layout changes.
+Components are engineered using the [Fab Four technique](https://www.freecodecamp.org/news/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848/) where appropriate. This eliminates the need for a page-level media query to manage component-level layout changes.
 :::
 
 ### Elevation
