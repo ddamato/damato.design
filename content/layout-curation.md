@@ -12,17 +12,19 @@ The overall method for managing spacing started by following a common paradigm i
 
 <gridscale-range></gridscale-range>
 
+::: audience-designer
 One of the first popular customizations of space was done within [the Gmail application](https://gmail.googleblog.com/2011/11/changing-information-density-in-gmails.html "Changing information density in Gmail’s new look"), where values of "comfortable", "cozy", and "compact" help provide a more personalize experience with little effort. Google Design has since [taken this concept to Material Design](https://medium.com/google-design/using-material-density-on-the-web-59d85f1918f0 "Medium: Using Material Density on the Web").
+:::
 
 #### Columnless
 
 Unlike many other systems, **there is no concept of columns**. Content dictates the size of a component and if reusable spacing tokens are used throughout the page and components, they will align properly. This site only has one breakpoint which was determined _when the content breaks the layout_. At this point, the page shifts to a mobile-friendly layout.
 
-References to other places making this decision are scarse because there is an overwhelming amount of references _for_ a grid system. [Miriam Suzanne](https://www.miriamsuzanne.com/) spoke about a change in mindset in her talk _[Don’t Use My Grid System](https://www.clarityconf.com/session/dont-use-my-grid-system)_.
+> Think dynamically, how are these relationships working? _[Miriam Suzanne, Don’t Use My Grid System](https://www.clarityconf.com/session/dont-use-my-grid-system)_
 
-> Think dynamically, how are these relationships working? _Miriam Suzanne, Clarity Conf 2017_
-
-[Other](https://medium.com/subform/are-grid-systems-still-relevant-in-digital-407beb4128c1 "Are grid systems still relevant in digital product design?") [posts](https://learnui.design/blog/why-beginning-designers-dont-need-grids-type-scales-color-theory.html "Why Beginning Designers Don't Need to Learn Grids, Type Scales, or Color Theory (and other “Designer Dogma”)") also outline the pitfalls to watch out for when constraining a design in a responsive device.
+::: audience-engineer
+Components are engineered using the [Fab Four technique](https://www.freecodecamp.org/news/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848/) where appropriate. This eliminates the need for a page-level media query to manage layout changes.
+:::
 
 ### Elevation
 

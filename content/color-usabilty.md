@@ -18,10 +18,10 @@ While there are now [different standards between AA and AAA](https://www.w3.org/
 The process in creating this functionality is outlined in the article _[Building your own color contrast checker](https://dev.to/alvaromontoro/building-your-own-color-contrast-checker-4j7o)_ which also explains the calculations involved to determine the ratio.
 :::
 
-This isn't enough to simply select a high contrast between the background and text. Certain contrasts cause [Irlen Syndrome](https://irlen.com/what-is-irlen-syndrome/) which some people perceive the text to move on the page due to contrast sensitivity.
+This isn't enough to simply select a high contrast between the background and text. Certain contrasts cause [Irlen Syndrome](https://irlen.com/what-is-irlen-syndrome/) which some people perceive the text to move on the page due to contrast sensitivity. The contrast between grayscale steps was adjusted to mitigate this.
 
 ::: audience-designer
-The research explained in _[Designers should avoid pure black typography — but which dark gray should we use?](https://uxdesign.cc/designers-should-avoid-pure-black-typography-but-which-dark-gray-should-we-use-2d7faa07083a)_ provides insight that `hsl(0, 0, 15%)` was a contrast that reduced this effect. This was a target when crafting the formula to step the grayscale.
+The research explained in _[Designers should avoid pure black typography — but which dark gray should we use?](https://uxdesign.cc/designers-should-avoid-pure-black-typography-but-which-dark-gray-should-we-use-2d7faa07083a)_ provides insight that `hsl(0, 0, 15%)` was a contrast that reduced the effect of moving text. This value was a target when crafting the formula to step the grayscale.
 :::
 
 ### Accent colors
