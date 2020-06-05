@@ -59,8 +59,8 @@ class IconManager {
 
   _setResponse(text, name) {
     const iconDOM = new DOMParser().parseFromString(text, 'application/xml');
-    const group = iconDOM.querySelector('g');
-    this._iconStore[name] = group.innerHTML;
+    const symbol = iconDOM.querySelector('symbol');
+    this._iconStore[name] = symbol.innerHTML;
   }
 }
 
