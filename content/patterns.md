@@ -5,6 +5,6 @@ order: 5
 
 # Your best **behavior**
 
-Disrupt farm-to-table lumbersexual godard, food truck fanny pack irony man bun. Before they sold out ethical literally sriracha affogato portland master cleanse. Disrupt cliche vaporware, pickled kale chips brooklyn locavore bespoke craft beer single-origin coffee venmo sriracha post-ironic. Pickled twee squid man braid kickstarter. Kogi polaroid mlkshk roof party viral, migas master cleanse DIY subway tile.
+The following is a collection of patterns that describe standards and conventions which provide the rules that help govern content within the design system. Localization must be kept in mind while thinking of these patterns as some might be altered to support other cultural expectations.
 
 [Workday patterns](https://design.workday.com/content/language-and-style/acronyms)

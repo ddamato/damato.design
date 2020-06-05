@@ -5,7 +5,7 @@ order: 1
 ---
 
 ## Design Tokens
-The color design tokens come in a few tiers which allow for theming between light and dark modes. The first tier of tokens (**genitive**, relating to each other) describe all of the colors we expect to use throughout the site. The second tier of tokens (**locative**, determined by placement) describe all of the components and properties we expect to use these tokens.
+The color design tokens come in a few tiers which allow for theming between light and dark modes. The first tier of tokens (**genitive**, relating to each other) describe all of the colors we expect to use throughout the site. The second tier of tokens (**locative**, determined by placement) describe all of the components and properties we expect to use these tokens. Additionally, if design tokens outside of this system followed these patterns, they should also include namespacing (a prefix) to differentiate from other variables that may appear in the application.
 
 ### Genitive Color Tokens
 These tokens describe the general family that possess all the colors as human-readable names. They should not be applied directly to components or styles but instead referenced as the value for locative color tokens.
