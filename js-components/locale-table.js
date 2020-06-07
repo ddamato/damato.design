@@ -19,7 +19,6 @@ class LocaleTable extends HTMLElement {
     const thead = document.querySelector('thead');
     createHead(thead);
     const tbody = document.querySelector('tbody');
-    console.log(this._locales);
     Object.entries(this._locales).forEach(([id, { formalName, nativeName }]) => {
       const tr = document.createElement('tr');
       createCell(`<code>${id}</code>`, tr);
