@@ -38,10 +38,13 @@ code, td code {
 
   .token.string,
   .token.keyword,
-  .token.comment,
   .token.property {
       color: var(--accent--defaultColor);
       filter: contrast(2);
+  }
+
+  .token.comment {
+    color: var(--box--borderColor);
   }
 
   .token.attr-value {
