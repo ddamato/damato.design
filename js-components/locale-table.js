@@ -39,7 +39,7 @@ class LocaleTable extends HTMLElement {
 
 function createHead(thead) {
   const tr = document.createElement('tr');
-  tr.innerHTML = ['ID', 'Formal Name', 'Native Name'].map((heading) => `<td>${heading}</td>`).join('');
+  tr.innerHTML = ['ID', 'Formal Name', 'Native Name'].map((heading) => `<th>${heading}</th>`).join('');
   thead.appendChild(tr);
 }
 
