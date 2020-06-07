@@ -22,7 +22,7 @@ class LocaleTable extends HTMLElement {
     console.log(this._locales);
     Object.entries(this._locales).forEach(([id, { formalName, nativeName }]) => {
       const tr = document.createElement('tr');
-      createCell(id, tr);
+      createCell(`<code>${id}</code>`, tr);
       createCell(formalName, tr);
       createCell(nativeName, tr);
       tbody.appendChild(tr);
@@ -46,7 +46,7 @@ function createHead(thead) {
 
 function createCell(data, tr) {
   const td = document.createElement('td');
-  td.innerText = data;
+  td.innerHTML = data;
   tr.appendChild(td);
 }
 
