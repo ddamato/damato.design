@@ -56,7 +56,7 @@ Use a localized format for displaying currencies. Position of the currency symbo
 - `en-NZ` $ 1,234.56
 
 ::: audience-engineer
-### Intl contructor
+### Intl constructor
 A simple method of localizing most of the above numbers can be done using the [`Intl` constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) found in modern browsers.
 
 ```js
