@@ -79,7 +79,7 @@
 .selectSummary--checkbox:checked ~ .selectSummary--content {
 	position: static;
 	opacity: 1;
-	transition: .218s ease-in-out;
+	transition: .218s ease;
 }
 
 .selectSummary--checkbox:not(:checked) ~ .selectSummary--content > * {
