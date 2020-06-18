@@ -10,6 +10,7 @@ const multi = require('@rollup/plugin-multi-entry');
 const html = require('rollup-plugin-html');
 const postcssPlugin = require('rollup-plugin-postcss');
 const JsonPlugin = require('@rollup/plugin-json');
+const nodeResolve = require('@rollup/plugin-node-resolve').default;
 
 const SCRIPTS_PATH = path.resolve(__dirname, '..', 'scripts');
 const COMPONENT_PATH = path.resolve(__dirname, '..', 'js-components');
@@ -33,6 +34,7 @@ async function bundleJS() {
   const inputOptions = {
     input: [`${COMPONENT_PATH}/*.js`, `${SCRIPTS_PATH}/*.js`],
     plugins: [
+      nodeResolve(),
       multi(),
       html(),
       JsonPlugin(),

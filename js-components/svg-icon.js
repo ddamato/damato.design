@@ -1,3 +1,5 @@
+import { getAssets } from 'savager';
+
 const styles = `
 <style type="text/css">
   :host {
@@ -20,7 +22,8 @@ class SvgIcon extends HTMLElement {
   }
 
   connectedCallback() {
-    this.shadowRoot.innerHTML = `${styles}<svg><use xlink:href="icons/${this.value}.svg#${this.value}"/></svg>`;
+    const { assets } = getAssets(this.value, { attemptInject: true });
+    this.shadowRoot.innerHTML = `${styles}${assets[this.value]}`;
   }
 
   get value() {
