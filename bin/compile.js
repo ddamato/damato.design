@@ -12,12 +12,17 @@ const minify = require('html-minifier').minify;
 const glob = require('glob-fs')({ gitignore: true });
 const nunjucks = require('nunjucks');
 const slug = require('slug');
+const { Savager } = require('savager');
+const symbols = require('../root/icons/manifest.json');
 const loader = new nunjucks.FileSystemLoader(path.resolve(__dirname, '..', 'templates'));
 const env = new nunjucks.Environment(loader, {
   trimBlocks: true,
   lstripBlocks: true,
 });
-const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site'); 
+const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site');
+
+const savager = new Savager(symbols);
+const { sheet, inject } = savager.prepareAssets(Object.keys(symbols), { attemptInject: true });
 
 function audienceContainers(tokens, idx) {
   if (tokens[idx].nesting === 1) {
@@ -65,7 +70,13 @@ async function compile() {
       .concat(config.sections)
       .map(renderConfig)
       .join('');
-    const html = env.render('base.njk', { sections, sitemap, title: config.page });
+    const html = env.render('base.njk', { 
+      sections, 
+      sitemap, 
+      title: config.page, 
+      sheet, 
+      inject: `(${inject.toString()})()`
+    });
     const json = JSON.stringify({ content: sections, title: config.page });
     const pageContent = minify(html, { collapseWhitespace: true });
     const pageFileName = `${COMPILED_SITE_PATH}/${config.filename}.html`;

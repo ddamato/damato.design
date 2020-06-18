@@ -12,7 +12,7 @@
     "minify": "npm run minify:resources && npm run minify:content",
     "minify:resources": "ls-minifier --input=./_site --js-compressor=terser --css-compressor=clean-css --override",
     "minify:content": "html-minifier --conservative-collapse --minify-css --minify-js --remove-comments --output-dir _site --input-dir _site --file-ext=html",
-    "savager:symbols": "create-symbols -i icons -o root/icons -t esm"
+    "savager:symbols": "create-symbols -i icons -o root/icons"
   },
   "repository": {
     "type": "git",
@@ -47,7 +47,7 @@
     "rollup": "^2.12.0",
     "rollup-plugin-html": "^0.2.1",
     "rollup-plugin-postcss": "^3.1.1",
-    "savager": "^1.1.1",
+    "savager": "^1.2.0",
     "slug": "^3.3.0",
     "terser": "^4.7.0"
   },
