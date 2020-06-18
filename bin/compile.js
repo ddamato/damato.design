@@ -87,6 +87,13 @@ async function compile() {
     fs.ensureFileSync(pageJsonName);
     fs.writeFileSync(pageJsonName, json, { encoding: 'utf8' });
   });
+  
+  const rootUrl = 'https://damato.design/';
+  const sitemapFileName = `${COMPILED_SITE_PATH}/sitemap.txt`;
+  const urls = sitemap.map(({ filename }) => rootUrl + filename);
+  urls.unshift(rootUrl);
+  fs.ensureFileSync(sitemapFileName);
+  fs.writeFileSync(sitemapFileName, urls.join('\n'), { encoding: 'utf8' });
 }
 
 function renderConfig(config) {
