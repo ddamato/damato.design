@@ -31,7 +31,7 @@
 
 <link rel="prefetch" as="script" href="sw.js">
 <script type="text/javascript">
-  window.onload = () => 'serviceWorker' in navigator && navigator.serviceWorker.register('sw.js').then((registration) => registration.update());
+  window.onload = () => 'serviceWorker' in navigator && navigator.serviceWorker.register('sw.js').then((registration) => registration.update()).catch((err) => {});
 </script>
 <script type="text/javascript" src="scripts.js" async defer></script>
 
@@ -52,7 +52,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    gtag('config', 'UA-54428903-10');
+    gtag('config', 'UA-54428903-10', {'transport_type': 'beacon'});
   }
 </script>
