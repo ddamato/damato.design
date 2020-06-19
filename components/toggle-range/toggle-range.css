@@ -11,16 +11,6 @@
   width: 100%;
 }
 
-.toggleRange[type="toggle"]:before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	cursor: pointer;
-}
-
 .toggleRange--label {
   color: var(--toggleRange--accentColor, var(--control--foregroundColor));
   font-weight: var(--textLabel--fontWeight);
@@ -45,10 +35,6 @@
   flex: 1;
 }
 
-.toggleRange[type="toggle"] .toggleRange--input {
-	width: 3rem;
-}
-
 .toggleRange:focus-within .toggleRange--input:not([type="checkbox"]) {
 	border-color: var(--control--outlineColor);
 	border-style: var(--focused--outlineStyle);
@@ -56,10 +42,6 @@
 
 .toggleRange--input:focus {
 	outline: 0;
-}
-
-.toggleRange[type="toggle"] .toggleRange--input[value="1"] {
-	--toggleRange--backgroundColor: currentColor;
 }
 
 .toggleRange--input[type="range"]::-webkit-slider-runnable-track {
@@ -163,7 +145,7 @@
 	position: absolute;
 	border: 1px solid transparent;
 	right: 0;
-	padding: calc(.75rem - 1px);
+	padding: .75rem;
   width: 3rem;
 }
 
@@ -173,13 +155,15 @@
 }
 
 .toggleRange--input[type="checkbox"] + .toggleRange--label:after {
+	--toggleRange--focusOffset: 4px;
 	border: 1px solid var(--toggleRange--accentColor, var(--control--borderColor));
 	background: var(--toggleRange--backgroundColor, transparent);
 	color: var(--toggleRange--accentColor, var(--control--borderColor));
 	margin-left: calc(var(--density--md) * 1rem);
-	margin-right: 3px;
-	padding: calc(var(--density--sm) * 1rem);
-	width: calc(2.75rem - 2px);
+	margin-right: var(--toggleRange--focusOffset);
+	padding: calc(.75rem - var(--toggleRange--focusOffset));
+  width: calc(3rem - var(--toggleRange--focusOffset) * 2);
+	flex-shrink: 0;
 }
 
 .toggleRange--input[type="checkbox"]:checked + .toggleRange--label:after {

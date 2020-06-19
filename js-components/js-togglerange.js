@@ -2,7 +2,6 @@ import html from '../components/toggle-range/toggle-range.html';
 import css from '../components/toggle-range/toggle-range.css';
 import { BOX_SIZING } from '../const.json';
 
-const TAP_DELAY_MS = 500;
 class ToggleRange extends HTMLElement {
   constructor() {
     super();
@@ -14,9 +13,6 @@ class ToggleRange extends HTMLElement {
     this._label = this.shadowRoot.querySelector('.toggleRange--label');
     this._input = this.shadowRoot.querySelector('.toggleRange--input');
 
-    if (this.type === 'checkbox') {
-      this._input.type = 'checkbox';
-    }
 
     this._input.id = 'toggleRange-inputId';
     this._label.setAttribute('for', this._input.id);
@@ -30,14 +26,9 @@ class ToggleRange extends HTMLElement {
   
 
   connectedCallback() {
-    if (this.type === 'toggle') {
-      this._input.min = 0;
-      this._input.max = 1;
-      if (!this.hasAttribute('value')) {
-        this.value = Number(this.chosen);
-      }
-      this._input.value = this.value;
-      this._input.setAttribute('value', this.value);
+    if (this.type === 'checkbox') {
+      this._input.type = 'checkbox';
+      this._input.setAttribute('checked', Boolean(this.chosen) || Boolean(this.value));
     }
 
     if (this.type === 'range') {
@@ -48,24 +39,15 @@ class ToggleRange extends HTMLElement {
     }
     this._direction = this.value === this.max ? -1 : 1;
 
-    this._input.addEventListener('input', (ev) => this.value = ev.target.value);
-    this._input.addEventListener('change', (ev) => this.value = ev.target.value);
+    this._input.addEventListener('input', (ev) => this.value = this._transformInputValue(ev.target));
+    this._input.addEventListener('change', (ev) => this.value = this._transformInputValue(ev.target));
 
-    // Need to determine click as immediate touchdown/touchup, as user could shift range
-    let timedownStart;
-    const onMousedown = () => timedownStart = new Date().getTime();
     const onMouseup = () => {
       if (this.shadowRoot.activeElement !== this._input) {
         this._input.focus();
       }
-
-      if (this.type === 'toggle' && new Date().getTime() - timedownStart < TAP_DELAY_MS)  {
-        this._traverseStep();
-      }
     };
-    this.addEventListener('mousedown', onMousedown);
     this.addEventListener('mouseup', onMouseup);
-    this.addEventListener('touchdown', onMousedown);
     this.addEventListener('touchup', onMouseup);
 
     this.addEventListener('keydown', (ev) => {
@@ -74,6 +56,13 @@ class ToggleRange extends HTMLElement {
         this._traverseStep();
       }
     });
+  }
+
+  _transformInputValue(input) {
+    if (this.type === 'checkbox') {
+      return Number(input.checked);
+    }
+    return input.value;
   }
 
   _traverseStep() {
@@ -88,14 +77,10 @@ class ToggleRange extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['type', 'chosen', 'value'];
+    return ['value'];
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
-    if (attrName === 'chosen' && this.type === 'toggle') {
-      this.value = Number(this.chosen);
-    }
-
     if (attrName === 'value') {
       this._direction = Number(oldVal) > Number(newVal) ? -1 : 1;
       if (this._output) {
@@ -105,7 +90,7 @@ class ToggleRange extends HTMLElement {
       this._input.setAttribute('value', this.value);
 
       const asBool = Boolean(this.value);
-      if (this.type == 'toggle' && this.chosen !== asBool) {
+      if (this.type === 'checkbox' && this.chosen !== asBool) {
         this.chosen = asBool
       }
       this.sendChangedEvent();
