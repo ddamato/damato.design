@@ -18,6 +18,7 @@ const styles = `
 class SvgIcon extends HTMLElement {
   constructor() {
     super();
+    this.altText = this.textContent;
     this.attachShadow({ mode: 'open' });
   }
 
