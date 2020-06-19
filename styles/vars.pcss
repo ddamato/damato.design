@@ -105,11 +105,12 @@ html[hide-engineer]:not([hide-designer]) {
   --actionHovered--borderColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--3))));
 }
 
-@media not print {
-  :root { @include light-theme() }
+:root { @include light-theme() }
+@media screen {
   html[theme="inverse"] { @include dark-theme() }
 }
-@media not print and (prefers-color-scheme: dark) {
+
+@media screen and (prefers-color-scheme: dark) {
   :root { @include dark-theme() }
   html[theme="inverse"] { @include light-theme() }
 }
