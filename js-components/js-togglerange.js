@@ -42,16 +42,8 @@ class ToggleRange extends HTMLElement {
     this._input.addEventListener('input', (ev) => this.value = this._transformInputValue(ev.target));
     this._input.addEventListener('change', (ev) => this.value = this._transformInputValue(ev.target));
 
-    const onMouseup = () => {
-      if (this.shadowRoot.activeElement !== this._input) {
-        this._input.focus();
-      }
-    };
-    this.addEventListener('mouseup', onMouseup);
-    this.addEventListener('touchup', onMouseup);
-
     this.addEventListener('keydown', (ev) => {
-      if (ev.code.toLowerCase() === 'space') {
+      if (this.type === 'range' && ev.code.toLowerCase() === 'space') {
         ev.preventDefault();
         this._traverseStep();
       }
