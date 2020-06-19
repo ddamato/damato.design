@@ -13,6 +13,3 @@ Curating patterns to your user's cultural expectations will always provide a bet
 The table below has a list of most of the possible combinations. The list is also available as a [json file](json/isoLanguageCountryCodes.json).
 
 <locale-table></locale-table>
-
-[Workday patterns](https://design.workday.com/content/language-and-style/acronyms)
-[Using Language Identifiers (RFC 3066)](http://www.i18nguy.com/unicode/language-identifiers.html)
