@@ -23,18 +23,19 @@ class ClosestColor extends HTMLElement {
       }
     };
 
-    this._colorfield.addEventListener('change', (ev) => {
-      if (ev.detail.userchange) {
-        document.documentElement.style.setProperty(ACCENT_CSS_CUSTOMPROPERTY, ev.detail.value);
-      }
-    });
-
     this.loadColors(HEXJSON_URL).then(() => this._colorfield.color = this.value);
   }
 
   connectedCallback() {
-    this._manageObserver();
-    this.value = this._getAccentColor();
+    setTimeout(() => {
+      this.value = this._getAccentColor();
+      this._colorfield.addEventListener('change', (ev) => {
+        if (ev.detail.userchange) {
+          document.documentElement.style.setProperty(ACCENT_CSS_CUSTOMPROPERTY, ev.detail.value);
+        }
+      });
+      this._manageObserver();
+    }, 0)
   }
 
   disconnectedCallback() {

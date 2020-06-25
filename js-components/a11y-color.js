@@ -34,17 +34,18 @@ class A11yColor extends HTMLElement {
         value: ratio < 1/4.5 ? 'Pass' : 'Fail'
       }
     };
-
-    this._colorfield.addEventListener('change', (ev) => {
-      if (ev.detail.userchange) {
-        document.documentElement.style.setProperty(FOREGROUND_CSS_CUSTOMPROPERTY, ev.detail.input);
-      }
-    });
   }
 
   connectedCallback() {
-    this._manageObserver();
-    this._colorfield.color = this._colorfield.rgbStringToHex(this._colors.foregroundColor);
+    setTimeout(() => {
+      this._manageObserver();
+      this._colorfield.color = this._colorfield.rgbStringToHex(this._colors.foregroundColor);
+      this._colorfield.addEventListener('change', (ev) => {
+        if (ev.detail.userchange) {
+          document.documentElement.style.setProperty(FOREGROUND_CSS_CUSTOMPROPERTY, ev.detail.input);
+        }
+      });
+    }, 0);
   }
 
   disconnectedCallback() {
@@ -57,17 +58,17 @@ class A11yColor extends HTMLElement {
     .getPropertyValue(cssCustomProp)
     .replace(/\s+/gm, '');
 
-  if (color.startsWith('hsl')) {
-    // Convert to an rgb string
-    const grayscaleFactor = color.match(/[*\/]\d+/g);
-    const graycalc = grayscaleFactor.reduce((math, str) => {
-      return str.startsWith('*') ? math * Number(str.substr(1)) : math / Number(str.substr(1));
-    }, 1);
-    const grayvalue = parseInt(255 / (1 + graycalc));
-    color = `rgb(${grayvalue}, ${grayvalue}, ${grayvalue})`;
-  }
+    if (color.startsWith('hsl')) {
+      // Convert to an rgb string
+      const grayscaleFactor = color.match(/[*\/]\d+/g);
+      const graycalc = grayscaleFactor.reduce((math, str) => {
+        return str.startsWith('*') ? math * Number(str.substr(1)) : math / Number(str.substr(1));
+      }, 1);
+      const grayvalue = parseInt(255 / (1 + graycalc));
+      color = `rgb(${grayvalue}, ${grayvalue}, ${grayvalue})`;
+    }
 
-   return color;
+    return color;
   }
 
   _manageObserver() {

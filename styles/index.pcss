@@ -1,4 +1,4 @@
-*, *:before, *:after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -66,7 +66,7 @@ a.offline {
   position: relative;
 }
 
-a.offline:before {
+a.offline::before {
   --offlinemask--warning: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGc+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xIDIxaDIyTDEyIDIgMSAyMXptMTItM2gtMnYtMmgydjJ6bTAtNGgtMnYtNGgydjR6Ii8+PC9nPjwvc3ZnPg==");
   content: "" / "This content is not available, please visit when reconnected to the internet.";
   -webkit-mask: var(--offlinemask--warning);

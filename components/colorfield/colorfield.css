@@ -14,7 +14,7 @@
 }
 
 /* vertical line for mobile */
-.colorfield:before {
+.colorfield::before {
 	content: "";
 	position: absolute;
 	width: calc((300px - 100%) * -300);
@@ -33,7 +33,7 @@
 }
 
 /* horizontal line for desktop */
-.colorfield:after {
+.colorfield::after {
 	content: "";
 	position: absolute;
 	width: calc((540px - 100%) * -540);

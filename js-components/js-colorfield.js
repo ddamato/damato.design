@@ -20,13 +20,19 @@ class JsColorfield extends HTMLElement {
       this.setAttribute('rgb', '');
     }
 
-    this._input.addEventListener('change', (ev) => {
-      this._manageColorChange(true);
-    });
+    this._input.addEventListener('change', () => this._manageColorChange(true));
+    this._input.addEventListener('input', () => this._manageColorChange(true));
   }
 
   static get observedAttributes() {
     return ['color'];
+  }
+
+  setComputedStyleValue(cssCustomProp) {
+    this.value = window
+      .getComputedStyle(document.documentElement)
+      .getPropertyValue(cssCustomProp)
+      .trim();
   }
 
   attributeChangedCallback(attrName) {
