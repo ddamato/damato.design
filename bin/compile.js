@@ -4,10 +4,18 @@ const fm = require('front-matter');
 const md = require('markdown-it')({
   html: true,
   linkify: true,
+  modifyToken: (token) => {
+    switch(token.type) {
+      case 'paragraph_open':
+        token.attrObj.role = 'text';
+        break;
+    }
+  }
 });
 const mdCollapsible = require('markdown-it-collapsible');
 const mdContainer = require('markdown-it-container');
 const mdPrism = require('markdown-it-prism');
+const mdModifyToken = require('markdown-it-modify-token');
 const minify = require('html-minifier').minify;
 const glob = require('glob-fs')({ gitignore: true });
 const nunjucks = require('nunjucks');
@@ -49,6 +57,7 @@ function audienceContainers(tokens, idx) {
 
 md.use(mdCollapsible)
   .use(mdPrism)
+  .use(mdModifyToken)
   .use(mdContainer, 'audience-designer', { render: audienceContainers })
   .use(mdContainer, 'audience-engineer', { render: audienceContainers });
 
@@ -65,7 +74,7 @@ async function compile() {
   });
 
   sitemap.sort(sortOrder).forEach((config) => config.sections = config.sections.sort(sortOrder));
-  sitemap.forEach((config) => {
+  sitemap.forEach(async (config) => {
     const sections = [config]
       .concat(config.sections)
       .map(renderConfig)
@@ -100,7 +109,7 @@ function renderConfig(config) {
   const { markdown, slug, page } = config;
   const id = slug ? `id="${slug}"` : '';
   if (markdown) {
-    const html = md.render(markdown);
+    const html = md.render(markdown).replace(/<pre ?/gmi, '<pre aria-hidden="true" ');
     return `<div ${id} class="content-anchor"><section class="content-section" data-page="${page}">${html}</section></div>`;
   }
   return '';

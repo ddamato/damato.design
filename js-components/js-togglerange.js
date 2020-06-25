@@ -29,6 +29,8 @@ class ToggleRange extends HTMLElement {
     if (this.type === 'checkbox') {
       this._input.type = 'checkbox';
       this._input.setAttribute('checked', Boolean(this.chosen) || Boolean(this.value));
+      this.setAttribute('role', 'checkbox');
+      this.setAttribute('aria-checked', this.chosen);
     }
 
     if (this.type === 'range') {
@@ -77,8 +79,10 @@ class ToggleRange extends HTMLElement {
       this.value = Number(this.chosen);
       if (this.chosen) {
         this._input.setAttribute('checked', '');
+        this.setAttribute('aria-checked', this.chosen);
       } else {
         this._input.removeAttribute('checked');
+        this.setAttribute('aria-checked', this.chosen);
       }
     }
 

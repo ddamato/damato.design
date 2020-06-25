@@ -91,6 +91,7 @@ function initSelfdocument() {
 
 
   const pre = document.createElement('pre');
+  pre.setAttribute('aria-hidden', 'true');
   this._adjacentCode = document.createElement('code');
   this._adjacentCode.classList.add('language-html');
   pre.appendChild(this._adjacentCode);

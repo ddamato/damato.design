@@ -30,6 +30,11 @@ class SelectSummary extends HTMLElement {
       this.type === 'menu' && this.appendChild(getIndicator('plus', state, 'add'));
       this.type === 'summary' && this.appendChild(getIndicator('eye-close', state, 'visibility_off'));
     }
+
+    this.setAttribute('aria-expanded', this.open);
+    this._checkbox.addEventListener('change', () => {
+      this.open = this._checkbox.checked;
+    });
     
   }
 
@@ -87,6 +92,7 @@ class SelectSummary extends HTMLElement {
 
     if (attrName === 'open') {
       this._checkbox.checked = this.open;
+      this.setAttribute('aria-expanded', this.open);
     }
   }
 

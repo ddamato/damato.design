@@ -19,13 +19,14 @@ class SvgIcon extends HTMLElement {
   constructor() {
     super();
     this.altText = this.textContent;
+    this.setAttribute('aria-hidden', 'true');
     this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
     const { assets } = getAssets({
       name: this.value,
-      attributes: { ['aria-hidden']: true, role: 'img' }
+      attributes: { role: 'img' }
     }, { attemptInject: true });
     this.shadowRoot.innerHTML = `${styles}${assets[this.value]}`;
   }
