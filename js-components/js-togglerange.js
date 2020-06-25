@@ -13,10 +13,16 @@ class ToggleRange extends HTMLElement {
     this._label = this.shadowRoot.querySelector('.toggleRange--label');
     this._input = this.shadowRoot.querySelector('.toggleRange--input');
 
-
     this._input.id = 'toggleRange-inputId';
     this._label.setAttribute('for', this._input.id);
     this._input.step = this.getAttribute('step') || 1;
+    const labelSlot = this.shadowRoot.querySelector('slot:not([name])');
+    labelSlot.addEventListener('slotchange', () => {
+      const label = labelSlot.assignedNodes()[0];
+      this.setAttribute('aria-label', label.nodeValue.trim());
+    });
+
+
     const outputSlot = this.shadowRoot.querySelector('slot[name="output"]');
     outputSlot.addEventListener('slotchange', () => {
       this._output = outputSlot.assignedElements()[0];
