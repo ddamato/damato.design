@@ -25,7 +25,7 @@ class SvgIcon extends HTMLElement {
   connectedCallback() {
     const { assets } = getAssets({
       name: this.value,
-      attributes: { ['aria-hidden']: true }
+      attributes: { ['aria-hidden']: true, role: 'img' }
     }, { attemptInject: true });
     this.shadowRoot.innerHTML = `${styles}${assets[this.value]}`;
   }

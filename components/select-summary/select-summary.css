@@ -124,6 +124,7 @@
 	font-weight: var(--textAction--fontWeight);
 	font-size: calc(var(--textAction--fontSize) * .9);
 	color: var(--accent--defaultColor);
+	filter: var(--a11y--filter);
 }
 
 .selectSummary[type="summary"] .selectSummary--value {

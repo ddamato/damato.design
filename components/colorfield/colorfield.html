@@ -1,7 +1,7 @@
 <div class="colorfield">
-  <input class="colorfield--input" type="color"/>
+  <input class="colorfield--input" type="color" aria-labelledby="colorfield--mainLabel"/>
   <div class="colorfield--display">
-    <div class="colorfield--label">
+    <div class="colorfield--label" id="colorfield--mainLabel">
       <slot name="label-input">Input</slot>
     </div>
     <output class="colorfield--outputInput">rgb(0, 0, 0)</output>

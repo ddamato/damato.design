@@ -12,7 +12,8 @@
 }
 
 .toggleRange--label {
-  color: var(--toggleRange--accentColor, var(--control--foregroundColor));
+	color: var(--toggleRange--accentColor, var(--control--foregroundColor));
+	filter: var(--a11y--filter);
   font-weight: var(--textLabel--fontWeight);
   font-size: calc(var(--textLabel--fontSize) * .9);
 	text-transform: uppercase;

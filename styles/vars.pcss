@@ -42,6 +42,7 @@ html[hide-engineer]:not([hide-designer]) {
 /* color intents */
 /* LIGHT (DEFAULT) THEME */
 @mixin light-theme() {
+  --a11y--filter: brightness(1);
 
   /* sections */
   --box--backgroundColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--3))));
@@ -76,6 +77,8 @@ html[hide-engineer]:not([hide-designer]) {
 
 /* DARK THEME */
 @mixin dark-theme() {
+  --a11y--filter: brightness(1.2);
+
   --box--backgroundColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--2))));
   --box--foregroundColor: hsl(0, 0%, calc(100% / (1 + var(--infragray--2))));
   --box--borderColor: hsl(0, 0%, calc(100% / (1 + var(--ultragray--1))));
