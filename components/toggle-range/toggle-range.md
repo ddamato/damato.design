@@ -41,7 +41,7 @@ The range component allows the user to choose a value between a minimum and maxi
 - The output value for the range could include an icon to better indicate how this value is affecting the system, ie.: a speaker icon to denote volume changes. Otherwise, the text is set to the inherited paragraph style.
 :::
 
-<blu-togglerange selfdocument type="range" input-value="3" input-min="0" input-max="10">
+<blu-togglerange selfdocument type="range" input-type="range" input-value="3" input-min="0" input-max="10">
   Range
   <output slot="output">3</output>
 </blu-togglerange>

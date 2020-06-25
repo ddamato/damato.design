@@ -15,7 +15,7 @@ The select-summary component is a hybrid of a few components found in design sys
 - The content drawer can be styled however is appropriate to match the rest of the system in color, typography, spacing, et cetera.
 - The menu type does not have a visible container itself but is expected to exist along side siblings in a larger group.
 - The select type is designed to provide affordance to other dropdowns found across the web. It can be enhanced to provide a typeahead experience using a textfield.
-- The summary type is designed to be unique from the other types to suggest the content inside is prepared differently. This also allows for icon variations to help with clarifying content and visibility.
+- The summary type is designed to be unique from the other types to suggest the content inside is prepared differently. This also allows for icon variations to help with clarifying content and visibility. The icon should reflect what will happen once interaction occurs. For example when a summary is collapsed, the icon should display an visual indicating that it can be shown. Similarly, when expanded it should show a visual indicating it can be hidden.
 - The icon in the label that displays state or helps clarify content should be focusable; indicated by a dashed outline.
 :::
 
@@ -26,9 +26,9 @@ When in the "select" configuration, the component acts like a stylized `<select>
   <span slot="value">Option 1</span>
   <svg-icon value="caret-down" slot="indicator-open" class="selectSummary--indicatorOpen">keyboard_arrow_down</svg-icon>
   <svg-icon value="caret-down" slot="indicator-close" class="selectSummary--indicatorClose">keyboard_arrow_down</svg-icon>
-  <button class="selectSummary--option" value="1">Option 1</button>
-  <button class="selectSummary--option" value="2">Option 2</button>
-  <button class="selectSummary--option" value="3">Option 3</button>
+  <button class="selectSummary--option" value="1" aria-role="option">Option 1</button>
+  <button class="selectSummary--option" value="2" aria-role="option">Option 2</button>
+  <button class="selectSummary--option" value="3" aria-role="option">Option 3</button>
 </blu-selectsummary>
 
 Example of a JavaScript enhanced version; value changes on selection:
@@ -64,8 +64,8 @@ When in the "summary" configuration, the component acts similarly to native HTML
 
 <blu-selectsummary selfdocument type="summary">
   <span slot="value">Want to hear a joke about construction?</span>
-  <svg-icon value="eye-close" slot="indicator-open" class="selectSummary--indicatorOpen">visibility_off</svg-icon>
-  <svg-icon value="eye-open" slot="indicator-close" class="selectSummary--indicatorClose">visibility</svg-icon>
+  <svg-icon value="eye-open" slot="indicator-open" class="selectSummary--indicatorOpen">visibility</svg-icon>
+  <svg-icon value="eye-close" slot="indicator-close" class="selectSummary--indicatorClose">visibility_off</svg-icon>
   <p>I’m still working on it.</p>
 </blu-selectsummary>
 

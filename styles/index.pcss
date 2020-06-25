@@ -129,15 +129,21 @@ a.offline:before {
 }
 
 .logo {
+  width: 100%;
   max-width: 10rem;
   margin: calc(var(--density--sm) * 1rem) 0;
   border: 1px solid transparent;
   color: inherit;
+  display: inline-flex;
 }
 
 .logo:focus {
   outline: 0;
   border-bottom: 1px solid currentColor;
+}
+
+.logo svg {
+  width: 100%;
 }
 
 .navigation {
