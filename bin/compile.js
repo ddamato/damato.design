@@ -4,7 +4,15 @@ const fm = require('front-matter');
 const md = require('markdown-it')({
   html: true,
   linkify: true,
-  modifyToken: () => {}
+  modifyToken: (token) => {
+    switch(token.type) {
+      case 'strong_open':
+        break;
+      case 'em_open':
+        break;
+      case 'code_inline':
+        break;
+    }
   }
 });
 const mdCollapsible = require('markdown-it-collapsible');
