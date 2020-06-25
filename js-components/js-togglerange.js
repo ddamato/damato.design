@@ -13,6 +13,14 @@ class ToggleRange extends HTMLElement {
     this._label = this.shadowRoot.querySelector('.toggleRange--label');
     this._input = this.shadowRoot.querySelector('.toggleRange--input');
 
+    if (this.type === 'checkbox') {
+      this._input.type = 'checkbox';
+    }
+
+    if (this.type === 'range') {
+      this._input.type = 'range';
+    }
+
     this._input.id = 'toggleRange-inputId';
     this._label.setAttribute('for', this._input.id);
     this._input.step = this.getAttribute('step') || 1;
@@ -33,7 +41,6 @@ class ToggleRange extends HTMLElement {
 
   connectedCallback() {
     if (this.type === 'checkbox') {
-      this._input.type = 'checkbox';
       this._input.setAttribute('checked', Boolean(this.chosen) || Boolean(this.value));
       this.setAttribute('role', 'checkbox');
       this.setAttribute('aria-checked', this.chosen);
@@ -43,6 +50,7 @@ class ToggleRange extends HTMLElement {
       this._input.min = this.min;
       this._input.max = this.max;
       this._input.value = this.value;
+      this.setAttribute('role', 'slider');
       this._input.setAttribute('value', this._input.value);
     }
     this._direction = this.value === this.max ? -1 : 1;
@@ -56,6 +64,13 @@ class ToggleRange extends HTMLElement {
         this._traverseStep();
       }
     });
+  }
+
+  setComputedStyleValue(cssCustomProp) {
+    this.value = window
+      .getComputedStyle(document.documentElement)
+      .getPropertyValue(cssCustomProp)
+      .trim();
   }
 
   _transformInputValue(input) {
@@ -104,6 +119,7 @@ class ToggleRange extends HTMLElement {
       if (this.type === 'checkbox' && this.chosen !== asBool) {
         this.chosen = asBool
       }
+
       this.sendChangedEvent();
     }
   }
