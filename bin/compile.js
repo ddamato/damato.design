@@ -4,12 +4,7 @@ const fm = require('front-matter');
 const md = require('markdown-it')({
   html: true,
   linkify: true,
-  modifyToken: (token) => {
-    switch(token.type) {
-      case 'paragraph_open':
-        token.attrObj.role = 'text';
-        break;
-    }
+  modifyToken: () => {}
   }
 });
 const mdCollapsible = require('markdown-it-collapsible');
