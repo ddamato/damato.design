@@ -69,10 +69,19 @@ class ToggleRange extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['value'];
+    return ['value', 'chosen'];
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
+    if (attrName === 'chosen') {
+      this.value = Number(this.chosen);
+      if (this.chosen) {
+        this._input.setAttribute('checked', '');
+      } else {
+        this._input.removeAttribute('checked');
+      }
+    }
+
     if (attrName === 'value') {
       this._direction = Number(oldVal) > Number(newVal) ? -1 : 1;
       if (this._output) {
