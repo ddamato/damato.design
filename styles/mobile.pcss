@@ -10,7 +10,7 @@
     padding-left: 0;
   }
 
-  .app > nav {
+  .app > aside {
     max-width: initial;
     width: 100%;
     top: 0;
@@ -30,10 +30,14 @@
 
   .nav-button {
     display: inline-flex;
+
+    & svg-icon {
+      margin-left: 1ch;
+    }
   }
 
   #navigation-toggle,
-  #navigation-toggle:checked + nav .navigation {
+  #navigation-toggle:checked + aside .navigation {
     display: block;
   }
 

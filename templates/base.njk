@@ -4,12 +4,13 @@
     {% include "head.njk" %}
   </head>
   <body class="hidden">
-    <button class="button style-reset" type="primary" onclick="document.documentElement.removeAttribute('style')">
-      <svg-icon value="clock-reverse">restore</svg-icon> Reset Styles
-    </button>
+    <a href="#main-content" class="button skip-link" type="primary">
+      Skip to main content
+      <svg-icon value="triangles-right">fast-forward</svg-icon>
+    </a>
     <div class="app">
-      <input type="checkbox" id="navigation-toggle"/>
-      <nav>
+      <input type="checkbox" id="navigation-toggle" aria-label="menu"/>
+      <aside>
         <header class="header">
           <a class="logo" href="/">
             <span class="sr-only">Logo image, to homepage</span>
@@ -21,7 +22,7 @@
           </label>
         </header>
         {% include "navigation.njk" %}
-      </nav>
+      </aside>
       <main>
         <header class="controls screen-only">
           <js-togglerange id="system-color" type="checkbox" chosen>
@@ -34,12 +35,18 @@
             Engineer Info
           </js-togglerange>
         </header>
-        {{ sections | safe }}
+        <div id="main-content">
+          {{ sections | safe }}
+        </div>
         <p class="disclaimer">
           The <strong>DAMATO</strong> Design System is not intended for use outside of itself and does not provide downloadable content or installation guides. You may use concepts, designs, and/or source code from this site however you like. Please consider attributing  where appropriate.
         </p>
       </main>
     </div>
+    <button class="button style-reset" type="primary" onclick="document.documentElement.removeAttribute('style')">
+      Reset Styles
+      <svg-icon value="clock-reverse">restore</svg-icon>
+    </button>
     {{ sheet | safe }}
     <script>{{ inject | safe }}</script>
   </body>

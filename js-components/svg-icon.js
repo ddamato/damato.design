@@ -23,7 +23,10 @@ class SvgIcon extends HTMLElement {
   }
 
   connectedCallback() {
-    const { assets } = getAssets(this.value, { attemptInject: true });
+    const { assets } = getAssets({
+      name: this.value,
+      attributes: { ['aria-hidden']: true }
+    }, { attemptInject: true });
     this.shadowRoot.innerHTML = `${styles}${assets[this.value]}`;
   }
 

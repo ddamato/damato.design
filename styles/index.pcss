@@ -102,9 +102,10 @@ a.offline:before {
   max-width: 1000px;
   width: 100%;
   justify-content: center;
+  margin-bottom: calc(var(--density--xl) * 1rem);
 }
 
-.app > nav {
+.app > aside {
   flex-shrink: 0;
   width: 240px;
   background-color: var(--box--backgroundColor);
@@ -169,7 +170,7 @@ a.offline:before {
   display: none;
 }
 
-#navigation-toggle:focus + nav .nav-button {
+#navigation-toggle:focus + aside .nav-button {
   border-bottom: 1px solid var(--control--outlineColor);
 }
 
@@ -189,6 +190,10 @@ a.offline:before {
   justify-content: space-between;
   overflow-x: auto;
   padding: calc(var(--density--md) * 1rem);
+}
+
+.controls > :not(:last-child) {
+  margin-right: calc(var(--density--md) * 1rem);
 }
 
 .disclaimer {
@@ -228,7 +233,7 @@ a.offline:before {
   padding-top: var(--scrollOffset);
 }
 
-.style-reset {
+.style-reset, .skip-link {
   position: fixed;
   bottom: 0;
   right: 0;
@@ -240,15 +245,12 @@ a.offline:before {
   box-shadow: 0 12px 16px -8px var(--boxElevated--shadowColor);
 
   & svg-icon {
-    margin-right: 1ch;
+    margin-left: 1ch;
   }
 }
 
-.style-reset + .app {
-  margin-bottom: calc(var(--density--xl) * 1rem);
-}
-
-html[style] .style-reset {
+html[style] .style-reset,
+.skip-link:focus {
   transform: translateY(0);
   opacity: 1;
 }
