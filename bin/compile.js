@@ -31,6 +31,7 @@ const env = new nunjucks.Environment(loader, {
   lstripBlocks: true,
 });
 const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site');
+const DESCRIPTION = `The DAMATO Design System created by Donnie D'Amato is an exploration of architecting a design system without business influence; focusing on the best practices of user experience and web engineering.`;
 
 const savager = new Savager(symbols);
 const { sheet, inject } = savager.prepareAssets(Object.keys(symbols), { attemptInject: true });
@@ -86,6 +87,7 @@ async function compile() {
       sections, 
       sitemap, 
       title: config.page, 
+      description: DESCRIPTION,
       sheet, 
       inject: `(${inject.toString()})()`
     });
