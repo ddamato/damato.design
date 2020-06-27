@@ -182,4 +182,9 @@ function getIndicator(value, state, fallback) {
   return svgIcon;
 }
 
-window.customElements.define('blu-component', BluComponent);
+Promise.all([
+  window.customElements.whenDefined('js-selectsummary'),
+  window.customElements.whenDefined('svg-icon')
+]).then(() => {
+  window.customElements.define('blu-component', BluComponent);
+});

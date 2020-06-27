@@ -18,12 +18,11 @@ const styles = `
 class SvgIcon extends HTMLElement {
   constructor() {
     super();
-    this.altText = this.textContent;
-    this.setAttribute('aria-hidden', 'true');
     this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
+    this.setAttribute('aria-hidden', 'true');
     const { assets } = getAssets({
       name: this.value,
       attributes: { role: 'img' }

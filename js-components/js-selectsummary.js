@@ -30,15 +30,16 @@ class SelectSummary extends HTMLElement {
       this.type === 'menu' && this.appendChild(getIndicator('plus', state, 'add'));
       this.type === 'summary' && this.appendChild(getIndicator('eye-close', state, 'visibility_off'));
     }
+    
+  }
+
+  connectedCallback() {
 
     this.setAttribute('aria-expanded', this.open);
     this._checkbox.addEventListener('change', () => {
       this.open = this._checkbox.checked;
     });
-    
-  }
 
-  connectedCallback() {
     if (this.type !== 'summary') {
       this._selectSummary.classList.add('selectSummary--single');
       this._contentSlot.addEventListener('slotchange', () => {
