@@ -1,3 +1,5 @@
+import 'sharect';
+
 (function(){
   const systemColorControl = document.getElementById('system-color');
   const audienceDesignerControl = document.getElementById('audience-designer');
@@ -7,6 +9,13 @@
   const navigationToggle = document.getElementById('navigation-toggle');
   [...navigationLinks].forEach((link) => link.addEventListener('click', () =>  navigationToggle.checked = false));
 
+  Sharect.config({
+    facebook: true,
+    twitter: true,
+    backgroundColor: 'var(--accent--defaultColor)',
+    iconColor: 'var(--onAccent--defaultColor)',
+    selectableElements: ['section']
+  }).init();
 
   function setSystemColor(bool) {
     if (bool) {
