@@ -8,8 +8,8 @@ order: 1
 
 Communication is the way in which we share ideas and language is a tool we use to communicate. Transmitting the right message to your audience is key toward providing a encouraging experience for the user.
 
-### Abbrivations
-Ensure that abbrivations aren't tailored to a specific audience unless the abbrivation has been well-defined prior to use within context of the message. For example, abbrivating new technologies should first be defined before use. Abbrivations with measurement units can be used with an assumption that they exist as common knowledge.
+### Abbreviations
+Ensure that abbreviations aren't tailored to a specific audience unless the abbreviation has been well-defined prior to use within context of the message. For example, abbreviating new technologies should first be defined before use. Abbreviations with measurement units can be used with an assumption that they exist as common knowledge.
 
 ### Jargon
 When using unfamiliar words or concepts, put the word in quotations and then define the word soon after in a following sentence. Otherwise, attempt to avoid technical language unless it is directed at a specific audience. Aim to be clear with the message by using common language where possible. Consider simplifying or providing analogies.

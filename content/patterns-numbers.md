@@ -14,7 +14,7 @@ Use numerals when counting, do not spell numbers unless they are larger than 6 d
 - 1 million people
 
 ### Unit Measurement
-Localization of units is typically in Metric, except for a few countries. Please refer to the [list of metricified countries](https://en.wikipedia.org/wiki/Metrication#Chronology_and_status_of_conversion_by_country) to determine if special changes must be made based on locale. Abbrivations are permitted as long as they are non-ambiguous to other units.
+Localization of units is typically in Metric, except for a few countries. Please refer to the [list of metricified countries](https://en.wikipedia.org/wiki/Metrication#Chronology_and_status_of_conversion_by_country) to determine if special changes must be made based on locale. Abbreviations are permitted as long as they are non-ambiguous to other units.
 
 - `fr-FR` 10 meters
 - `en-US` 3 in
